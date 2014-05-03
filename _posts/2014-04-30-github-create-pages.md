@@ -7,11 +7,12 @@ comments: true
 categories: [Git]
 tags: [Git, Github]
 ---
-Github仓库发布成静态页面
-1.在仓库（repository）下点击“settings”
-2.点击“Automatic Page Generator”
-3.点击“Continue To Layouts”
-4.选择主题，预览，点击“Publish”
+###Github仓库发布成静态页面
+
+* 1.在仓库（repository）下点击“settings”
+* 2.点击“Automatic Page Generator”
+* 3.点击“Continue To Layouts”
+* 4.选择主题，预览，点击“Publish”
 
 此时，该仓库已经发布为静态网页，网址为“你的用户名.github.io/项目名”；
 此时，在原来项目下会建立一个分支“gh-pages”,静态网页需上传到该分支下。

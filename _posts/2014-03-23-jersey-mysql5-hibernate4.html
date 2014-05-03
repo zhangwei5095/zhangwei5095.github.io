@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>2014-03-23-jersey-mysql5-hibernate4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<hr />
+<p>layout: post
+title: 用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3
+date: 2014-03-23 03:23
+author: admin
+comments: true</p>
+<h2>categories: [Java, Jersey, RESTful, Uncategorized]</h2>
+<p>一、总体说明</p>
+<p>本例运行演示了用Jersey构建RESTful服务中，如何同过Hibernate将数据持久化进MySQL的过程</p>
+<p>二、环境</p>
+<p>1.上文的项目RestDemo</p>
+<p>2.MySQL5.6下载<a href="http://sourceforge.net/projects/hibernate/files/hibernate4/4.3.4.Final/hibernate-release-4.3.4.Final.zip" target="_blank">http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-win32.zip</a></p>
+<p>3.Hibernate4.3.4下载<a href="http://sourceforge.net/projects/hibernate/files/hibernate4/4.3.4.Final/hibernate-release-4.3.4.Final.zip" target="_blank">http://sourceforge.net/projects/hibernate/files/hibernate4/4.3.4.Final/hibernate-release-4.3.4.Final.zip</a></p>
+<p>4.Java程序连接MySQL的驱动mysql-connector-java-5.1.29-bin.jar下载
+<a href="http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.29.zip" target="_blank">http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.29.zip</a></p>
+<p>三、数据库准备</p>
+<p>1.搭建MySQL数据库</p>
+<p>2.创建数据库RestDemo ,及数据表t_user,结构如下</p>
+<p>DROP TABLE IF EXISTS <code>t_user</code>;
+CREATE TABLE <code>t_user</code> (
+<code>userId</code> varchar(50) NOT NULL,
+<code>userName</code> varchar(50) NOT NULL,
+<code>age</code> varchar(50) NOT NULL,
+PRIMARY KEY (<code>userId</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<img alt="" src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=3cef56bfbb389b503cffe057b50e94e0/2e2eb9389b504fc2df5cfca4e7dde71190ef6d0b.jpg?referer=c6811510820a19d89214b135cb09&amp;x=.jpg" />
+<p>ps:   userId 非自增长类型，需要在业务添加</p>
+<p>四、引入Hibernate</p>
+<p>1.解压Hibernate的包，在lib\required文件夹下所有jar引入进项目</p>
+<img alt="" src="http://b.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a094d07d8813632711edc236a1b4d1d1/a8ec8a13632762d04648e81ea2ec08fa513dc619.jpg?referer=d1125cbcd62a28341ab1023b22f7&amp;x=.jpg" />
+<p>2.解压mysql-connector-java-5.1.29.zip，将mysql-connector-java-5.1.29-bin.jar引入进项目</p>
+<p>3.在项目的根目录创建hibernate的配置文件hibernate.cfg.xml，内容如下：</p>
+<p>&nbsp;</p>
+<p>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+&quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</p>
+<p>&lt;hibernate-configuration&gt;
+&lt;session-factory&gt;
+&lt;!-- Database connection settings --&gt;
+&lt;property name=&quot;connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+&lt;property name=&quot;connection.url&quot;&gt;jdbc:mysql://127.0.0.1:3306/RestDemo&lt;/property&gt;
+&lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;
+&lt;property name=&quot;connection.password&quot;&gt;&lt;/property&gt;</p>
+<p>&lt;!-- JDBC connection pool (use the built-in) --&gt;
+&lt;property name=&quot;connection.pool_size&quot;&gt;1&lt;/property&gt;</p>
+<p>&lt;!-- SQL dialect --&gt;
+&lt;property name=&quot;dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</p>
+<p>&lt;!-- Enable Hibernate's automatic session context management --&gt;
+&lt;property name=&quot;current<em>session</em>context_class&quot;&gt;thread&lt;/property&gt;</p>
+<p>&lt;!-- Disable the second-level cache --&gt;
+&lt;property name=&quot;cache.provider_class&quot;&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;</p>
+<p>&lt;!-- Echo all executed SQL to stdout --&gt;
+&lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;</p>
+<p>&lt;!-- Drop and re-create the database schema on startup --&gt;
+&lt;property name=&quot;hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
+&lt;mapping resource=&quot;com/waylau/rest/bean/User.hbm.xml&quot;/&gt;</p>
+<p>&lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+4.在项目User.java 的同个目录下，创建该类的映射文件User.hbm.xml</p>
+<p>&nbsp;</p>
+<p>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC
+&quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping package=&quot;com.waylau.rest.bean&quot;&gt;</p>
+<p>&lt;class name=&quot;User&quot; table=&quot;T_USER&quot;&gt;
+&lt;id name=&quot;userId&quot; column=&quot;USERID&quot; type=&quot;string&quot; &gt;
+&lt;generator class=&quot;assigned&quot;/&gt;
+&lt;/id&gt;
+&lt;property name=&quot;userName&quot; type=&quot;string&quot; /&gt;
+&lt;property name=&quot;age&quot; type=&quot;string&quot; /&gt;
+&lt;/class&gt;</p>
+<p>&lt;/hibernate-mapping&gt;</p>
+<p>5.创建包com.waylau.rest.util，在该包下创建HibernateUtil.java</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>package com.waylau.rest.util;</p>
+<p>import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+/**
+* Hibernate 初始化配置工具类
+* @author waylau.com
+* 2014-3-23
+*/
+public class HibernateUtil {
+private static Configuration configuration;
+private static SessionFactory sessionFactory;
+private static StandardServiceRegistry standardServiceRegistry;
+static {
+try {
+//第一步:读取Hibernate的配置文件 hibernamte.cfg.xml文件
+configuration = new Configuration().configure(&quot;hibernate.cfg.xml&quot;);
+//第二步:创建服务注册构建器对象，通过配置对象中加载所有的配置信息
+StandardServiceRegistryBuilder sb = new StandardServiceRegistryBuilder();
+sb.applySettings(configuration.getProperties());
+//创建注册服务
+standardServiceRegistry = sb.build();
+//第三步:创建会话工厂
+sessionFactory = configuration.buildSessionFactory(standardServiceRegistry);
+} catch (Throwable ex) {
+// Make sure you log the exception, as it might be swallowed
+System.err.println(&quot;Initial SessionFactory creation failed.&quot; + ex);
+throw new ExceptionInInitializerError(ex);
+}
+}</p>
+<p>public static SessionFactory getSessionFactory() {
+return sessionFactory;
+}
+}</p>
+<p>6.在项目中建com.waylau.rest.dao包，在该包下建立User操作的接口UserDao.java</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>package com.waylau.rest.dao;</p>
+<p>import java.util.List;</p>
+<p>import com.waylau.rest.bean.User;</p>
+<p>/**
+* User Dao 接口
+* @author waylau.com
+* 2014-3-18
+*/
+public interface UserDao {</p>
+<p>public User getUserById(String id);</p>
+<p>public boolean deleteUserById(String id);</p>
+<p>public boolean createUser(User user);</p>
+<p>public boolean updateUser(User user);</p>
+<p>public List&lt;User&gt; getAllUsers();
+}</p>
+<p>7.在项目中建com.waylau.rest.dao.impl包，在该包下建立User操作接口的实现UserDaoImpl.java</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>package com.waylau.rest.dao.impl;</p>
+<p>import java.util.List;</p>
+<p>import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;</p>
+<p>import com.waylau.rest.bean.User;
+import com.waylau.rest.dao.UserDao;
+import com.waylau.rest.util.HibernateUtil;
+/**
+* 用户DAO实现
+* @author waylau.com
+* 2014-3-23
+*/
+public class UserDaoImpl implements UserDao {</p>
+<p>@Override
+public User getUserById(String id) {
+SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+Session s = null;
+Transaction t = null;
+User user = null;
+try{
+s = sessionFactory.openSession();
+t = s.beginTransaction();
+String hql = &quot;from User where userId=&quot;+id;
+Query query = s.createQuery(hql);
+user = (User) query.uniqueResult();
+t.commit();
+}catch(Exception err){
+t.rollback();
+err.printStackTrace();
+}finally{
+s.close();
+}
+return user;
+}</p>
+<p>@Override
+public boolean deleteUserById(String id) {
+SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+Session s = null;
+Transaction t = null;
+boolean flag = false;
+try{
+s = sessionFactory.openSession();
+t = s.beginTransaction();
+User user = new User();
+user.setUserId(id);
+s.delete(user);
+t.commit();
+flag = true;
+}catch(Exception err){
+t.rollback();
+err.printStackTrace();
+}finally{
+s.close();
+}
+return flag;
+}</p>
+<p>@Override
+public boolean createUser(User user) {
+SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+Session s = null;
+Transaction t = null;
+boolean flag = false;
+try{
+s = sessionFactory.openSession();
+t = s.beginTransaction();
+s.save(user);
+t.commit();
+flag = true;
+}catch(Exception err){
+t.rollback();
+err.printStackTrace();
+}finally{
+s.close();
+}
+return flag;
+}</p>
+<p>@Override
+public boolean updateUser(User user) {
+SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+Session s = null;
+Transaction t = null;
+boolean flag = false;
+try{
+s = sessionFactory.openSession();
+t = s.beginTransaction();
+s.update(user);
+t.commit();
+flag = true;
+}catch(Exception err){
+t.rollback();
+err.printStackTrace();
+}finally{
+s.close();
+}
+return flag;
+}</p>
+<p>@Override
+public List&lt;User&gt; getAllUsers() {
+SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+Session s = null;
+Transaction t = null;
+List&lt;User&gt; uesrs = null;
+try{
+s = sessionFactory.openSession();
+t = s.beginTransaction();
+String hql = &quot;select * from t_user&quot;;
+Query query = s.createSQLQuery(hql).addEntity(User.class);
+query.setCacheable(true); // 设置缓存
+uesrs = query.list();
+t.commit();
+}catch(Exception err){
+t.rollback();
+err.printStackTrace();
+}finally{
+s.close();
+}
+return uesrs;
+}</p>
+<p>}</p>
+<p>8.修改项目中 com.waylau.rest.resources包下的UserResource.java，使之前在内存中模拟CURD转为在数据库中实现</p>
+<p>&nbsp;</p>
+<p>package com.waylau.rest.resources;</p>
+<p>import java.util.ArrayList;
+import java.util.List;</p>
+<p>import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;</p>
+<p>import com.waylau.rest.bean.User;
+import com.waylau.rest.dao.impl.UserDaoImpl;</p>
+<p>/**
+* 用户资源
+* @author waylau.com
+* 2014-3-19
+<em>/
+@Path(&quot;/users&quot;)
+public class UserResource {
+private UserDaoImpl userDaoImpl = new UserDaoImpl();
+/</em>*
+* 增加
+* @param user
+*/
+@POST
+@Consumes({MediaType.APPLICATION<em>XML, MediaType.APPLICATION</em>JSON})
+public void createUser(User user)
+{
+userDaoImpl.createUser(user);
+}</p>
+<p>/**
+* 删除
+* @param id
+*/
+@DELETE
+@Path(&quot;{id}&quot;)
+public void deleteUser(@PathParam(&quot;id&quot;)String id){
+userDaoImpl.deleteUserById(id);
+}</p>
+<p>/**
+* 修改
+* @param user
+*/
+@PUT
+@Consumes(MediaType.APPLICATION_XML)
+public void updateUser(User user){
+userDaoImpl.updateUser(user);
+}</p>
+<p>/**
+* 根据id查询
+* @param id
+* @return
+*/
+@GET
+@Path(&quot;{id}&quot;)
+@Produces({MediaType.APPLICATION<em>XML, MediaType.APPLICATION</em>JSON})
+public User getUserById(@PathParam(&quot;id&quot;) String id){
+User u = userDaoImpl.getUserById(id);
+return u;
+}</p>
+<p>/**
+* 查询所有
+* @return
+*/
+@GET
+@Produces({MediaType.APPLICATION<em>XML, MediaType.APPLICATION</em>JSON})
+public List&lt;User&gt; getAllUsers(){
+List&lt;User&gt; users = new ArrayList&lt;User&gt;();
+users = userDaoImpl.getAllUsers();
+return users;
+}</p>
+<p>}</p>
+<p>五、运行</p>
+<p>1.将服务端运行后</p>
+<p>2.运行UserClient客户端，可以看到数据库已经实现增删改查</p>
+<p>完整项目架构如下：</p>
+<img alt="" src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=007dc5876f224f4a5399731639cce16f/42166d224f4a20a4f4a58f6692529822730ed0dc.jpg?referer=5bd6b3bbc45c10387d69faf210b2&amp;x=.jpg" />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>2013-06-22-as3-using-thrift-and-java-servlet-server-side-communication</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<hr />
+<p>layout: post
+title: AS3使用thrift的与JHava servlet服务器端通信
+date: 2013-06-22 02:11
+author: admin
+comments: true</p>
+<h2>categories: [ActionScript3, Java, thrift]</h2>
+<h3>一、基本概念</h3>
+<p>Thrift是一个软件框架，用来进行可扩展且跨语言的服务的开发。它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCaml 等等编程语言间无缝结合的、高效的服务。</p>
+<p>Thrift最初由facebook开发，07年四月开放源码，08年5月进入apache孵化器。thrift允许你定义一个简单的定义文件中的数据类型和服务接口。以作为输入文件，编译器生成代码用来方便地生成RPC客户端和服务器通信的无缝跨编程语言。</p>
+<p>官网地址：<a href="http://thrift.apache.org">http://thrift.apache.org</a></p>
+<h4>1.数据类型</h4>
+<p>基本类型：
+bool：布尔值，true 或 false，对应 Java 的 boolean
+byte：8 位有符号整数，对应 Java 的 byte
+i16：16 位有符号整数，对应 Java 的 short
+i32：32 位有符号整数，对应 Java 的 int
+i64：64 位有符号整数，对应 Java 的 long
+double：64 位浮点数，对应 Java 的 double
+string：utf-8编码的字符串，对应 Java 的 String
+结构体类型：
+struct：定义公共的对象，类似于 C 语言中的结构体定义，在 Java 中是一个 JavaBean
+容器类型：
+list：对应 Java 的 ArrayList
+set：对应 Java 的 HashSet
+map：对应 Java 的 HashMap
+异常类型：
+exception：对应 Java 的 Exception
+服务类型：
+service：对应服务的类</p>
+<h4>2.服务端编码基本步骤：</h4>
+<p>实现服务处理接口impl
+创建TProcessor
+创建TServerTransport
+创建TProtocol
+创建TServer
+启动Server
+3.客户端编码基本步骤：</p>
+<p>创建Transport
+创建TProtocol
+基于TTransport和TProtocol创建 Client
+调用Client的相应方法
+4.数据传输协议</p>
+<p>TBinaryProtocol : 二进制格式.
+TCompactProtocol : 压缩格式
+TJSONProtocol : JSON格式
+TSimpleJSONProtocol : 提供JSON只写协议, 生成的文件很容易通过脚本语言解析
+tips:客户端和服务端的协议要一致</p>
+<h3>二、as3与java通信示例</h3>
+<p>test.thrift
+    namespace java com.xzw.thrift 
+    namespace as3 com.xzw.thrift 
+	struct User{ 
+	    1:i32 userId, 
+	    2:string loginName, 
+	    3:string password, 
+	    4:string name 
+	} </p>
+<pre><code>exception UserNotFound{ 
+    1:string msg  //as3中由于message是关键字，所以避免使用message关键字。 
+} 
+
+service UserService{ 
+    User getUser(1:string loginName) throws (1:UserNotFound unf), 
+    list&amp;lt;User&amp;gt; getUsers() 
+} 
+</code></pre>
+
+<p>通过命令生成java代码</p>
+<blockquote>
+<p>thrift --gen java test.thrift</p>
+</blockquote>
+<p>以上命令会生成gen-java的目录拷贝里面的代码到你的项目中。如图com.xzw.thrift就是</p>
+<p>工具生成java类。</p>
+<p><a href="http://www.it165.net/uploadfile/2013/0424/20130424094236841.jpg" target="_blank"><img alt="\" src="http://www.it165.net/uploadfile/2013/0424/20130424094236841.jpg" border="0" /></a></p>
+<p>其中我们需要去实现UserService类中的IFace接口。代码如下：
+	/* 
+	 * To change this template, choose Tools | Templates 
+	 * and open the template in the editor. 
+	 */ 
+	package com.xzw.service; </p>
+<pre><code>import com.xzw.thrift.User; 
+import com.xzw.thrift.UserNotFound; 
+import com.xzw.thrift.UserService; 
+import java.util.ArrayList; 
+import java.util.List; 
+import java.util.logging.Logger; 
+import org.apache.thrift.TException; 
+
+/** 
+ * 
+ * @author xzw 
+ */ 
+public class UserServiceHandler implements UserService.Iface{ 
+
+    public User getUser(String loginName) throws UserNotFound, TException { 
+        if(!&quot;xuzhiwei&quot;.equals(loginName)){ 
+            UserNotFound e = new UserNotFound(&quot;用户无法找到！&quot;); 
+            throw e; 
+        }  
+        User user = new User(); 
+        user.setUserId(100); 
+        user.setLoginName(&quot;xuzhiwei&quot;); 
+        user.setPassword(&quot;123456&quot;); 
+        user.setName(&quot;user1&quot;); 
+        Logger.getLogger(&quot;user=&amp;gt;&quot;+user.toString()); 
+        return user;  
+    } 
+
+    public List&amp;lt;User&amp;gt; getUsers() throws TException { 
+       List&amp;lt;User&amp;gt; list = new ArrayList&amp;lt;User&amp;gt;();   
+        User user = new User();   
+        user.setUserId(100);   
+       user.setLoginName(&quot;xuzhiwei&quot;); 
+        user.setPassword(&quot;123456&quot;); 
+        user.setName(&quot;user1&quot;);   
+        list.add(user);   
+        User user2 = new User();   
+        user2.setUserId(200);   
+        user2.setLoginName(&quot;login2&quot;);   
+        user2.setPassword(&quot;pwd2&quot;);   
+        user2.setName(&quot;user2&quot;);   
+        list.add(user2);   
+
+         Logger.getLogger(&quot;user list=&amp;gt;&quot;+list.toString()); 
+        return list;   
+    } 
+
+}
+</code></pre>
+
+<p>编写servlet，servlet需要继承thrift提供的类包TServlet即可，不需要去重写doGet，doPost方法。
+	/* 
+	 * To change this template, choose Tools | Templates 
+	 * and open the template in the editor. 
+	 */ 
+	package com.xzw.service; </p>
+<pre><code>import com.xzw.thrift.UserService; 
+import org.apache.thrift.protocol.TBinaryProtocol; 
+import org.apache.thrift.server.TServlet; 
+
+/** 
+ * 
+ * @author xzw 
+ */ 
+public class UserServlet extends TServlet{   
+
+     public UserServlet(){   
+         super(new UserService.Processor(new UserServiceHandler()),new TBinaryProtocol.Factory(true, true)); 
+     }        
+}
+</code></pre>
+
+<p>以上就完成服务器端的编写了。</p>
+<p>可以使用junit测试一下：
+	/* 
+	 * To change this template, choose Tools | Templates 
+	 * and open the template in the editor. 
+	 */ </p>
+<pre><code>import com.xzw.thrift.User; 
+import com.xzw.thrift.UserService; 
+import java.util.List; 
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
+import org.apache.thrift.TException; 
+import org.apache.thrift.protocol.TBinaryProtocol; 
+import org.apache.thrift.protocol.TProtocol; 
+import org.apache.thrift.transport.THttpClient; 
+import org.junit.*; 
+
+/** 
+ * 
+ * @author xzw 
+ */ 
+public class TestServlet { 
+
+     @Test 
+    public void test(){ 
+        String serveltUrl = &quot;http://localhost:8080/test_thrift/userServlet&quot;; 
+        try { 
+            THttpClient thc = new THttpClient(serveltUrl); 
+            TProtocol lopFactory = new TBinaryProtocol(thc); 
+           UserService.Client client = new UserService.Client(lopFactory); 
+
+           List users = client.getUsers(); 
+           System.out.println(&quot;--&amp;gt;&amp;gt;&quot;+users.toString()); 
+        } catch (TException ex) { 
+            Logger.getLogger(TestServlet.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
+   } 
+
+    @Test 
+    public void test2(){ 
+        String serveltUrl = &quot;http://localhost:8080/test_thrift/userServlet&quot;; 
+        try { 
+            THttpClient thc = new THttpClient(serveltUrl); 
+            TProtocol lopFactory = new TBinaryProtocol(thc); 
+           UserService.Client client = new UserService.Client(lopFactory); 
+
+           User user = client.getUser(&quot;xuzhiwei&quot;); 
+           System.out.println(&quot;--&amp;gt;&quot;+user.toString()); 
+        } catch (TException ex) { 
+            Logger.getLogger(TestServlet.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
+   } 
+}
+</code></pre>
+
+<p>接下来生成as3代码</p>
+<blockquote>
+<p>thrift --gen as3 test.thrift www.it165.net</p>
+</blockquote>
+<p>以上代码会生成gen-as3的目录，拷贝目录下的代码到你的工程中。</p>
+<p><a href="http://www.it165.net/uploadfile/2013/0424/20130424094236468.jpg" target="_blank"><img alt="\" src="http://www.it165.net/uploadfile/2013/0424/20130424094236468.jpg" border="0" /></a></p>
+<p>编写as3客户端类：
+	package 
+	{ 
+	    import com.xzw.thrift.User; 
+	    import com.xzw.thrift.UserNotFound; 
+	    import com.xzw.thrift.UserService; 
+	    import com.xzw.thrift.UserServiceImpl; </p>
+<pre><code>    import flash.display.Sprite; 
+    import flash.net.URLRequest; 
+    import flash.text.TextField; 
+
+    import org.apache.thrift.protocol.TBinaryProtocol; 
+    import org.apache.thrift.protocol.TProtocol; 
+    import org.apache.thrift.transport.THttpClient; 
+
+    public class testthrift extends Sprite 
+    {  
+        private const SERVER_URL:String = &quot;http://localhost:8080/test_thrift/userServlet&quot;;  
+        private var textField:TextField; 
+
+        public function testthrift() 
+        {  
+            init(); 
+            connServer();  
+        } 
+
+        private function init():void 
+        { 
+            textField = new TextField();  
+            textField.width = 300; 
+            textField.height = 500;  
+            textField.autoSize = &quot;left&quot;; 
+            addChild(textField); 
+        } 
+
+        private function connServer():void 
+        {   //实例化URLRequest 
+            var urlRequest:URLRequest = new URLRequest(SERVER_URL); 
+            //实例化THttpClient 
+            var thc:THttpClient = new THttpClient(urlRequest); 
+            var protocol:TProtocol = new TBinaryProtocol(thc); 
+
+            var usImpl:UserService = new UserServiceImpl(protocol); 
+            usImpl.getUser(&quot;xuzhiwei&quot;,onError,onUserSuccess); 
+            //usImpl.getUsers(onError,onSuccess); 
+        } 
+
+        private function onError(e:UserNotFound):void{ 
+            trace(e); 
+        } 
+
+        private function onUserSuccess(user:User):void{ 
+            trace(&quot;success:&quot;); 
+            trace(user); 
+            textField.text = user.toString(); 
+        } 
+
+        private function onSuccess(user:Array):void{ 
+
+            trace(user); 
+            textField.text = user.toString(); 
+        } 
+
+    } 
+}
+</code></pre>
+
+<p>写完了，测试结果</p>
+<p><a href="http://www.it165.net/uploadfile/2013/0424/20130424094236481.jpg" target="_blank"><img alt="\" src="http://www.it165.net/uploadfile/2013/0424/20130424094236481.jpg" border="0" /></a></p>
+<p>参考：<a href="http://xuzhiwei.blog.51cto.com/978424/1184540">http://xuzhiwei.blog.51cto.com/978424/1184540</a></p>
+<p><a href="http://jnb.ociweb.com/jnb/jnbJun2009.html">http://jnb.ociweb.com/jnb/jnbJun2009.html</a></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>2013-02-27-requirement-Analyse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<hr />
+<p>layout: post
+title: 可行性分析与需求分析
+date: 2013-02-27 00:43
+author: admin
+comments: true</p>
+<h2>categories: [Uncategorized]</h2>
+<p>一、概念</p>
+<ol>
+	<li>可行性分析——可干否</li>
+	<li>需求分析——要干啥（避免需求蔓延）</li>
+</ol>
+<p>二、可行性分析</p>
+<ol>
+	<li>柳传志“三不干”：没钱赚的事我们不干；有钱赚但投不起钱的事不干；有钱赚也投得起钱但没有可靠的人选，这样的事也不干。</li>
+	<li>可行性分析要素：经济、技术、社会环境、人</li>
+</ol>
+<p>（1） 经济：成本——收益分析、短期——长远利益分析</p>
+<p>（2） 技术：技术熟悉度、成熟度、可靠性、稳定性、技术成本、学习曲线</p>
+<p>（3） 社会环境：市场、法律、道德</p>
+<p>（4） 人——“人物，人才，人手，人渣。”最好的分工是让“人物”当领导，“人才”做第一线的开发人员，“人手”做行政人员，“人渣”负责行贿。</p>
+<ol>
+<li>可行性分析报告（附录1）</li>
+</ol>
+<p>三、需求分析</p>
+<ol>
+	<li>难点：客户说不清、需求老变更、理解有偏差</li>
+	<li>过程：
+</ol>
+<p>3.方式：</p>
+<p>（1） 研究用户</p>
+<p>（2） 调查问卷</p>
+<p>（3） 原型完善</p>
+<p>（4） 用户陈述</p>
+<p>4.需求规格说明书（附录2）</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>附录1（可行性分析报告）</p>
+<p align="left">1．引言</p>
+<p align="left">1.1 编写目的</p>
+<p align="left">阐明编写可行性研究报告的目的，描述报告基本组成要素，指出读者对象。</p>
+<p align="left">1.2 项目背景</p>
+<p align="left">列出拟开发软件系统的名称，项目委托者、开发者和预期用户，说明该软件系统与其他系</p>
+<p align="left">统之间的关系等。</p>
+<p align="left">1.3 定义</p>
+<p align="left">列出报告中所使用的专门术语的定义和缩写词的原意。</p>
+<p align="left">1.4 参考资料</p>
+<p align="left">列出本文档需要引用的参考资料的来源。包括：已被批准的项目任务书、合同或上级机关</p>
+<p align="left">批文，与项目有关的已经公开发表的论文、著作，需要采用的标准或规范。</p>
+<p align="left">2．可行性研究的前提</p>
+<p align="left">2.1 基本要求</p>
+<p align="left">列出项目的各项基本要求，涉及功能、性能、数据输入、数据输出、数据处理流程、安全</p>
+<p align="left">保密要求、与其他系统的关系、完成期限等。</p>
+<p align="left">2.2 基本目标</p>
+<p align="left">涉及人力与设备费用的减少，工作环境的改善，工作效率的提高，处理速度、控制精度或</p>
+<p align="left">生产能力的提高，信息管理服务的改进，自动决策功能的改进等。</p>
+<p align="left">2.3 条件、假定和限制</p>
+<p align="left">涉及拟开发系统运行寿命的最小值，项目经费来源与限制，政策和法规方面的限制，硬件、</p>
+<p align="left">软件、开发环境和运行环境方面的条件与限制，可以利用的相关资源，拟开发系统要求投入使</p>
+<p align="left">用的最迟时间等。</p>
+<p align="left">3．对现有系统的分析</p>
+<p align="left">3.1 系统模型</p>
+<p align="left">可使用系统方框图、系统流程图说明现有系统的基本构造与基本处理流程。</p>
+<p align="left">3.2 工作负荷</p>
+<p align="left">列出现有系统所承担的工作与工作量。</p>
+<p align="left">3.3 费用支出</p>
+<p align="left">涉及现有系统运行过程中的人力、设备、空间、支持性服务和材料等各项支出。</p>
+<p align="left">3.4 局限性</p>
+<p align="left">指出现有系统存在的问题，并说明开发新系统或改造现有系统的必要性。</p>
+<p align="left">B.2 项目计划说明书209</p>
+<p align="left">4．对拟开发系统的分析</p>
+<p align="left">4.1 拟开发系统的体系结构</p>
+<p align="left">可使用系统方框图对拟开发系统的体系结构进行概要描述。</p>
+<p align="left">4.2 拟开发系统的工作模型</p>
+<p align="left">可使用系统流程图说明拟开发系统的基本处理流程。</p>
+<p align="left">4.3 拟开发系统的优越性</p>
+<p align="left">将拟开发系统与现有系统进行对比，并在诸如提高处理能力、减轻工作负荷、增强系统灵</p>
+<p align="left">活性和保证数据安全等方面，说明拟开发系统所具有的优越性。</p>
+<p align="left">4.4 拟开发系统可能带来的影响</p>
+<p align="left">涉及拟开发系统将对硬件设备、软件配置和用户操作等方面带来的影响。</p>
+<p align="left">5．对拟开发系统的可行性评价</p>
+<p align="left">5.1 技术可行性评价</p>
+<p align="left">说明拟开发系统在技术方面具备的可行性，例如，在当前技术允许的条件下，该系统的功</p>
+<p align="left">能目标能否达到；在规定的时间期限内，该系统的开发能否按期完工。</p>
+<p align="left">5.2 经济可行性评价</p>
+<p align="left">说明拟开发系统所需的开发费用和可以预期的经济收益，并由此进行成本效益分析。</p>
+<p align="left">5.3 社会因素的可行性评价</p>
+<p align="left">从法律法规、用户操作规程等方面进行可行性评价，例如项目合同中责任是否明确，拟开</p>
+<p align="left">发系统是否存在著作侵权，是否侵犯了国家、集体或他人的利益，拟开发系统是否充分考虑到</p>
+<p align="left">了用户的组织管理结构、工作流程、人员素质诸多方面的因素等。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

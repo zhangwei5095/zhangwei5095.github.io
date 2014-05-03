@@ -6,29 +6,28 @@ comments: no
 
 ###Specialties: 
 
-J2EE web programming development.
-Flex/AS3 programming development.
-HTML5/JS programming development.
-Self-educated/Self-training.
+* J2EE web programming development.
+* Flex/AS3 programming development.
+* HTML5/JS programming development.
+* Self-educated/Self-training.
 
 ###Hobby: 
 
-Riding mountain bike. 
-Go travelling far away.
-Watching science-fiction movies. 
-Learning English.
+* Riding mountain bike. 
+* Go travelling far away.
+* Watching science-fiction movies. 
+* Learning English.
 
-###Email: 
+###Connet: 
 
-gmail: [waylau521@gmail.com](mailto:waylau521@gmail.com) 
+* Gmail: [waylau521@gmail.com](mailto:waylau521@gmail.com) 
+* Weibo: [waylau521](http://weibo.com/waylau521)	
+* Csdn: [kkkloveyou](http://blog.csdn.net/kkkloveyou)
+* Wordpress: [waylau](http://wordpress-waynelau521.rhcloud.com)	
 
 ###Open source: 
 
-github : [waylau](https://github.com/waylau) 
-
-###Weibo:
-
-weibo: [waylau521](http://weibo.com/waylau521)	
+* github : [waylau](https://github.com/waylau) 
 
 ----
  

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SVG Gradients之Linear;
+title: SVG Gradients之Linear
 date: 2014-05-04 17:28
 author: admin
 comments: true

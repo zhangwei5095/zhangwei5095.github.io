@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SVG Filters之阴影Drop Shadows;
+title: SVG Filters之阴影Drop Shadows
 date: 2014-05-04 14:28
 author: admin
 comments: true

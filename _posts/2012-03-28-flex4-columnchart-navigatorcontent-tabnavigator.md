@@ -5,7 +5,7 @@ date: 2012-03-28 00:33
 author: admin
 comments: true
 categories: [Flex]
-categories: [Flex,ColumnChart]
+tags: [Flex,ColumnChart]
 ---
 之前单页面的ColumnChart显示图标正常。
 后来用TabNavigator进行分2页，每个页面用NavigatorContent，

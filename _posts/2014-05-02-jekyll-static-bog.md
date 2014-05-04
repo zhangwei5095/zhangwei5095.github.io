@@ -5,7 +5,7 @@ date: 2014-05-02 16:46
 author: admin
 comments: true
 categories: [Jekyll]
-tags: [Git,Github，Jekyll]
+tags: [Git,Github,Jekyll]
 ---
 
 ###1.下载、安装  ruby 和 DEVELOPMENT KIT
@@ -20,6 +20,9 @@ DevKit安装到C:\rubydevkit
 	cd C:\rubydevkit
 	ruby dk.rb init
 	ruby dk.rb install
+如果是ruby2.0 64位的还需在C:\rubydevkit\config.yml 
+中添加"- C:\Ruby200-x64"
+<img src="http://a.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=1f53be757b310a55c024def1877e3294/aec379310a55b31903a1a6f341a98226cefc17df.jpg?referer=86630c23087b020855de0bd151b6&x=.jpg"/>
 
 
 ###2.更改gem镜像到 taobao网，可以改善国内Ruby安装的速度
@@ -52,7 +55,7 @@ DevKit安装到C:\rubydevkit
 	six/spawn.rb:162: warning: cannot close fd before spawn
 	'which' 不是内部或外部命令，也不是可运行的程序
 
-需要安装Python
+需要安装Python,修改pygments.rb版本，不要0.5.2的版本
 
 	gem install pygments.rb --version "=0.5.0"
 	gem uninstall pygments.rb --version "=0.5.2"
@@ -71,7 +74,7 @@ jekyll 1.3.0版本以后的，修改如下：
 	self.content = File.read_with_options(File.join(base, name),:encoding=>"utf-8")
 	
 	
-打开路径 C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll\tags，打开include.rb 
+打开路径 C:\Ruby193\lib\ruby\gems\1.9.1\gems\jekyll-1.5.1\lib\jekyll\tags，打开include.rb 
 
 	File.read_with_options(file, file_read_opts(context))
 改成

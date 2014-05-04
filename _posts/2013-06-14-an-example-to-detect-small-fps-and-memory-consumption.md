@@ -5,7 +5,7 @@ date: 2013-06-14 01:51
 author: admin
 comments: true
 categories: [ActionScript3]
-categories: [ActionScript3,FPS]
+tags: [ActionScript3,FPS]
 ---
 用于实时检测FPS（实际上可以算是检测CPU）和内存占用情况。
 

@@ -12,8 +12,8 @@ tags: [Svg,Gradient]
 
 SVG中主要有两种渐变:
 
-* Linear
-* Radial
+* Linear （线性渐变）
+* Radial （径向渐变）
 
 ##SVG &lt;linearGradient&gt; 
 &lt;linearGradient&gt;元素必须嵌套在&lt;defs&gt;中

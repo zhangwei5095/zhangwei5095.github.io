@@ -42,7 +42,7 @@ tags: [Svg,shape,text]
 </defs>
 <text x="10" y="100" style="stroke: #ff0000;">
 <textPath xlink:href="#myTextPath2">
-  欢迎访问www.waylau.com 个人博客，加长长长长长长长长
+  欢迎访问www.waylau.com个人博客欢迎访问www.waylau.com
 </textPath>
 </text>
 </svg>
@@ -56,7 +56,7 @@ tags: [Svg,shape,text]
 	
 	<text x="10" y="100" style="stroke: #000000;">
 	   <textPath xlink:href="#myTextPath2">
-	   欢迎访问www.waylau.com 个人博客，加长长长长长长长长
+	   欢迎访问www.waylau.com个人博客欢迎访问www.waylau.com
 	  </textPath>
 	</text>  
 	</svg>

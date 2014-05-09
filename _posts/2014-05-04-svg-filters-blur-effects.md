@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SVG Filters之虚化Blur Effects;
+title: SVG Filters之虚化Blur Effects
 date: 2014-05-04 14:08
 author: admin
 comments: true

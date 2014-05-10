@@ -56,7 +56,7 @@ repeatCount="indefinite"
  
 这些动画元素在整个这段文字的后面要谈到的。
 
-##set;
+##set
 
 &lt;set&gt;元素是最简单的SVG动画元素。j简单地将一个属性修改成一定值后，特定时间间隔过后就能能效了。因此，该图形是不连续的动画，只是改变属性值一次。
 
@@ -69,7 +69,6 @@ repeatCount="indefinite"
  begin="5s" />
 </circle>
 </svg>
-
 
 	<svg width="500" height="100">
 	    <circle cx="30" cy="30" r="25" style="stroke: none; fill: #0000ff;">
@@ -85,6 +84,7 @@ repeatCount="indefinite"
 该&lt;set&gt;元素将时间设置成一个属性的值。设置属性的名称是指定的*attributeName*。修改成的值为*to*。开始生效的时间间隔为*begin*。
 
 上面的例子中的属性设置*r* 5秒后为100。
+
 
 ##attributeType
 
@@ -120,7 +120,6 @@ Sorry, your browser does not support inline SVG.
  fill="remove" repeatCount="indefinite"/>
 </circle>
 </svg>
-
 	
 	<svg width="500" height="75">
 	    <circle cx="30" cy="30" r="25" style="stroke: none; fill: #0000ff;">
@@ -148,7 +147,6 @@ Sorry, your browser does not support inline SVG.
 </circle>
 </svg>
 
-
 	<svg width="500" height="80">
 	    <circle cx="30" cy="30" r="25" style="stroke: none; fill: #0000ff;">
 	        <animateColor attributeName="fill"
@@ -162,6 +160,7 @@ Sorry, your browser does not support inline SVG.
 这个例子中的动画填写将CSS属性从颜色*＃0000FF*（蓝色）的颜色转为*＃FF0000*（红色）。
  
 **注**：<animateColor>元素可能在Firefox 22无法支持，建议用Chrome 27。
+
 
 ##animateTransform
 
@@ -180,7 +179,6 @@ repeatCount="indefinite"
 </rect>
 <circle cx="100" cy="100" r="2" style="stroke: none; fill: #0000ff;"/>
 </svg>
-
 
 	<svg width="500" height="200">
 	
@@ -245,7 +243,6 @@ style="stroke: #000000; fill: none;"
 </rect>
 </svg>
 
-
 	<svg width="500" height="150">
 	  <path d="M10,50 q60,50 100,0 q60,-50 100,0"
 	    style="stroke: #000000; fill: none;"
@@ -258,8 +255,6 @@ style="stroke: #000000; fill: none;"
 	          />
 	  </rect>
 	</svg>
-  
-
 
 为了以配合道路的坡度，设置了*rotate="auto"*。下面是一个例子：
 
@@ -293,8 +288,6 @@ rotate="auto"
 	    </rect>
 	</svg>
 
-
-
 ##Time Units（时间单位）
 
 时间单位经常用在*begin*,*dur*和*end*的属性值中，*"5s"*表示"5秒"。
@@ -308,8 +301,8 @@ rotate="auto"
 
 也可以是这种`hh:mm:ss`这种格式，比如`1:30:45`表示时间长度为"1小时30分钟45秒"。
     
-##Coordinating Animations（协调动画）
 
+##Coordinating Animations（协调动画）
 
 <svg width="500" height="100">
 <rect x="0" y="0" width="30" height="15"
@@ -363,6 +356,7 @@ begin="one.end" dur="10s" fill="freeze"
 
 该动画将有10秒的持续时间，或与*one*动画一起停止结束，以先到那个为准。
 
+
 ##Repeating Animations（重复动画）
 
 重复动画可以用动画元素中的两个属性。
@@ -386,7 +380,6 @@ style="stroke: #000000; fill: none;">
 </rect>
 </svg>
 
-
 	<svg width="500"  height="100">
 	   <rect x="10" y="10" width="40" height="20"
 	         style="stroke: #000000; fill: none;">
@@ -403,6 +396,7 @@ style="stroke: #000000; fill: none;">
 	                />
 	   </rect>
 	</svg>
+
 
 ##Combining Animations（结合动画）
 

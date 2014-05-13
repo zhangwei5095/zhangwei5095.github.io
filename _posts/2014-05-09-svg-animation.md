@@ -159,7 +159,8 @@ Sorry, your browser does not support inline SVG.
 
 这个例子中的动画填写将CSS属性从颜色*＃0000FF*（蓝色）的颜色转为*＃FF0000*（红色）。
  
-**注**：<animateColor>元素可能在Firefox 22无法支持，建议用Chrome 27。
+**注**：
+尽管SVG定义了"animateColor"，但是它已经被弃用了，替代它的是"animate"元素。
 
 
 ##animateTransform

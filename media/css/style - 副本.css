@@ -1,9 +1,12 @@
 /*------------------------------------
-* 样式
+* sext
 *
-* @author waylau521@gmail.com
-* @link http://www.waylau.com/
-* @update 2014-5-13
+* @author linghua.zhang@me.com
+* @link http://lhzhang.com/
+* @update 2011-12-20
+* 
+* |/ | (~ (~
+* |\.|._)._)
 * --------------------------------- */
 
 @import url(http://fonts.googleapis.com/css?family=Galdeano);
@@ -12,10 +15,10 @@
 body{font-size:14px;word-spacing:1px;
 	margin-left:auto;
 margin-right:auto;
-	font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;color:#000000;background-color:#CCCCCC;}
+	font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;color:#000000;background-color:#ffffff;}
 *{padding:0;margin: 0;border:none;outline:none;}
-a{color:#0066CC;text-decoration:none;}
-a:hover{color:#7E7C58;text-decoration:underline;}
+a{color:#dd0000;text-decoration:none;}
+a:hover{color:#333333;text-decoration:underline;}
 hr{margin:.7em 0;border-top:1px dashed #d0d0d0;border-bottom:1px dashed #f9f9f9;}
 p{padding:.5em 0;}
 li{padding:.2em 0;}
@@ -45,14 +48,14 @@ blockquote p{margin:0;padding:.5em 0;}
 header{padding:.5em 0;border-bottom: 1px solid #cccccc;}
 nav{font-family:"Electrolize",sans-serif;font-size:1.1em;text-transform:uppercase;float:left;margin-left:-12em;width:9em;text-align:right;}
 nav a{display:block;padding:.7em 1em;color:#000000;}
-nav a:hover{background-color:#0066CC;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
+nav a:hover{background-color:#ff0000;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
 .post{padding:.5em 0em;}
 h1{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.6em;color:#000;}
 h2{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.4em;color:#111;}
 h3{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.2em;color:#222;}
 h4{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1em;color:#333;}
 pre,code{font-family:Menlo,"Andale Mono",Consolas,"Courier New",Monaco,monospace;font-size:13px;}
-code{background-color:#A5A0A0;}
+code{background-color:#D0D0D0;}
 embed,object,iframe{display:block;margin:4px auto;}
 .gist{font-size: 12px;line-height:1.6;}
 
@@ -70,7 +73,7 @@ footer a {
 margin: 1px;
 border: 1px solid rgba(1,1,1,0);
 border-bottom: 1px dashed #BBB;
-color: #0066CC
+color: #B9221F;
 text-decoration: none;
 }
 
@@ -128,7 +131,7 @@ text-decoration: none;
 
 .paginator .current-page {
 color: white;
-background: #d0d0d0;
+background: #ff0000;
 }
 
 .paginator a:hover{

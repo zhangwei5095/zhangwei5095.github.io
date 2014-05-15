@@ -12,7 +12,7 @@ SQLServer2008在运行一段时间后内存飙升，严重导致系统奔溃
 ![SQLServer.exe](http://e.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d7311b4cb0119313c343ffb555037dea/faf2b2119313b07e4ef285860ed7912396dd8cf5.jpg?referer=149d9678a5efce1bb33cfcfaecab&x=.jpg)
 
 这个是SQLServer内存管理机制决定的，由于他应用了内存池的技术，有效提高数据库的查询速度，但同时会占用大量的内存。详见SQLServer 
-<a herf="http://technet.microsoft.com/zh-cn/library/cc280359(v=sql.105).aspx">内存管理体系结构</a>
+<a href="http://technet.microsoft.com/zh-cn/library/cc280359(v=sql.105).aspx" target="blank">内存管理体系结构</a>
 
 默认设置，他会占用计算机的所有内存。
 ![SQLServer momery](http://d.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=e29e6aad612762d0843ea4ba90d779c7/8b13632762d0f703dafd40520afa513d2797c5f5.jpg?referer=6e5f34942a34349b2d115ab523ab&x=.jpg)

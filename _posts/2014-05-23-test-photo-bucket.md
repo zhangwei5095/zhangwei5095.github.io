@@ -26,6 +26,10 @@ tags: [Photobucket]
 社区水印
 <img src="http://image16-c.poco.cn/mypoco/myphoto/20140523/11/17476175320140523113726012.png?280x280_130"/>
 
+贴入论坛
+
+<img src="http://image16-c.poco.cn/mypoco/myphoto/20140523/11/17476175320140523113816047.png?280x280_130"/>
+
 POCO是。。。。
 POCO是您的图片生活记录和分享平台，在这里用图片记录您的生活、分享您的一切，在各兴趣社区以图会友、参加各种POCO线上线下活动。
 POCO给你提供。。。。

@@ -46,4 +46,4 @@ POCO网站首页，并获得荣誉勋章
 <img src="http://image16.poco.cn/mypoco/myphoto/20140523/14/17476175320140523144127031.png?280x280_130"/>
 
 社区水印
-<img src="http://image16-c.poco.cn/mypoco/myphoto/20140523/11/17476175320140523113816047.png?280x280_130"/>
+<img src="http://image16.poco.cn/mypoco/myphoto/20140523/11/17476175320140523113816047.png?280x280_130"/>

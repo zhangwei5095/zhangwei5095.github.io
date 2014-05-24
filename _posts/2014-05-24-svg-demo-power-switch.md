@@ -37,8 +37,11 @@ tags: [SVG,switch]
 	<use x='10' y='30' xlink:href="#lineG1" onclick="lineGClick(evt)"/>
 	</svg>
 
-<img src="assets/svg/2014-05-24-svg-demo-power-switch.svg"/>
 
+<img src="/assets/svg/2014-05-24-svg-demo-power-switch.svg"/>
+
+
+<img src="/assets/img/wl_white_100.png"/>
 
 解释：
 

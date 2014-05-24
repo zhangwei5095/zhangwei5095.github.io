@@ -10,7 +10,7 @@ tags: [SVG,switch]
 
 先上源码
 	
-	<svg  width="100%" height="100%" >
+	<svg  width="150" height="150" >
 	<script type="application/ecmascript"> <![CDATA[
 		 function lineGClick(evt) {
 	 
@@ -41,7 +41,7 @@ tags: [SVG,switch]
 
 效果：
 
-<svg  width="100%" height="100%" >
+<svg  width="150" height="150" >
 <script type="application/ecmascript"> <![CDATA[
  function lineGClick(evt) {
 var lineA = document.getElementById('lineA');

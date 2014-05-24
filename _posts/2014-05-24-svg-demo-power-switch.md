@@ -12,9 +12,9 @@ tags: [SVG,switch]
 		
 	<svg  width="400" height="200" >
 	<script> 
-		<![CDATA[
 		 function lineGClick(evt) {
-	 				var lineA = document.getElementById('lineA');
+	 
+				var lineA = document.getElementById('lineA');
 				if( lineA.getAttribute("display")=="none"){
 					
 		 		lineA.setAttribute('display','#000000');
@@ -25,8 +25,7 @@ tags: [SVG,switch]
 					line2.setAttribute('display','#000000');
 				}
 	    }
-	  ]]> 
-		</script>
+	 </script>
 	<defs>
 	 <g id='lineG1' >
 	  <line id='line1' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/>
@@ -44,7 +43,6 @@ tags: [SVG,switch]
  
 <svg  width="400" height="200" >
 <script> 
-<![CDATA[
 function lineGClick(evt) {
 
 var lineA = document.getElementById('lineA');
@@ -58,15 +56,14 @@ lineA.setAttribute('display','none');
 line2.setAttribute('display','#000000');
 }
 }
-]]> 
-</script>
+ </script>
 <defs>
-<g id='lineG1' >
-<line id='line1' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/>
-<line id='lineA' fill="none" display="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="10" y2="70"/>
-<line id='line2' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="35" y2="60"/>
-<line id='lineB' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="70" x2="10" y2="100"/>
-</g>
+ <g id='lineG1' >
+  <line id='line1' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/>
+  <line id='lineA' fill="none" display="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="10" y2="70"/>
+  <line id='line2' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="35" y2="60"/>
+  <line id='lineB' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="70" x2="10" y2="100"/>
+ </g>
 </defs>
  <text x="10" y="20" font-size="15" >
 点击开关，进行状态转换</text>

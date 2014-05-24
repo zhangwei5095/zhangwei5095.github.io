@@ -9,9 +9,10 @@ tags: [SVG,switch]
 ---
 
 先上源码
-	
+		
 	<svg  width="400" height="200" >
-	<script type="application/ecmascript"> <![CDATA[
+	<script> 
+		<![CDATA[
 		 function lineGClick(evt) {
 	 
 				var lineA = document.getElementById('lineA');
@@ -25,7 +26,8 @@ tags: [SVG,switch]
 					line2.setAttribute('display','#000000');
 				}
 	    }
-	  ]]> </script>
+	  ]]> 
+		</script>
 	<defs>
 	 <g id='lineG1' >
 	  <line id='line1' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/>
@@ -42,17 +44,23 @@ tags: [SVG,switch]
 效果：
 
 <svg  width="400" height="200" >
-<script type="application/ecmascript"> <![CDATA[
- function lineGClick(evt) {
+<script> 
+<![CDATA[
+function lineGClick(evt) {
+
 var lineA = document.getElementById('lineA');
-if( lineA.getAttribute("display")=="none"){	lineA.setAttribute('display','#000000');
+if( lineA.getAttribute("display")=="none"){
+
+lineA.setAttribute('display','#000000');
 line2.setAttribute('display','none');
+
 }else{
 lineA.setAttribute('display','none');
 line2.setAttribute('display','#000000');
 }
 }
-  ]]> </script>
+]]> 
+</script>
 <defs>
  <g id='lineG1' >
   <line id='line1' fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/>
@@ -63,7 +71,7 @@ line2.setAttribute('display','#000000');
 </defs>
 <use x='100' y='100' xlink:href="#lineG1" onclick="lineGClick(evt)"/>
  <text x="100" y="20" font-size="15" >
-   点击开关，进行状态转换</text>
+  点击开关，进行状态转换</text>
 </svg>
 
 解释：

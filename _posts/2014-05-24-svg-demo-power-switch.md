@@ -42,17 +42,14 @@ tags: [SVG,switch]
 	</svg>
 
 
-<?xml version="1.0" standalone="no"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400" height="200" >
 <script> 
 function lineGClick(evt) {
-
 var lineA = document.getElementById("lineA");
 if( lineA.getAttribute("display")=="none"){
-
 lineA.setAttribute("display","#000000");
 line2.setAttribute("display","none");
-
 }else{
 lineA.setAttribute("display","none");
 line2.setAttribute("display","#000000");
@@ -79,6 +76,9 @@ line2.setAttribute("display","#000000");
 
 
 <img src="/assets/img/wl_white_100.png"/>
+
+<object data="/assets/svg/2014-05-24-svg-demo-power-switch.svg" width="302px" height="302px" type="image/svg+xml">
+</object>
 
 解释：
 

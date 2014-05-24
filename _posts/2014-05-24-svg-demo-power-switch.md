@@ -44,6 +44,12 @@ tags: [SVG,switch]
 [查看示例](/assets/svg/2014-05-24-svg-demo-power-switch.svg)
  
  
+<iframe style="width: 100%; height: 300px" src="http://sandbox.runjs.cn/show/p6jqofff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<script type="text/javascript" src="http://runjs.cn/gist/p6jqofff"></script>
+
+
 解释：
 
 `defs`标签定义了可以重复利用的组件

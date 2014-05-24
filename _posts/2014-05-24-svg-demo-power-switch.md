@@ -41,10 +41,9 @@ tags: [SVG,switch]
 	  </a>
 	</svg>
 
- 
+效果：
+
 <iframe style="width: 100%; height: 300px" src="http://sandbox.runjs.cn/show/p6jqofff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-
 
 解释：
 

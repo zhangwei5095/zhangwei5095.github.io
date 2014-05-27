@@ -82,3 +82,5 @@ SVG 做地图具有可以任意比例放大缩小不失真的优点。本例基�
 [完整源码下载](https://github.com/waylau/svg-china-map)
 
 [中国地图GeoJSON](../assets/demos/china-map/china.geo.json)
+
+[查看例子](../assets/demos/china-map/china_map.html)

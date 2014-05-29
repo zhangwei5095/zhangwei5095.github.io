@@ -40,7 +40,6 @@ orient="auto"
 <path d="M 0 0 L 10 5 L 0 10 z" fill="yellow" stroke="black"/>
 </marker>
 </defs>
-
 <line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
 <path d="M75,100 c25,-75 50,50 100,0 s50,-50 150,50"
   stroke="purple" stroke-width="5" fill="none"

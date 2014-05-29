@@ -29,7 +29,7 @@ SVG 中&lt;line&gt;并没有箭头，可以通过&lt;marker&gt;进行扩展。
     <line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
 效果如下：
 
-<svg width="4cm" height="4cm" viewBox="0 0 400 400">
+<svg width="400" height="400">
 <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 <defs>
 <marker id="arrow"
@@ -51,7 +51,7 @@ orient="auto"
 
 完整代码如下：
 	
-	<svg width="4cm" height="4cm" viewBox="0 0 400 400">
+	<svg width="400" height="400">
 	    <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 	    <defs>
 	        <marker id="arrow"

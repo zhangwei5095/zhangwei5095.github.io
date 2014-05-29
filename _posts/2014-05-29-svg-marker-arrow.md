@@ -27,9 +27,11 @@ SVG 中&lt;line&gt;并没有箭头，可以通过&lt;marker&gt;进行扩展。
 而后，画line ,line的`marker-end`引用上面定义好的`arrow`即可
 
     <line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
+
 效果如下：
 
-<svg width="400" height="400">
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="200" height="200" >
 <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 <defs>
 <marker id="arrow"
@@ -50,7 +52,8 @@ orient="auto"
 
 完整代码如下：
 	
-	<svg width="400" height="400">
+	<?xml version="1.0" standalone="no"?>
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="200" height="200" >
 	    <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 	    <defs>
 	        <marker id="arrow"

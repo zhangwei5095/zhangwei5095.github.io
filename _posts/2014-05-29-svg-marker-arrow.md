@@ -31,7 +31,7 @@ SVG 中&lt;line&gt;并没有箭头，可以通过&lt;marker&gt;进行扩展。
 效果如下：
 
 <?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400" height="400" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400"  height="400" >
 <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 <defs>
 <marker id="arrow"
@@ -53,7 +53,7 @@ orient="auto"
 完整代码如下：
 	
 	<?xml version="1.0" standalone="no"?>
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400" height="400" >
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400"  height="400" >
 	    <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
 	    <defs>
 	        <marker id="arrow"

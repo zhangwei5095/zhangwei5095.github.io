@@ -30,46 +30,42 @@ SVG 中&lt;line&gt;并没有箭头，可以通过&lt;marker&gt;进行扩展。
 
 效果如下：
 
-<?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400"  height="400" >
-<desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
+<svg width="500" height="100">
 <defs>
-<marker id="arrow"
-viewBox="0 0 10 10" refX="0" refY="5"
-markerUnits="strokeWidth" markerWidth="3" markerHeight="10"
-orient="auto"
->
-<path d="M 0 0 L 10 5 L 0 10 z" fill="yellow" stroke="black"/>
+<marker id="markerCircle" markerWidth="8" markerHeight="8" refx="5" refy="5">
+<circle cx="5" cy="5" r="3" style="stroke: none; fill:#000000;"/>
+</marker>
+<marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
+<path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
 </marker>
 </defs>
-<line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
-<path d="M75,100 c25,-75 50,50 100,0 s50,-50 150,50"
-  stroke="purple" stroke-width="5" fill="none"
-  marker-start="url(#arrow)"
-  marker-mid="url(#arrow)"
-  marker-end="url(#arrow)" />
+<line x1="0" y1="0" x2="100" y2="50"  stroke="red" stroke-width="1" marker-end="url(#markerArrow)"  />
+<path d="M100,10 L150,10 L150,60"
+style="stroke: #6666ff; stroke-width: 1px; fill: none;
+marker-start: url(#markerCircle);
+marker-mid:url(#arrow);
+marker-end: url(#markerArrow) "
+/>
 </svg>
 
+ 
 完整代码如下：
 	
-	<?xml version="1.0" standalone="no"?>
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400"  height="400" >
-	    <desc>Markers,一个箭头实例，更多例子访问www.waylau.com</desc>
-	    <defs>
-	        <marker id="arrow"
-	                viewBox="0 0 10 10" refX="0" refY="5"
-	                markerUnits="strokeWidth" markerWidth="3" markerHeight="10"
-	                orient="auto"
-	                >
-	            <path d="M 0 0 L 10 5 L 0 10 z" fill="yellow" stroke="black"/>
-	        </marker>
-	    </defs>
-	    <!-- First row -->
-	    <line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
-	    <!-- Second row -->
-	    <path d="M75,100 c25,-75 50,50 100,0 s50,-50 150,50"
-	          stroke="purple" stroke-width="5" fill="none"
-	          marker-start="url(#arrow)"
-	          marker-mid="url(#arrow)"
-	          marker-end="url(#arrow)" />
+	<svg width="500" height="100">
+    <defs>
+        <marker id="markerCircle" markerWidth="8" markerHeight="8" refx="5" refy="5">
+            <circle cx="5" cy="5" r="3" style="stroke: none; fill:#000000;"/>
+        </marker>
+
+        <marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
+            <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+        </marker>
+    </defs>
+    <line x1="0" y1="0" x2="100" y2="50"  stroke="red" stroke-width="1" marker-end="url(#markerArrow)"  />
+    <path d="M100,10 L150,10 L150,60"
+          style="stroke: #6666ff; stroke-width: 1px; fill: none;
+                       marker-start: url(#markerCircle);
+                       marker-mid:url(#arrow);
+                       marker-end: url(#markerArrow) "
+            />
 	</svg>

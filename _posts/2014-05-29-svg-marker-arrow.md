@@ -13,21 +13,18 @@ SVG 中&lt;line&gt;并没有箭头，可以通过&lt;marker&gt;进行扩展。
 先定义一个箭头
 
     <defs>
-        <marker id="arrow"
-                viewBox="0 0 10 10" refX="0" refY="5"
-                markerUnits="strokeWidth" markerWidth="3" markerHeight="10"
-                orient="auto"
-                >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="yellow" stroke="black"/>
+        <marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
+            <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
         </marker>
     </defs>
 
 其中`orient="auto"`设置箭头的方向为自动适应线条的方向。
 
-而后，画line ,line的`marker-end`引用上面定义好的`arrow`即可
+而后，画line ,line的`marker-end`引用上面定义好的`markerArrow`即可
+	
+	<line x1="0" y1="0" x2="100" y2="50"  stroke="red" stroke-width="1" marker-end="url(#markerArrow)"  />
 
-    <line x1="0" y1="0" x2="200" y2="200"  stroke="red" stroke-width="5" marker-end="url(#arrow)"  />
-
+也可以应用在path中，
 效果如下：
 
 <svg width="500" height="100">

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SVG Shapes之折线 &lt;polyline&gt;
-date: 2014-05-04 12:06
+date: 2014-05-04 12:05
 author: admin
 comments: true
 categories: [Svg]

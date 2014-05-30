@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SVG Shapes之多边形 &lt;polygon&gt;
-date: 2014-05-04 12:05
+date: 2014-05-04 12:06
 author: admin
 comments: true
 categories: [Svg]

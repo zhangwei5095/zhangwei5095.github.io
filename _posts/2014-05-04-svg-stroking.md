@@ -1,11 +1,11 @@
 ---
 layout: post
-title: SVG Shapes之Stroke 属性
+title: SVG Stroke 属性
 date: 2014-05-04 12:09
 author: admin
 comments: true
 categories: [Svg]
-tags: [Svg,shape,Stroke]
+tags: [Svg,Stroke]
 ---
 
 ##9.Stroke 属性

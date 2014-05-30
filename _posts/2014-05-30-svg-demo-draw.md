@@ -10,6 +10,8 @@ tags: [SVG,JS,draw]
  
 SVG与JS交互，可以创建更加丰富的应用，以下为一个SVG画板，通过鼠标的点击事件，模拟出画笔。
 
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-flat-20030114.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 zoomAndPan="disable" onload="getSVGDoc(evt)">
 <title>SVG简单画板实例</title>

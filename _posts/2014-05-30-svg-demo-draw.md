@@ -12,5 +12,5 @@ SVG与JS交互，可以创建更加丰富的应用，以下为一个SVG画板，
 
 <iframe style="width: 100%; height: 450px" src="../assets/demos/svg-demo-draw/svg-draw.svg" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-[查看例子](../assets/demos/china-map/china_map.html)
+[查看例子](../assets/demos/svg-demo-draw/svg-draw.svg)
  

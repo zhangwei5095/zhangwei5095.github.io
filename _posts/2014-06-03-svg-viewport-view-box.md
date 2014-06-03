@@ -42,7 +42,6 @@ in	 |英寸
 	<svg width="10cm" height="10cm">
 	    <rect x="50" y="100" width="50" height="50"
 	          style="stroke: #000000; fill: none;"/>
-	
 	    <rect x="100" y="100" width="50mm" height="50mm"
 	          style="stroke: #000000; fill: none;" />
 	</svg>
@@ -54,7 +53,6 @@ in	 |英寸
 <svg width="10cm" height="10cm">
 <rect x="50" y="100" width="50" height="50"
   style="stroke: #000000; fill: none;"/>
-
 <rect x="100" y="100" width="50mm" height="50mm"
   style="stroke: #000000; fill: none;" />
 </svg>
@@ -62,7 +60,8 @@ in	 |英寸
 ##View Box
 您可以重新在&lt;svg&gt;元素内部定义没有单位的坐标，通过`viewBox`属性来实现。下面是一个例子：
 
-	<svg width="500" height="200" viewBox="0 0 50 20" >
+
+	<svg width="500" height="200" viewBox="0 0 50 20" style="border: 1px solid #cccccc;">
 	    <rect x="20" y="10" width="10" height="5"
 	          style="stroke: #000000; fill:none;"/>
 	</svg>
@@ -75,7 +74,8 @@ in	 |英寸
 
 这里是所得到的图象：
 
-<svg width="500" height="200" viewBox="0 0 50 20" >
+
+<svg width="500" height="200" viewBox="0 0 50 20" style="border: 1px solid #cccccc;">
 <rect x="20" y="10" width="10" height="5"
   style="stroke: #000000; fill:none;"/>
 </svg>

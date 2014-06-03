@@ -75,7 +75,7 @@ in	 |英寸
 这里是所得到的图象：
 
 
-<svg width="500" height="200" viewBox="0 0 50 20" style="border: 1px； solid #cccccc;">
+<svg width="500" height="200" viewBox="0 0 50 20" style="border: 1px solid #cccccc;">
 <rect x="20" y="10" width="10" height="5"
   style="stroke: #000000; fill:none;"/>
 </svg>

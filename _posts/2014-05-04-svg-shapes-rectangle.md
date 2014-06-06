@@ -82,3 +82,18 @@ SVG 有一些预定义的形状元素，可被开发者使用和操作：
 
 * rx 和 ry 属性可使矩形产生圆角。
 
+####示例1.5
+<svg width="400" height="180">
+   <rect x="50" y="70" width="35" height="20"
+style="fill: yellow; fill-opacity: 0.5;
+  stroke: green; stroke-width: 2; stroke-dasharray: 5 2"/>
+</svg>
+
+	<svg width="400" height="180">
+	   <rect x="50" y="70" width="35" height="20"
+		style="fill: yellow; fill-opacity: 0.5;
+	  	stroke: green; stroke-width: 2; stroke-dasharray: 5 2"/>
+	</svg>
+**代码解释：**
+
+* stroke-dasharray定义断续线，实线和虚线分别以5和2的长度交替显示。

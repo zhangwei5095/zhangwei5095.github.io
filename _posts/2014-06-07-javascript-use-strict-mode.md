@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript使用严谨模式(Strict Mode)
+title: JavaScript使用严格模式(Strict Mode)
 date: 2014-06-07 07:08
 author: admin
 comments: true
@@ -88,6 +88,7 @@ this在被赋值之前会一直保持为undefined,这意味着当一个构造函
  
 ##对只读属性修改时抛出异常
 ECMAScript5中还引入为对象的特定属性设为只读,或让整个对象不可修改的能力。 但在非严格模式中,尝试修改一个只读属性只会默不做声的失败。 在你和一些浏览器原生API打交道过程中,你很可能遇到这种情况。严格模式会在这种情况下明确的抛出异常,提醒你修改这个属性是不被允许的。
+
 	var person = {};
 	Object.defineProperty(person, "name" {
 	    writable: false,

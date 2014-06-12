@@ -91,7 +91,7 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 第一个use引用了该文件的整个svg元素。
 
-第二个use引用了该文件的整个rect元素。
+第二个use引用了该文件的rect元素。
 
 
  

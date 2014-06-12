@@ -15,7 +15,7 @@ symbol,defs 都可以事先定义好图形，而后use来引用
 
 
 ```svg
-<svg    width="300" height="300" version="1.1"
+<svg  width="200" height="200" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <symbol id="shape2">
         <circle cx="25" cy="25" r="25"></circle>
@@ -32,7 +32,7 @@ symbol,defs 都可以事先定义好图形，而后use来引用
 </svg>
 ```
 
-<svg    width="300" height="300"  version="1.1"
+<svg  width="200" height="200"  version="1.1"
 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <symbol id="shape2">
 <circle cx="25" cy="25" r="25"></circle>

@@ -15,7 +15,7 @@ symbol,defs 都可以事先定义好图形，而后use来引用
 
 
 ```svg
-<svg    width="100%" height="100%" version="1.1"
+<svg    width="300" height="300" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <symbol id="shape2">
         <circle cx="25" cy="25" r="25"></circle>
@@ -32,7 +32,7 @@ symbol,defs 都可以事先定义好图形，而后use来引用
 </svg>
 ```
 
-<svg    width="100%" height="100%" version="1.1"
+<svg    width="300" height="300"  version="1.1"
 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <symbol id="shape2">
 <circle cx="25" cy="25" r="25"></circle>
@@ -50,7 +50,7 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 有关symbol,defs的异同点，可以参考[这篇文章](http://www.html5zhan.com/jingyan/info/530577c72e05e83b801642dc)
 
 #引用外部绘图
-我们事先已经准备好了一个外部绘图svg文件[svg-file-test.svg](assets/img/svg-file-test.svg)
+我们事先已经准备好了一个外部绘图svg文件[svg-file-test.svg](../assets/img/svg-file-test.svg)
 
 ##1.使用&lt;image&gt;
 使用预定义内容作为 SVG 绘图一部分的方法之一是使用 &lt;image&gt;元素。在概念上，SVG 中的&lt;image&gt;与 HTML 中的 &lt;img&gt;非常类似：该元素只须指示呈现客户机在当前的 SVG 环境中绘制外部图像的内容 —— 其本身可能是 SVG 或者是 JPEG 或 PNG 格式的光栅图像。您几乎可以像调整一个规则的图形元素那样来调整外部图像的大小和改变其位置
@@ -58,16 +58,16 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 ```svg
 <svg  width="100%" height="100%" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <image  x="0" y="0" width="300" height="200"  xlink:href="assets/img/svg-file-test.svg"></image>
+    <image  x="0" y="0" width="300" height="200"  xlink:href="../assets/img/svg-file-test.svg"></image>
 
-    <image  x="0" y="200" width="300" height="200"  xlink:href="assets/img/wl_white.png"></image>
+    <image  x="0" y="200" width="300" height="200"  xlink:href="../assets/img/wl_white.png"></image>
 </svg>
 ```
 
 <svg   width="100%" height="100%" version="1.1"
 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<image  x="0" y="0" width="300" height="200"  xlink:href="assets/img/svg-file-test.svg"></image>
-<image  x="0" y="200" width="300" height="200"  xlink:href="assets/img/wl_white.png"></image>
+<image  x="0" y="0" width="300" height="200"  xlink:href="../assets/img/svg-file-test.svg"></image>
+<image  x="0" y="200" width="300" height="200"  xlink:href="../assets/img/wl_white.png"></image>
 </svg>
 
 
@@ -77,15 +77,15 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 ```svg
 <svg    width="100%" height="100%" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <use xlink:href="assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" ></use>
-    <use xlink:href="assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" ></use>
+    <use xlink:href="../assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" ></use>
+    <use xlink:href="../assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" ></use>
 </svg>
 ```
 
 <svg    width="100%" height="100%" version="1.1"
 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<use xlink:href="assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" ></use>
-<use xlink:href="assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" ></use>
+<use xlink:href="../assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" ></use>
+<use xlink:href="../assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" ></use>
 </svg>
 
 

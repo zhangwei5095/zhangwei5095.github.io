@@ -22,6 +22,7 @@ comments: no
 
 * Gmail: [waylau521@gmail.com](mailto:waylau521@gmail.com) 
 * Weibo: [waylau521](http://weibo.com/waylau521)	
+* Twitter: [waylau521](https://twitter.com/waylau521)	
 * Csdn: [kkkloveyou](http://blog.csdn.net/kkkloveyou)
 * Wordpress: [waylau](http://wordpress-waynelau521.rhcloud.com)	
 

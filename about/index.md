@@ -8,7 +8,7 @@ comments: no
 
 * J2EE web programming development.
 * Flex/AS3 programming development.
-* HTML5/JS programming development.
+* HTML5/JS/CSS/SVG programming development.
 * Self-educated/Self-training.
 
 ###Hobby: 

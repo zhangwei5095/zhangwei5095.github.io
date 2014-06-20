@@ -66,7 +66,7 @@ tags: [JavaScript,规范]
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 ## <a name='objects'>对象</a>
 
@@ -97,7 +97,7 @@ tags: [JavaScript,规范]
       hidden: true
     };
     ```
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 ## <a name='arrays'>数组</a>
 
@@ -149,7 +149,7 @@ tags: [JavaScript,规范]
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='strings'>字符串</a>
@@ -233,7 +233,7 @@ tags: [JavaScript,规范]
 	}
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='functions'>函数</a>
@@ -290,7 +290,7 @@ tags: [JavaScript,规范]
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='properties'>属性</a>
@@ -345,7 +345,7 @@ tags: [JavaScript,规范]
     var isJedi = getProp('jedi');
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='variables'>变量</a>
@@ -454,7 +454,7 @@ tags: [JavaScript,规范]
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='conditionals'>条件表达式和等号</a>
@@ -502,7 +502,7 @@ tags: [JavaScript,规范]
 
   - 阅读 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) 了解更多
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='blocks'>块</a>
@@ -531,7 +531,7 @@ tags: [JavaScript,规范]
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='comments'>注释</a>
@@ -620,7 +620,7 @@ tags: [JavaScript,规范]
     }
   ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='whitespace'>空白</a>
@@ -793,7 +793,7 @@ tags: [JavaScript,规范]
         .call(tron.led);
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 ## <a name='commas'>逗号</a>
 
@@ -853,7 +853,7 @@ tags: [JavaScript,规范]
     ];
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='semicolons'>分号</a>
@@ -880,7 +880,7 @@ tags: [JavaScript,规范]
     })();
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='type-coercion'>类型转换</a>
@@ -951,7 +951,7 @@ tags: [JavaScript,规范]
     var hasAge = !!age;
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='naming-conventions'>命名约定</a>
@@ -1051,7 +1051,7 @@ tags: [JavaScript,规范]
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='accessors'>存取器</a>
@@ -1105,7 +1105,7 @@ tags: [JavaScript,规范]
     };
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='constructors'>构造器</a>
@@ -1190,7 +1190,7 @@ tags: [JavaScript,规范]
     };
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='events'>事件</a>
@@ -1221,7 +1221,7 @@ tags: [JavaScript,规范]
     });
     ```
 
-  **[[⬆]](#TOC)**
+  **[[↑]](#TOC)**
 
 
 ## <a name='modules'>模块</a>
@@ -1252,7 +1252,7 @@ tags: [JavaScript,规范]
     }(this);
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
 ## <a name='jquery'>jQuery</a>
@@ -1307,7 +1307,7 @@ tags: [JavaScript,规范]
     $($sidebar[0]).find('ul');
     ```
 
-    **[[⬆]](#TOC)**
+    **[[↑]](#TOC)**
 
 
  

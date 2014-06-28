@@ -1,7 +1,7 @@
 markdown: rdiscount
 #permalink: /:year/:month/:day/:title/
 permalink: /:title/
-url: http://waylau.github.com
+url: http://www.waylau.com
 author: www.waylau.com
 pygments: true
 safe: true

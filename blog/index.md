@@ -22,9 +22,9 @@ layout: page
 
   {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a href="/"><前页</a>
+    <a href="/blog/"><前页</a>
     {% else %}
-    <a href="/page{{paginator.previous_page}}"><前页</a>
+    <a href="/blog/page{{paginator.previous_page}}"><前页</a>
     {% endif %}
   {% else %}
     <span class="previous disabled"><前页</span>
@@ -33,19 +33,19 @@ layout: page
       {% if paginator.page == 1 %}
       <span class="current-page">1</span>
       {% else %}
-      <a href="/">1</a>
+      <a href="/blog/">1</a>
       {% endif %}
 
     {% for count in (2..paginator.total_pages) %}
       {% if count == paginator.page %}
       <span class="current-page">{{count}}</span>
       {% else %}
-      <a href="/page{{count}}">{{count}}</a>
+      <a href="/blog/page{{count}}">{{count}}</a>
       {% endif %}
     {% endfor %}
 
   {% if paginator.next_page %}
-    <a class="next" href="/page{{paginator.next_page}}">后页></a>
+    <a class="next" href="/blog/page{{paginator.next_page}}">后页></a>
   {% else %}
     <span class="next disabled" >后页></span>
   {% endif %}

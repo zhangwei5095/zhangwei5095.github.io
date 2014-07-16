@@ -31,7 +31,8 @@ tags: [Java,Maven]
 4.校验
 
 Cmd 模式下 输入
->mvn –version
+
+	mvn --version
 
 出现以下画面，则安装成功！
 <img src="http://b.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=4425cc3fd0c8a786ba2a4a0b5732b800/94cad1c8a786c9171e043efcc83d70cf3ac757eb.jpg?referer=ca22ceded50735fac8e77a8991a9&x=.jpg"/>
@@ -56,7 +57,7 @@ settings.xml文件，
 
 打开cmd，输入 
 
->mvn help:system
+	mvn help:system
 
 如果配置正确，将开始从中央仓库下载文件至4中配置的本地仓库。该过程持续时间因网络带宽影响可能持续时间很长。
 
@@ -74,7 +75,11 @@ settings.xml文件，
 
 2.cmd 下 执行cd cat78到该目录下
 
-运行mvn clean compile，此时，项目开始编译
+运行
+
+	mvn clean compile
+
+此时，项目开始编译
 
 又需要一段时间来下载相关jar包、pom文件
 

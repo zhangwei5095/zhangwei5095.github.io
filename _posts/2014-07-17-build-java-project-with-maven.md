@@ -117,28 +117,37 @@ window下使用命令
 	mvn compile
 
 编译完成的`.class`文件将会出现在`target/classes`目录下.如下图
+![编译Java代码](http://e.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=0fd2eacb8544ebf86971643ae9c2a617/0d338744ebf81a4c35bd3f01d52a6059242da66f.jpg?referer=b410ea0c33adcbef58234a360225&x=.jpg)
 
+![class](http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=19799d719c510fb37c197792e908b9a8/7a899e510fb30f24bd133fcbca95d143ac4b0369.jpg?referer=07ad60e0347adab464c72f736d28&x=.jpg)
 
 运行项目：
 
 	mvn exec:java -Dexec.mainClass="hello.HelloWorld"
 
 输出如下：
-
+![HelloWorld](http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=ebd4d2505cdf8db1b82e7c613918ac69/35a85edf8db1cb13fee0efdbdf54564e93584b69.jpg?referer=66b45c59cf11728b693ab812b527&x=.jpg)
 
 如果不想直接运行`.class`文件，可以将其打包：
 
 	mvn package
 
-打包完成后，会在`target`目录下生成一个JAR文件，文件名由&lt;artifactId&gt; 和 &lt;version&gt;组成。比如本例，将会根据`pom.xml`生成`gs-maven-0.1.0.jar.`
+打包完成后，会在`target`目录下生成一个JAR文件，文件名由&lt;artifactId&gt; 和 &lt;version&gt;组成。比如本例，将会根据`pom.xml`生成`gs-maven-0.1.0.jar`
 
+![gs-maven-0.1.0.jar](http://g.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=460dfe20be3eb13540c7b7be9625d9ee/18d8bc3eb13533fa448c41e6aad3fd1f40345bc4.jpg?referer=141ce90c19d5ad6ef3ee50daa5da&x=.jpg)
+
+![gs-maven-0.1.0.jar](http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=f9566573a41ea8d38e227401a7314173/838ba61ea8d3fd1f8b9870f2324e251f94ca5f61.jpg?referer=1768b62283cb39db98d75366993f&x=.jpg)
 如果你想安装您的项目的JAR文件到本地Maven仓库，那么你应该调用下面语句：
 
 	mvn install
 
 此时，你的项目代码将会经过编译、测试、打包并拷贝到本地依赖库，提供给其他项目引用。
 
+以上例子源码的地址[https://github.com/waylau/maven-demo](https://github.com/waylau/maven-demo)中的demo1
+
 说到项目依赖，下面说下`声明依赖`
+
+
 
 #声明依赖
 上面的例子比较简单，没有用到其他库。但是真实的项目可能会引用（依赖）到很多其他库。
@@ -170,6 +179,8 @@ window下使用命令
             <version>2.2</version>
         </dependency>
     </dependencies>
+
+![声明依赖](http://b.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=90b4aaf06c061d957946373d4bcf7bec/4d086e061d950a7b3bbd9d0c08d162d9f3d3c96a.jpg?referer=87bc8d9bf4246b60221986443728&x=.jpg)
 
 这段内容就声明了项目的依赖。每个依赖节点&lt;dependency&gt;都由三个子节点组成：
 
@@ -235,6 +246,15 @@ window下使用命令
 	    </build>
 	</project>
 
+
+运行项目：
+
+	mvn exec:java -Dexec.mainClass="hello.HelloWorld"
+
+输出如下：
+![运行项目](http://g.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=df2c5f61ab014c081d3b28a03a407335/b999a9014c086e062b9ded8300087bf40bd1cbc5.jpg?referer=3c4e15e7bc096b63d80e6a6035db&x=.jpg)
+
+以上例子源码的地址[https://github.com/waylau/maven-demo](https://github.com/waylau/maven-demo)中的demo2
 
 参考：[http://spring.io/guides/gs/maven/](http://spring.io/guides/gs/maven/)
 

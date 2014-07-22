@@ -23,11 +23,31 @@ tags: [Java, Jersey, REST]
 <img src="http://d.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=5011985bf503918fd3d13dcf610657aa/63d0f703918fa0ec3bccabb6249759ee3d6ddb06.jpg?referer=1b02ce10013b5bb5e7c015ce251c&x=.jpg"/>
 * 4.在resources包下建一个class“HelloResource”
 
-	package com.waylau.rest.resources; import javax.ws.rs.GET; import javax.ws.rs.Path; import javax.ws.rs.Produces; import javax.ws.rs.PathParam; import javax.ws.rs.core.MediaType; @Path("/hello") public class HelloResource { @GET @Produces(MediaType.TEXT_PLAIN) public String sayHello() { return "Hello World!" ; }
-	
-	@GET @Path("/{param}") @Produces("text/plain;charset=UTF-8") public String sayHelloToUTF8(@PathParam("param") String username) { return "Hello " + username; }
-	
+```java
+
+	package com.waylau.rest.resources; 
+	import javax.ws.rs.GET; 
+	import javax.ws.rs.Path; 
+	import javax.ws.rs.Produces; 
+	import javax.ws.rs.PathParam; 
+	import javax.ws.rs.core.MediaType; 
+	@Path("/hello") 
+	public class HelloResource { 
+		@GET @Produces(MediaType.TEXT_PLAIN) 
+		public String sayHello() 
+		{ 
+			return "Hello World!" ; 
+		}
+		
+		@GET @Path("/{param}") 
+		@Produces("text/plain;charset=UTF-8") 
+		public String sayHelloToUTF8(@PathParam("param") String username) 
+		{ 
+			return "Hello " + username; 
+		}
+		
 	}
+```
 
 * 5.修改web.xml,添加基于Servlet-的部署
 	

@@ -84,3 +84,5 @@ settings.xml文件，
 又需要一段时间来下载相关jar包、pom文件
 
 3.编译完成 ，会生产.bat可运行文件，双击运行就行了~
+
+完整的使用教程，请访问[使用maven编译Java项目](http://www.waylau.com/build-java-project-with-maven/)

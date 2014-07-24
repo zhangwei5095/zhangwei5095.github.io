@@ -7,9 +7,12 @@ comments: true
 categories: [Java, Jersey]
 tags: [Java, Jersey, REST]
 ---
-##一、 总体说明
+#一、 总体说明
+
 XML和JSON 是最为常用的数据交换格式。本例子演示如何将java对象，转成JSON输出。
-##二、流程
+
+#二、流程
+
 * 1.在上文项目中，
 在“com.waylau.rest.resources.UserResource“中增加代码，代码如下：
 
@@ -51,6 +54,7 @@ MediaType.APPLICATION_JSON 说明输出的是JSON格式
 <img src="http://g.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=5f3758b36509c93d03f20ef2af0689e1/7e3e6709c93d70cfade7b8b0fadcd100baa12b69.jpg?referer=70ed5c049c510fb3210e42a79527&x=.jpg"/>
 此时，需要获取json转换包的支持 。
 可以由多种方式实现：MOXy、JSON-P、Jackson、Jettison等，本例为Jackson。
+
 * 3. jackson-all-1.9.11.jar 下载地址http://wiki.fasterxml.com/JacksonDownload
 * 4. 项目中引入jackson-all-1.9.11.jar
 * 5.在“com.waylau.rest”目录下创建RestApplication.java
@@ -101,3 +105,6 @@ public class RestApplication extends ResourceConfig {
 * 7.运行项目，再次访问<http://localhost:8089/RestDemo/rest/users/getUserJson>
 即可输出JSON文本
 <img src="http://a.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d3225f7df536afc30a0c3f6083229af9/79f0f736afc37931da389494e9c4b74543a9113e.jpg?referer=796c6b856c061d95245103085fd5&x=.jpg"/>
+
+
+**本章源码**：[https://github.com/waylau/RestDemo/tree/master/jersey-demo3-json](https://github.com/waylau/RestDemo/tree/master/jersey-demo3-json)

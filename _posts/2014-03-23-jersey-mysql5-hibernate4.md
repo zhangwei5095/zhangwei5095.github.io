@@ -7,9 +7,12 @@ comments: true
 categories: [Java, Jersey]
 tags: [Java, Jersey, REST]
 ---
-##一、总体说明
+#一、总体说明
+
 本例运行演示了用Jersey构建RESTful服务中，如何同过Hibernate将数据持久化进MySQL的过程
-##二、环境
+
+#二、环境
+
 1.上文的项目RestDemo
 
 2.MySQL5.6下载<http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-win32.zip>
@@ -19,7 +22,8 @@ tags: [Java, Jersey, REST]
 4.Java程序连接MySQL的驱动mysql-connector-java-5.1.29-bin.jar下载
 <http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.29.zip>
 
-##三、数据库准备
+#三、数据库准备
+
 1.搭建MySQL数据库
 
 2.创建数据库RestDemo ,及数据表t_user,结构如下
@@ -31,13 +35,16 @@ tags: [Java, Jersey, REST]
 	  `age` varchar(50) NOT NULL,
 	  PRIMARY KEY (`userId`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 <img src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=3cef56bfbb389b503cffe057b50e94e0/2e2eb9389b504fc2df5cfca4e7dde71190ef6d0b.jpg?referer=c6811510820a19d89214b135cb09&x=.jpg"/>
 
 **PS:**   userId 非自增长类型，需要在业务添加
 
-##四、引入Hibernate
+#四、引入Hibernate
+
 1.解压Hibernate的包，在lib\required文件夹下所有jar引入进项目
 <img src="http://b.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a094d07d8813632711edc236a1b4d1d1/a8ec8a13632762d04648e81ea2ec08fa513dc619.jpg?referer=d1125cbcd62a28341ab1023b22f7&x=.jpg"/>
+
 2.解压mysql-connector-java-5.1.29.zip，将mysql-connector-java-5.1.29-bin.jar引入进项目
 
 3.在项目的根目录创建hibernate的配置文件hibernate.cfg.xml，内容如下：
@@ -397,7 +404,7 @@ public class UserResource {
 }  
 ```
 
-##五、运行
+#五、运行
 1.将服务端运行后
 
 2.运行UserClient客户端，可以看到数据库已经实现增删改查
@@ -406,6 +413,4 @@ public class UserResource {
 <img src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=007dc5876f224f4a5399731639cce16f/42166d224f4a20a4f4a58f6692529822730ed0dc.jpg?referer=5bd6b3bbc45c10387d69faf210b2&x=.jpg"/>
 
 
-=====================
-
-完整项目代码已经上传<https://github.com/waylau/Restdemo>
+**本章源码**：[https://github.com/waylau/RestDemo/tree/master/jersey-demo5-mysql-hibernate](https://github.com/waylau/RestDemo/tree/master/jersey-demo5-mysql-hibernate)

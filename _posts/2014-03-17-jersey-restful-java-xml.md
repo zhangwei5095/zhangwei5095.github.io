@@ -122,3 +122,7 @@ XML和JSON 是最为常用的数据交换格式。本例子演示如何将java�
 <img src="http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=30ef47f39c2f07085b052a05d91fc9a4/267f9e2f07082838a80989a8ba99a9014c08f102.jpg?referer=276bf8ae700e0cf3f9e07bcb3f00&x=.jpg"/>
 在浏览器输入 <http://localhost:8089/RestDemo/rest/users>  输出对象的集合
 <img src="http://e.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=9cd4b18cb8a1cd1101b672258929b9c1/d000baa1cd11728b2318d99ecafcc3cec3fd2c50.jpg?referer=ac9db1cfaf4bd1135dda82028c4e&x=.jpg"/>
+
+
+
+**本章源码**：[https://github.com/waylau/RestDemo/tree/master/jersey-demo2-xml](https://github.com/waylau/RestDemo/tree/master/jersey-demo2-xml)

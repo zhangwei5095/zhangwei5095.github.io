@@ -55,7 +55,7 @@ tags: [Java, Jersey, REST]
 2.修改于mysql不兼容的sql语句`com.waylau.rest.dao.impl`中的`UserDaoImpl`:
 
 getUserById修改成如下：
-```java
+
 	@Override
 	public User getUserById(String id) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
@@ -77,10 +77,10 @@ getUserById修改成如下：
 		}
 		return user;
 	}
-```
+
 
 getAllUsers给成如下：
-```java
+
 	@Override
 	public List<User> getAllUsers() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
@@ -103,11 +103,11 @@ getAllUsers给成如下：
 		}
 		return uesrs;
 	}
-```
+
 
 或者如下：
 
-```java
+
 	@Override
 	public List<User> getAllUsers() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
@@ -130,7 +130,7 @@ getAllUsers给成如下：
 		}
 		return uesrs;
 	}
-```
+
 
 #四、问题
 

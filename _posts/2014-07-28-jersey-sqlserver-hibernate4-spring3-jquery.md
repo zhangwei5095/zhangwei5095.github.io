@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Ppring3.2+jquery
+title: 用Jersey构建RESTful服务8--Jersey+SQLServer+Hibernate4.3+Ppring3.2+jquery
 date: 2014-07-28 03:24
 author: admin
 comments: true
@@ -21,6 +21,7 @@ tags: [Java,Jersey,REST,jQuery]
 
 2. 在`WebContent`创建`index.html`:
 
+```xml
 	<!DOCTYPE HTML>
 	<html>
 	<head>
@@ -63,9 +64,11 @@ tags: [Java,Jersey,REST,jQuery]
 	
 	</body>
 	</html>
+```
 
 3. 修改`main.js`
 
+```javascript
 	// The root URL for the RESTful services
 	var rootURL = 'http://localhost:8089/RestDemo/rest/users';
 	
@@ -221,9 +224,11 @@ tags: [Java,Jersey,REST,jQuery]
 			"age": $('#age').val() 
 			});
 	}
+```
 
 4. 在`css`目录下创建`styles.css`文件
 
+```css
 	* {
 	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	  font-size: 18px;
@@ -312,6 +317,7 @@ tags: [Java,Jersey,REST,jQuery]
 	#searchKey {
 		width:160px;
 	}
+```
 
 #四、运行
 1.先运行项目

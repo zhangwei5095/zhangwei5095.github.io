@@ -4,8 +4,8 @@ title: 用Jersey构建RESTful服务8--Jersey+SQLServer+Hibernate4.3+Ppring3.2+An
 date: 2014-07-28 03:24
 author: admin
 comments: true
-categories: [Java,Jersey,REST,jQuery]
-tags: [Java,Jersey,REST,jQuery]
+categories: [Java,Jersey,REST,AngularJS]
+tags: [Java,Jersey,REST,AngularJS]
 ---
 #一、总体说明
 

@@ -30,6 +30,7 @@ tags: [JavaScript,规范]
   1. [事件](#events)
   1. [模块](#modules)
   1. [jQuery](#jquery)
+  1. [不使用](#dont-use)
  
  
 
@@ -956,6 +957,7 @@ tags: [JavaScript,规范]
 
 ## <a name='naming-conventions'>命名约定</a>
 
+  - JavaScript文件命名。所有js文件名，多个单词组成时，采用中划线连接方式，比如说： 账号模型文件 `account-model.js`
   - 避免单个字符名，让你的变量名有描述意义。
 
     ```javascript
@@ -1309,6 +1311,13 @@ tags: [JavaScript,规范]
 
     **[[↑]](#TOC)**
 
+## <a name='dont-use'>不使用</a>
+
+  - 生成标签。在 JavaScript 文件中生成标签让内容变得更难查找，更难编辑，性能更差。应该尽量避免这种情况的出现。
+  - eval 非特殊业务， 禁用！！！
+  - with 非特殊业务， 禁用！！！
+  
+    **[[↑]](#TOC)**
 
  
 ======================================================

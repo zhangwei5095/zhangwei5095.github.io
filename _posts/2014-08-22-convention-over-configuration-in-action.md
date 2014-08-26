@@ -21,6 +21,12 @@ tags: [architecture]
 比如 maven 项目约定，在没有自定义的情况下，源代码假定是在 `/workspace/content-zh/src/main/java`，资源文件假定是在`/workspace/content-zh/src/main/resources`
 。测试代码假定是在 `/workspace/content-zh/src/test`。项目假定会产生一个 JAR 文件。Maven假定你想要把编译好的字节码放到 `/workspace/content-zh/target/classes` 并且在 `/workspace/content-zh/target` 创建一个可分发的 JAR 文件。Maven 对约定优于配置的应用不仅仅是简单的目录位置，Maven 的核心插件使用了一组通用的约定，以用来编译源代码，打包可分发的构件，生成 web 站点，还有许多其他的过程。 Maven 的力量来自它的"武断"，它有一个定义好的生命周期和一组知道如何构建和装配软件的通用插件。如果你遵循这些约定，Maven 只需要几乎为零的工作——仅仅是将你的源代码放到正确的目录，Maven 将会帮你处理剩下的事情。
 
+比如 Yeoman 创建项目，只需一行代码
+
+	yeoman init angular 
+
+就会创建整个详细结构包括渲染路由的骨架，单元测试等
+
 比如 [HTML5 Boilerplate](http://html5boilerplate.com/),为App的默认模板以及文件路径规范，无论是网站或者富UI的App，都可以采用这个模板作为起步。HTML5 Boilerplate的模板核心部分不过30行，但是每一行都可谓千锤百炼，可以用最小的消耗解决一些前端的顽固问题：
 ![Boilerplate](http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=3d7cf70fcbfcc3ceb0c0c936a27ea7b5/b812c8fcc3cec3fd866fdc58d588d43f8794274d.jpg?referer=f86e14b2a70f4bfbd5c7ab648143&x=.jpg)
 

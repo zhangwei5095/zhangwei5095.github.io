@@ -8,20 +8,26 @@ categories: [Yeoman]
 tags: [Yeoman,angularjs]
 ---
 
-[TOC]
+# <a name='TOC'>目录</a>
+
+ 1. [认识Yeoman](#认识Yeoman)
+ 2. [设置开发环境](#设置开发环境)
 
 本文将通过 Yeoman 创建一个 AngularJS 应用，同时 也能感受到 [Grunt](http://gruntjs.com/) 和 [Bower](http://bower.io/) 的功能。
 
-#认识Yeoman
+# <a name='认识Yeoman'>认识Yeoman</a>
+![认识Yeoman](http://yeoman.io/assets/img/illustration-home-inverted.ce32.png)
 Yeoman 是一位戴帽子、立意奇颖的人。
-
-通过很少的命令，就能给你整个应用或者独立的模块生成模板代码，比如控制器或者模型。Yeoman 可以启动预览Web服务器，观察文件，如果被编辑，就会重新加载的变化和编译你的 [Sass](http://sass-lang.com/) 。 Yeoman 也可以运行单元测试，最小化代码，优化图像等等。
 
 Yeoman 是一套工作流程。
 
-![认识Yeoman](http://yeoman.io/assets/img/codelab/image_1.c942.png)
+Yeoman 是Web 应用开发脚手架。
+
+通过很少的命令，就能给你整个应用或者独立的模块生成模板代码，比如控制器或者模型。Yeoman 可以启动预览 Web 服务器，观察文件，如果被编辑，就会重新加载的变化和编译你的 [Sass](http://sass-lang.com/) 。 Yeoman 也可以运行单元测试，最小化代码，优化图像等等。
 
 Yeoman 致力于提高你在构建web应用时的生产力和舒适度，优化工作流程。用到三种核心工具：yo（脚手架工具），grunt（构建工具），bower（包管理工具）。
+
+![Yeoman流程](http://yeoman.io/assets/img/workflow.58d6.jpg)
 
 [Yo](http://yeoman.io/) 一个用于构建特定框架的生态系统的代码工具，称之为生成器(generator)。使用 yo 就能提前处理那些些繁琐的任务。
 
@@ -34,14 +40,19 @@ Yeoman 致力于提高你在构建web应用时的生产力和舒适度，优化�
 ##为何用 Yeoman
 
 Yeoman 是一个强大的有想法的客户端栈，包括那些能帮助开发者快速构建漂亮web应用的工具和框架。我们关注于提供所有应用上手所需要的东西，尽量免去所有手动安装的麻烦。
+
 采用了可以扩展的模块化架构，我们利用来自一些开源社区的成功经验和教训来确保开发者使用的栈尽可能的智能。
+
 作为一个良好的文档和深思熟虑的构建过程的坚定的拥趸，Yeoman 包括了对代码规范检测，测试，最小化以及更多其他功能的支持，所以开发者可以专注于解决方案而不用担心这些零散的东西。
+
 Yeoman 是快速的，高性能的并且经过优化可以很好的在现代浏览器中工作。
 
-#设置开发环境
-大部分与 Yeoman 相互作用是通过命令行。支持MAC、Linux、Windows。本文以 Windows 为例
+# <a name='设置开发环境'>设置开发环境</a>
+
+大部分通过命令行形式与 Yeoman 相互作用。支持MAC、Linux、Windows等名称。本文以 Windows 为例，用`cmd.exe`
 
 ##安装前提
+
 安装 Yeoman, 先要安装:
 
 * Node.js v0.10.x+ ：[下载](http://nodejs.org/dist/v0.10.31/x64/node-v0.10.31-x64.msi)
@@ -114,7 +125,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 本例的工作目录是`D:\workspaceNG`
 
-![工作目录]()
+![工作目录](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-04_zps5032bdf4.jpg)
 
 ##使用生成器
 
@@ -122,6 +133,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 >$ yo
 
+![yo](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-05_zpsa643f09d.jpg)
 键盘上下键选中 angular 的生成器，点击 `enter` 键
 
 当你熟悉了你的生成器之后，可以使用快速命令
@@ -136,12 +148,12 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 接着选用 Angular 模块。你可以使用空格键来取消项目。(当你在试用空格的效果时，确保所有的模块都被标记为绿色)。我们选用默认值就可以（即全部选中）。
 
-![Angular 模块]()
+![Angular 模块](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-07_zps3470357f.jpg)
 
 点击 `enter` 键，此时将会自动生成代码
 
 #预览 Yeoman 生成的应用
-![Yeoman 生成的应用]()
+![Yeoman 生成的应用](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-08_zpsca5cd70f.jpg)
 
 打开’mytodo’目录，会看到下面的文件结构：
 
@@ -171,7 +183,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 浏览器访问 [localhost:9000](localhost:9000) (或者 127.0.0.1:9000 )
 
-![grunt serve]()
+![grunt serve](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-01_zps006769aa.jpg)
 
 ##关闭服务
 
@@ -181,11 +193,11 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 现在可以打开编辑器开始更改应用。每次保存更改后，浏览器将会自动刷新，就是说你是不需要手动再刷新浏览器了。这个被称作`live reloading`，这提供了一个很好的方式来实时查看应用的状态。它是通过一系列的 Grunt 任务(配置在 `Gruntfile.js` )来监视你的文件的更改情况，一旦发现文件被改动了，`live reloading`就会自动刷新应用。在这个例子中，我们编辑了 `main.html`，通过 `live reloading` 我们从下面的状态：
 
-![旧状态]()
+![旧状态](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-02_zps7baacb9d.jpg)
 
 马上到了这个状态：
 
-![新]()
+![新](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-03_zps095fca5f.jpg)
 
 (PS:在各个浏览器测试中，老旧的浏览器可能不会自动刷新页面，比如IE9)
 
@@ -230,7 +242,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 在浏览器中查看ng-repeat和ng-model动态变化的效果。在保存之前，我们的应用看起来应该是下图这个样子的：
 
-![todos]()
+![todos](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/todo_zps5ca53abc.jpg)
 
 更新 `$scope.todos`,增加第四个项目
 
@@ -266,7 +278,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 在页面顶部增加了一个带有提交按钮的表单。这个表单使用了另一个Angular指令 [ng-submit](http://docs.angularjs.org/api/ng.directive:ngSubmit)。返回查看你的浏览器，现在的UI应该是下面这个这样子的：
 
-![todo add]()
+![todo add](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/todo-01_zpsd8034d7b.jpg)
 
 点击 `Add` 按钮，啥事都不会发生，现在要做下改动：
 
@@ -294,7 +306,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 添加一个文本进去看下效果：
 
-![add a item]()
+![add a item](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/todo-02_zps6d7c0e8c.jpg)
 
 注意：本例只是一个简单的演示，未对输入做验证
 
@@ -312,7 +324,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 回到浏览器，现在你的应用看起来有点靓了哦！
 
-![remove a item]()
+![remove a item](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/todo-03_zps8f5ffa11.jpg)
 
 上面的代码中使用了一个新的 Angular 指令 [ng-click](http://docs.angularjs.org/api/ng.directive:ngClick)。可以用 ng-click 来控制元素被点击时的行为。在这个例子中，我们调用了`removeTodo()` 方法并将 `$index` 传入了这个方法。 
 
@@ -342,7 +354,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 回到浏览器，现在你可以点击移除按钮将一个 todo 项从列表中移除。有点屌！
 
-![]()
+![remve item](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/todo-04_zps4d21502a.jpg)
 
 虽然我们可以添加和移除Todo事项，但是这些记录都不能永久地保存。一旦页面被刷新了，更改的记录都会不见了，又恢复到 `main.js` 中设置的`todo` 数组的值。不过不要担心这个问题，之后会讲到更多关于使用 `Bower` 安装包，这个问题就会被解决的。
 
@@ -356,7 +368,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 >$ bower list
 
-![]()
+![ bower list](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/bower_zps6514aa7b.jpg)
 
 在项目初始化配置的时候，我们已经将包添加进了项目
 
@@ -366,7 +378,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
  
 >$ bower search angular-ui-sortable
 
-![bower search]()
+![bower search](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/bower-01_zpsce838305.jpg)
 
 结果搜到两个记录，我们需要的是第一个
 
@@ -384,13 +396,13 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 >$ bower install --save angular-ui-sortable jquery-ui
 
-![bower install]()
+![bower install](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/bower-02_zpscc976603.jpg)
 
 ##确认安装
 
 看一下你的 `bower_components` 目录是不是所有包都已经检出下来了，你可以看到 `jquery-ui`和 `angular-ui-sortable` 出现在之前已经安装的Angular包边上了：
 
-![确认安装]()
+![确认安装](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/bower-03_zps32cbeaeb.jpg)
 
 ##让 todos 应用可排序
 
@@ -455,7 +467,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 效果如下：
 
-![]()
+![可移动](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-04_zpsc5335661.gif)
 
 #用 Karma 和 Jasmine 进行测试
 
@@ -522,7 +534,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 测试通过，效果如下：
 
-![测试通过]()
+![测试通过](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/karma_zps2ece45af.jpg)
 
 ##添加更多单位测试
 
@@ -582,7 +594,7 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 测试通过，效果如下：
 
-![测试通过]()
+![测试通过](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/karma-01_zps30870c3a.jpg)
 
 屌爆了！
 
@@ -630,7 +642,7 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 >$ bower install --save angular-local-storage
 
-![angular-local-storage]()
+![angular-local-storage](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/storage_zps2447b234.jpg)
 
 ##添加本地存储
 关闭线程，重启服务
@@ -748,7 +760,7 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 在浏览器中查看应用，你会发现 todo 列表中没有任何东西。因为这个应用从本地存储中读取了 todo 数组，而本地存储中还没有任何 todo 项。
 
 再来添加一些项目到列表中吧：
-![添加一些项目]()
+![添加一些项目](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/storage-01_zpscc3fbcdb.jpg)
 
 在当我们再次刷新我们的浏览器的时候，这些项目都还在。哦也~
 

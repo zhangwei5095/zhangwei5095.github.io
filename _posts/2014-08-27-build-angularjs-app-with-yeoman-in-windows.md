@@ -12,6 +12,18 @@ tags: [Yeoman,angularjs]
 
  1. [认识Yeoman](#认识Yeoman)
  2. [设置开发环境](#设置开发环境)
+ 3. [安装 Yeoman 生成器](#安装Yeoman生成器)
+ 4. [使用脚手架](#使用脚手架)
+ 5. [预览 Yeoman 生成的应用](#预览Yeoman生成的应用)
+ 6. [浏览器中预览应用](#浏览器中预览应用)
+ 7. [写一个自己的 AngularJS 应用](#写一个自己的AngularJS应用)
+ 8. [使用 Bower 安装包](#使用Bower安装包)
+ 9. [用 Karma 和 Jasmine 进行测试](#用Karma和Jasmine进行测试)
+ 10. [准备发布产品](#准备发布产品)
+ 11. [本地存储来持久化数据](#本地存储来持久化数据)
+ 12. [总结](#总结)
+ 13. [参考](#参考)
+ 14. [源码](#源码)
 
 本文将通过 Yeoman 创建一个 AngularJS 应用，同时 也能感受到 [Grunt](http://gruntjs.com/) 和 [Bower](http://bower.io/) 的功能。
 
@@ -47,6 +59,8 @@ Yeoman 是一个强大的有想法的客户端栈，包括那些能帮助开发�
 
 Yeoman 是快速的，高性能的并且经过优化可以很好的在现代浏览器中工作。
 
+[[↑]](#TOC)
+
 # <a name='设置开发环境'>设置开发环境</a>
 
 大部分通过命令行形式与 Yeoman 相互作用。支持MAC、Linux、Windows等名称。本文以 Windows 为例，用`cmd.exe`
@@ -63,11 +77,11 @@ Yeoman 是快速的，高性能的并且经过优化可以很好的在现代浏�
 
 >$ node --version && npm --version
 
-![node](http://image16-c.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194357088.jpg?506x127_120)
+![node](http://image16.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194357088.jpg?506x127_120)
 
 >$ git --version
 
-![git](http://image16-c.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194420054.jpg?396x87_12)
+![git](http://image16.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194420054.jpg?396x87_12)
 
 ##安装 Yeoman 工具集
 
@@ -77,7 +91,7 @@ Yeoman 是快速的，高性能的并且经过优化可以很好的在现代浏�
 
 完成后出现如下界面：
 
-![yo](http://image16-c.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194437090.jpg?667x547_120)
+![yo](http://image16.poco.cn/mypoco/myphoto/20140827/19/17476175320140827194437090.jpg?667x547_120)
 
 确认安装成功
 
@@ -97,11 +111,13 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 则会显示三个版本信息，分别是 Yeoman、Bower、Grunt CLI 的。说明yeoman 安装成功。
 
-![yo-versio]()
+![yo-version](http://image16.poco.cn/mypoco/myphoto/20140828/14/17476175320140828140802098.jpg?642x189_120)
 
-#安装 Yeoman 生成器
+[[↑]](#TOC)
 
-在传统的Web开发流程，你将需要花大量的时间给你的 webapp 建立样板代码，下载依赖，并手动创建应用的文件夹结构。现在这一切交给 Yeoman 生成器来做！下面安装 AngularJS 的生成器
+# <a name='安装Yeoman生成器'>安装 Yeoman 生成器</a>
+
+在传统的 Web 开发流程，你将需要花大量的时间给你的 webapp 建立样板代码，下载依赖，并手动创建应用的文件夹结构。现在这一切交给 Yeoman 生成器来做！下面安装 AngularJS 的生成器
 
 ##安装 AngularJS 的生成器
 
@@ -113,7 +129,9 @@ Yeoman 生成器使用  [npm](https://www.npmjs.org/) 命令,现在可用的生�
 
 `0.9.5` 指版本号
 
-#使用脚手架
+[[↑]](#TOC)
+
+# <a name='使用脚手架'>使用脚手架</a>
 
 Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
@@ -144,7 +162,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 一些生成器也会提供一些有共同开发库（common developer libraries）的可选配置来定制你的应用，能够加速初始化你的开发环境。 generator-angular 会询问你需不需要使用 [Sass](http://sass-lang.com/) (使用 [Compass](http://compass-style.org/))或者[Twitter Bootstrap](http://getbootstrap.com/)，使用’n'和’y'进行选择。本例不要用 Sass ，而选用 Bootstrap
 
-![Bootstrap]()
+![Bootstrap](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-06_zpsbb47e1cf.jpg)
 
 接着选用 Angular 模块。你可以使用空格键来取消项目。(当你在试用空格的效果时，确保所有的模块都被标记为绿色)。我们选用默认值就可以（即全部选中）。
 
@@ -152,7 +170,10 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 点击 `enter` 键，此时将会自动生成代码
 
-#预览 Yeoman 生成的应用
+[[↑]](#TOC)
+
+# <a name='预览Yeoman生成的应用'>预览 Yeoman 生成的应用</a>
+
 ![Yeoman 生成的应用](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/yo-08_zpsca5cd70f.jpg)
 
 打开’mytodo’目录，会看到下面的文件结构：
@@ -173,9 +194,11 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 另外：示例中的所有 `js` 代码都使用了严格模式，有关严格模式的内容可以参考[http://www.waylau.com/javascript-use-strict-mode/](http://www.waylau.com/javascript-use-strict-mode/)
 
-#浏览器中预览应用
+[[↑]](#TOC)
 
-无需再你的电脑中安装 web 服务器，Yeoman 已经包含了。
+# <a name='浏览器中预览应用'>浏览器中预览应用</a>
+
+无需在你的电脑中安装 web 服务器，Yeoman 已经包含了。
 
 ##启动服务
 
@@ -201,9 +224,11 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 (PS:在各个浏览器测试中，老旧的浏览器可能不会自动刷新页面，比如IE9)
 
-#写一个自己的 AngularJS 应用
+[[↑]](#TOC)
 
-这里提供最终的[项目源码](http://yeoman.io/codelab.html#source-files)
+# <a name='写一个自己的AngularJS应用'>写一个自己的 AngularJS 应用</a>
+
+这里 Yeoman 提供最终的[项目源码](http://yeoman.io/codelab.html#source-files),如果打不开(国外网站，可能被墙)，也可以访问笔者的项目源码[https://github.com/waylau/mytodo](https://github.com/waylau/mytodo)
 
 ##创建新模板展现 Todo 列表
 
@@ -330,7 +355,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 `$index` 的值是当前 `todo` 项在整个 `todos` 数组中的位置的索引值。举个例子，数组中的第一项的索引值是0，那么0就会被传入`removeTodo()`；类似的，在一个五项的Todo列表中，最后一项的索引值是4,4就会被传入 `removeTodo()`。 
 
-现在我们来实现这个removeTodo()方法，下面的代码是使用 `JavaScript` 中的 `splice` 方法将要移除的项通过给定的 `$index` 值从数组中移除：
+现在我们来实现这个 `removeTodo()` 方法，下面的代码是使用 `JavaScript` 中的 `splice` 方法将要移除的项通过给定的 `$index` 值从数组中移除：
 
 	$scope.removeTodo = function (index) {
 	  $scope.todos.splice(index, 1);
@@ -358,7 +383,9 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 虽然我们可以添加和移除Todo事项，但是这些记录都不能永久地保存。一旦页面被刷新了，更改的记录都会不见了，又恢复到 `main.js` 中设置的`todo` 数组的值。不过不要担心这个问题，之后会讲到更多关于使用 `Bower` 安装包，这个问题就会被解决的。
 
-#使用 Bower 安装包
+[[↑]](#TOC)
+
+# <a name='使用Bower安装包'>使用 Bower 安装包</a>
 
 现在给我们的列表添加一些排列方式来合理地显示它。所以我们要使用`Bower` 安装了一个 Angular 组件，叫做[AngularUI Sortable module](https://github.com/angular-ui/ui-sortable)。
 
@@ -400,7 +427,7 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 ##确认安装
 
-看一下你的 `bower_components` 目录是不是所有包都已经检出下来了，你可以看到 `jquery-ui`和 `angular-ui-sortable` 出现在之前已经安装的Angular包边上了：
+看一下你的 `bower_components` 目录是不是所有包都已经检出下来了，你可以看到 `jquery-ui` 和 `angular-ui-sortable` 出现在之前已经安装的Angular包边上了：
 
 ![确认安装](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/bower-03_zps32cbeaeb.jpg)
 
@@ -469,7 +496,9 @@ Yeoman 脚手架,会根据你的具体配置要求自动生产应用文件。
 
 ![可移动](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-04_zpsc5335661.gif)
 
-#用 Karma 和 Jasmine 进行测试
+[[↑]](#TOC)
+
+# <a name='用Karma和Jasmine进行测试'>用 Karma 和 Jasmine 进行测试</a>
 
 [Karma](http://karma-runner.github.io/)是一个JS测试框架。Angular生成器本身已经包括了两个测试框架：[ngScenario](https://code.angularjs.org/1.2.16/docs/guide/e2e-testing) 和[Jasmine](http://jasmine.github.io/)。当之前我们运行`yo angular` 的时候，在 `mytodo` 文件夹下会生成了一个 `test` 目录，还有一个 `karma.conf.js` 文件，它会被放入在 `Node` 模块中以使用`Karma`。我们将会编辑一个 `Jasmine` 脚本来完成我们的测试。现在先来看看要怎么进行测试。
 
@@ -600,6 +629,8 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 当项目变大，开发人员不断加入的时候，编写单元测试更容易捕捉 BUG，Yeoman  的脚手架功能使编写单元测试更容易，所以没有理由不写自己的测试！;)b
 
+# <a name='准备发布产品'>准备发布产品</a>
+
 ##为产品优化文件
 
 为了将应用发布为产品版本，还需要做很多工作：
@@ -608,7 +639,7 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 * 运行我们的测试
 * 合并和缩小脚本和样式来减少网络请求
 * 优化任何使用到的图像
-* 我们使用的输出进行编译处理，使程序瘦身
+* 对所有输出进行编译处理，使程序瘦身
 
 呦西~实现上述目标只需一句：
 
@@ -616,7 +647,7 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 这个命令将会完成 Grunt 的任务以及根据 Gruntfile.js 文件进行配置，创建一个可以运行的应用版本。只需等上一分钟，你就能得到一个完整的编译版本，和一份编译过程耗时的报告。
 
-![编译完成]()
+![编译完成](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-04_zpsc278574f.jpg)
 
 编译完成后的文件，放在了 dist 目录下，是一个可以拿去服务器上的部署的真正的产品。
 
@@ -628,9 +659,11 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 它会自动编译项目，并且启动 web 服务器 。Yo 真是牛！
 
-![编译运行项目]()
+![编译运行项目](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/grunt-05_zpsd14207be.jpg)
 
-#本地存储来持久化数据
+[[↑]](#TOC)
+
+# <a name='本地存储来持久化数据'>本地存储来持久化数据</a>
 
 之前项目的数据，当浏览器刷新后就不会保存了。现在扯下数据持久化。
 
@@ -766,16 +799,21 @@ MainCtrl 控制器完整的测试文档（`test/spec/controllers/main.js`），�
 
 在Chrome浏览器 按 F12 ,弹出开发工具（Chrome DevTools）中的 Resources 面板里确认我们的数据是不是真的被永久储存在本地存储中。在资源面板的左侧里选中`Local Storage`：
 
+![Local Storage](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/storage-02_zpsabd7b10f.jpg)
+
 更多有关单位测试的，可以移步至[Unit Testing Best Practices in AngularJS](http://andyshora.com/unit-testing-best-practices-angularjs.html)
 
-#总结
+[[↑]](#TOC)
+
+# <a name='总结'>总结</a>
+
 ##Yeoman 可以做更多
 
 Yeoman 支持 包括 Angular 在内的其他框架的脚手架。
 
-Anugular生成器也支持创建新的视图、指令和控制器。可以通过运行`yo angular:route routeName`搭建一个新的控制器，同时在 `app.js`中的路由也会被更新。在可能使用单元测试的地方，我们也会试图搭建测试。
+Anugular生成器也支持创建新的视图、指令和控制器。可以通过运行 `yo angular:route routeName` 搭建一个新的控制器，同时在 `app.js` 中的路由也会被更新。在可能使用单元测试的地方，我们也会试图搭建测试。
 
-想要知道更多有关于 Angular 生成器的 Yeoman 命令，请查看[generator readme](https://github.com/yeoman/generator-angular#readme)。
+了解更多有关于 Angular 生成器的 Yeoman 命令，请查看[generator readme](https://github.com/yeoman/generator-angular#readme)。
 
 ##下步工作
 
@@ -784,10 +822,15 @@ Anugular生成器也支持创建新的视图、指令和控制器。可以通过
 * [Bower](http://bower.io/)上可以获取的包的资源越来越多，可以在这里查看所有的[包](http://bower.io/)
 * Yeoman 会持续更新。查看[yeoman.io](http://yeoman.io/)获取更多信息，也可以关注[@yeoman](https://twitter.com/yeoman)和[+Yeoman](https://plus.sandbox.google.com/101063139999404044459/posts)
 
+[[↑]](#TOC)
 
 
-参考 ：
+# <a name='参考'>参考</a>
+
 * [http://yeoman.io/codelab.html](http://yeoman.io/codelab.html)
 
-源码：
+# <a name='源码'>源码</a>
+这里 Yeoman 提供最终的[项目源码](http://yeoman.io/codelab.html#source-files),如果打不开(国外网站，可能被墙)，也可以访问笔者的项目源码[https://github.com/waylau/mytodo](https://github.com/waylau/mytodo)
 
+
+[[↑]](#TOC)

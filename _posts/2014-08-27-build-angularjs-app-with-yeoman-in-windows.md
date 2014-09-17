@@ -4,8 +4,8 @@ title: 在Windows环境下用Yeoman构建AngularJS项目
 date: 2014-08-27 01:40
 author: admin
 comments: true
-categories: [Yeoman]
-tags: [Yeoman,angularjs]
+categories: [Yeoman,AngularJS]
+tags: [Yeoman,AngularJS,Grunt,Bower]
 ---
 
 # <a name='TOC'>目录</a>

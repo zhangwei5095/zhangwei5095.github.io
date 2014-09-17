@@ -8,21 +8,21 @@ categories: [Web]
 tags: [Photobucket]
 ---
 
-##百度相册外链分享
+##1.百度相册外链分享
 
 ![SQLServer.exe](http://e.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d7311b4cb0119313c343ffb555037dea/faf2b2119313b07e4ef285860ed7912396dd8cf5.jpg?referer=149d9678a5efce1bb33cfcfaecab&x=.jpg)
 优点：国内站，速度快，可以批量上传
 
 缺点：右下角会有水印，很是不爽
 
-##试下[Photobucket](http://photobucket.com)
+##2.试下[Photobucket](http://photobucket.com)
 免费，无水印
 
  <img src="http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/4E9280547F514E0D5728A80A14E0A5E027684539F56E0_zpsc7c53c1a.jpg" border="0" alt=" photo 4E9280547F514E0D5728A80A14E0A5E027684539F56E0_zpsc7c53c1a.jpg"/> 
 优点：可以批量上传，可以照片分类，文件夹下可以再建文件夹
 缺点：国外网站，网速比较慢
 
-##[POCO](www.poco.cn/)貌似也不错
+##3.[POCO](www.poco.cn/)貌似也不错
 POCO是您的图片生活记录和分享平台，在这里用图片记录您的生活、分享您的一切，在各兴趣社区以图会友、参加各种POCO线上线下活动。
 POCO给你提供。。。。
 1.跟图片有关的一切服务：发单图微博、发组图博文、发兴趣图片、建立免费可外链相册...
@@ -54,3 +54,9 @@ POCO网站首页，并获得荣誉勋章
 <img src="http://image16.poco.cn/mypoco/myphoto/20140523/11/17476175320140523113816047.png?280x280_130"/>
 
 缺点：只能单张图片上传
+
+##七牛云存储
+优点：国内站，稳定，全网加速，图片处理：
+
+缺点：有流程和存储的限制。体验用户：储存空间1GB每月Put请求1万次每月下载流量1GB每月Get请求10万次创建1个空间仅支持富媒体上传.
+如果注册为标准用户，还要提供身份，个人照片，貌似有点麻烦

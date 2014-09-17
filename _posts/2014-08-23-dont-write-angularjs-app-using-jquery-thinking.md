@@ -5,7 +5,7 @@ date: 2014-08-23 01:40
 author: admin
 comments: true
 categories: [AngularJS]
-tags: [AngularJS]
+tags: [AngularJS,jQuery]
 ---
  
 #jQuery and AngularJS 苹果、橙

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:HTML &lt;label&gt; 提升&lt;input&gt;用户体验 
+title: HTML &lt;label&gt; 提升&lt;input&gt;用户体验 
 date: 2014-09-17 01:40
 author: admin
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java版本号处理——split 点号 split(".") 
+title: Java版本号处理-split 点号 split(".") 
 date: 2014-09-24 01:40
 author: admin
 comments: true

@@ -28,7 +28,8 @@ tags: [Yeoman,AngularJS,Grunt,Bower]
 本文将通过 Yeoman 创建一个 AngularJS 应用，同时 也能感受到 [Grunt](http://gruntjs.com/) 和 [Bower](http://bower.io/) 的功能。
 
 # <a name='认识Yeoman'>认识Yeoman</a>
-![认识Yeoman](http://yeoman.io/assets/img/illustration-home-inverted.ce32.png)
+![认识Yeoman](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/meet_zpsafcce7c4.jpgg)
+
 Yeoman 是一位戴帽子、立意奇颖的人。
 
 Yeoman 是一套工作流程。
@@ -39,7 +40,7 @@ Yeoman 是Web 应用开发脚手架。
 
 Yeoman 致力于提高你在构建web应用时的生产力和舒适度，优化工作流程。用到三种核心工具：yo（脚手架工具），grunt（构建工具），bower（包管理工具）。
 
-![Yeoman流程](http://yeoman.io/assets/img/workflow.58d6.jpg)
+![Yeoman流程](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/meet2_zpsb9a9cb73.jpg)
 
 [Yo](http://yeoman.io/) 一个用于构建特定框架的生态系统的代码工具，称之为生成器(generator)。使用 yo 就能提前处理那些些繁琐的任务。
 

@@ -28,7 +28,7 @@ tags: [Yeoman,AngularJS,Grunt,Bower]
 本文将通过 Yeoman 创建一个 AngularJS 应用，同时 也能感受到 [Grunt](http://gruntjs.com/) 和 [Bower](http://bower.io/) 的功能。
 
 # <a name='认识Yeoman'>认识Yeoman</a>
-![认识Yeoman](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/meet_zpsafcce7c4.jpgg)
+![认识Yeoman](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/yeoman/meet_zpsafcce7c4.jpg)
 
 Yeoman 是一位戴帽子、立意奇颖的人。
 

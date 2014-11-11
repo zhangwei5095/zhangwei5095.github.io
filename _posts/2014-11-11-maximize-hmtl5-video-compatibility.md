@@ -37,11 +37,14 @@ HTML5 在 web 页面使用 video 元素呈现视频。但 HTML5 视频并不是�
 
 4. 链接到所有三个视频文件在一个 video 元素里。
 
+```html
+
 	<video controls="controls" poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360">
-	<source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" />
-	<source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" />
-	<source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" />
+		<source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" />
+		<source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" />
+		<source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" />
 	</video>
+```
 
 结果如下：
 

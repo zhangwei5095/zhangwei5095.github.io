@@ -25,7 +25,7 @@ HTML5 在 web 页面使用 video 元素呈现视频。但 HTML5 视频并不是�
 
 你会发现没有单一的容器和编解码器能在所有 HTML5 浏览器工作。 由于许可和其他问题,在不久的将来这是不可能改变。
 
-你可以参考这篇文章: [HTML5视频浏览器兼容性问题和解决方案]() !
+你可以参考这篇文章: [HTML5视频浏览器兼容性问题和解决方案](http://www.html5videoplayer.net/html5video/html5-video-browser-compatibility/) !
 
 对于最大的兼容性,可以遵循你的HTML5视频工作波形工作流。
 

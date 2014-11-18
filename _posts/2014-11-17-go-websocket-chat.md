@@ -8,7 +8,7 @@ categories: [Golang]
 tags: [Golang,WebSocket]
 ---
 
-这个示例应用程序展示了如何使用 [WebSocket](http://tools.ietf.org/html/rfc6455), [Golang](http://golang.org/) 和  [jQuery](http://jquery.com/) 创建一个简单的web聊天应用程序。这个示例的源代码在 [GitHub](https://github.com/garyburd/websocket-example) 。
+这个示例应用程序展示了如何使用 [WebSocket](http://tools.ietf.org/html/rfc6455), [Golang](http://golang.org/) 和  [jQuery](http://jquery.com/) 创建一个简单的web聊天应用程序。这个示例的源代码在 [https://github.com/waylau/goChat](https://github.com/waylau/goChat) 。
 
 ##Running the example 运行示例
 
@@ -79,7 +79,7 @@ tags: [Golang,WebSocket]
 
 应用程序的 主要 函数启动 hub 以 goroutine 形式运行方法。连接器 发送请求到 hub 通过 注册、注销和广播 channel。
 
-hub 注册连接器通过添加 connection 的指针作为pointer as a key  connections map 的主键。这个  map 的值通常是 true。
+hub 注册连接器通过添加 connection 的指针作为 connections map 的主键。这个  map 的值通常是 true。
 
 注销的代码有点复杂。除了从 connections map 删除连接器的指针外,  hub 关闭了 connection 的发送，来标识没有信息再被发送到 connection了。
 
@@ -137,15 +137,15 @@ hub 通过循环注册连接器和发送信息到连接器的发送 channel 来�
 	    c.reader()
 	}
 
-wsHandler 方法被主函数当做[http handler](http://golang.org/pkg/net/http/#Handler)注册. The upgrades the HTTP connection to the WebSocket protocol, creates a connection object, registers the connection with the hub and schedules the connection to be unregistered using a defer statement.
+wsHandler 方法被主函数当做[http handler](http://golang.org/pkg/net/http/#Handler)注册。HTTP 连接到 WebSocket 协议的升级，创建一个连接对象，注册这个连接到 sub ,并通过 [defer](http://weekly.golang.org/doc/effective_go.html#defer)延迟语句 来控制 连接的注销。
 
-Next, the wsHandler function starts the connection's writer method as a goroutine. The writer method transfers messages from the connection's send channel to the websocket. The writer method exits when the channel is closed by the hub or there's an error writing to the websocket.
+接着，wsHandler 方法开启 连接器的写入方法作为一个 goroutine。 写入方法将信息从连接器的 channel 转入 websocket。当 hub 关闭 channel 或者 在写入 websocket 时出错，写入方法关闭。
 
-Finally, the wsHandler function calls the connection's reader method. The reader method transfers inbound messages from the websocket to the hub.
+最后，wsHandler 方法 调用连接器的 读 方法。 读方法将 入站消息 从 websocket 转到 hub。
 
-Here's the remainder of the server code.
+这里是服务器的代码的其余部分:
 
-	ackage main
+	package main
 
 	import (
 	    "flag"
@@ -185,11 +185,11 @@ Here's the remainder of the server code.
 	    }
 	}
 
-The application's main function starts the hub goroutine. Next, the main function registers handlers for the home page and websocket connections. Finally, the main function starts the HTTP server.
+应用主程序启动 hub goroutine。 接着 主程序 注册 主页 和 websocket 连接器的控制器N。最后主程序启动 HTTP 服务器。
 
-##Client
+##Client 客户端
 
-The client is implemented in a single HTML file.
+客户端的实现是一个简单的 HTML 文件：
 
 	<html>
 	<head>
@@ -283,13 +283,13 @@ The client is implemented in a single HTML file.
 	</body>
 	</html>
 
-The client uses jQuery to manipulate objects in the browser.
+客户端使用 [jQuery](http://jquery.com/)
 
-On document load, the script checks for websocket functionality in the browser. If websocket functionality is available, then the script opens a connection to the server and registers a callback to handle messages from the server. The callback appends the message to the chat log using the appendLog function.
+文档加载。脚本检查 websocket 的功能 。如果 WebSocket 功能 可以用，然后打开脚本与服务器的连接，并注册一个回调处理来自服务器的信息。回调使用 appendlog 方法将消息添加到聊天记录。
 
-To allow the user to manually scroll through the chat log without interruption from new messages, the appendLog function checks the scroll position before adding new content. If the chat log is scrolled to the bottom, then the function scrolls new content into view after adding the content. Otherwise, the scroll position is not changed.
+appendlog 方法检查在添加新的内容时的滚动位置，从而可以让用户手动滚动聊天记录而不会被新来的消息中断。如果聊天记录滚动至底部，那么新内容添加的到旧内容的后面。否则，滚动的位置不会改变。
 
-The form handler writes the user input to the websocket and clears the input field.
+表单处理器将用户的输入写入到 WebSocket 并且清除输入字段。
 
 
 *参考：*[http://gary.burd.info/go-websocket-chat](http://gary.burd.info/go-websocket-chat)

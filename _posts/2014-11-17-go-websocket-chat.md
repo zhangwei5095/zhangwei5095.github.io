@@ -27,7 +27,7 @@ tags: [Golang,WebSocket]
 
 应用程序定义了两种类型, connection 和 hub 。服务器为每个 webscocket 连接 创建的一个 connection 类型的实例 。 连接器扮演了 websocket 和 hub 类型单例 之间的媒介 。 hub 保持一组注册了的连接器 和 广播到连接器的信息。
 
-程序运行了一个 goroutine 给 hub 和两个 goroutine 给每个连接器。 goroutine 通过 channel 和其他进行交流。 hub 拥有注册连接器、注销连接器和广播信息的 channel。一个连机器拥有缓存的发出信息的 channel 。其中一个 连接器的 goroutine 从这个 channel 中读信息 并把信息写入 webscoket。另外一个连接器 goroutine 从 websocket  读信息，并把信息发送到 hub。
+程序运行了一个 goroutine 给 hub ,两个 goroutine 给每个连接器。 goroutine 通过 channel 和其他进行交流。 hub 拥有注册连接器、注销连接器和广播信息的 channel。一个连机器拥有缓存的发出信息的 channel 。其中一个 连接器的 goroutine 从这个 channel 中读信息 并把信息写入 webscoket。另外一个连接器 goroutine 从 websocket  读信息，并把信息发送到 hub。
 
 下面是 hub 类型代码：
 

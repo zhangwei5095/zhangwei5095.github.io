@@ -168,7 +168,7 @@ VPN 在 Windows 上的分步指南 (使用 SoftEther VPN)
 如上图，如果数据包路径是通过 "10.211.254.254" ，你的通信现在就是通过 VPN Gate 公共 VPN 服务器中的一个转发的。
 您还可以访问 VPN Gate 顶部页面 来查看当前的全球 IP 地址。如果你连接到一个位于海外国家的 VPN 服务器，您可以看到您的来源国或地区已更改为其他的。
  
-![(http://i1288.photobucket.com/albums/b484/waylau/10_zps3b2c9346.jpg)
+![](http://i1288.photobucket.com/albums/b484/waylau/10_zps3b2c9346.jpg)
 
 当你的 VPN 连接建立时，享受 YouTube、Facebook 或 Twitter 吧。
 Facebook、Twitter 和 Gmail 使用 HTTPS (SSL) 加密的通信协议。无论是否通过 VPN ，没有人可以窃听这些加密通信。

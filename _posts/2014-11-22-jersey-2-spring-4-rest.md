@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用 Jersey 2 和 Spring 4 构建 RESTful web service
-date: 2014-11-21 02:41
+date: 2014-11-22 02:41
 author: admin
 comments: true
 categories: [Jersey]

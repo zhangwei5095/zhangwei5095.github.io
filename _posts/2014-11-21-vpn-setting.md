@@ -76,8 +76,8 @@ tags: [Web，VPN]
 ![](http://99btgc01.info/uploads/2014/11/002l.jpg)
 
 向下滚动配置屏幕，并点击 "Show advanced options" 复选框，如果合适的话。
-在 "IPSec pre-shared key" 字段指定 "vpn" (3 个字母)。
-在 "Forwarding routes" 字段指定 "0.0.0.0/0" (9 个字母)。请确定你在 "Forwarding routes" 字段输入正确。如果不对，你不能通过 VPN 通信。
+在 "IPSec pre-shared key" 字段输入 vpn  的密码，
+在 "Forwarding routes" 字段输入 "0.0.0.0/0" (9 个字母)。请确定你在 "Forwarding routes" 字段输入正确。如果不对，你不能通过 VPN 通信。
 所有输完后，点击 "Save" 按钮并保存 VPN 连接设置。
 
 ![](http://99btgc01.info/uploads/2014/11/002l.jpg)

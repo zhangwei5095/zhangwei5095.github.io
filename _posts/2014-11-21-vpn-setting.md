@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 设置 VPN,通过 VPN 科学上网
+title: 设置 VPN,通过 VPN 翻墙科学上网
 date: 2014-11-21 02:41
 author: admin
 comments: true

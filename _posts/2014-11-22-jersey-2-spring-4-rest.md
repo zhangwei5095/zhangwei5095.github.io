@@ -35,8 +35,6 @@ Spring 可以对于 REST 有自己的实现(见 [https://spring.io/guides/tutori
 
 
 
-![](http://99btgc01.info/uploads/2014/11/run-integration-tests-eclipse.png)
-
 简述下技术框架：
 
 ####1.3.1. Jersey (外观)
@@ -544,4 +542,410 @@ PUT  POST 最大的区别是 ，PUT 就是把你应该事先知道资源将被�
 
 注解
 
-* `@POST`
+* @POST – 指示方法响应到 HTTP POST 请求
+* @Consumes({MediaType.APPLICATION_FORM_URLENCODED}) – 定义方法可以接受的媒体类型，本例为"application/x-www-form-urlencoded"
+* @FormParam – 这个注解绑定的表单参数值包含了请求对应资源方法参数的实体。值是 URL  的解码，除非 禁用 解码的注解。
+* @Produces({MediaType.TEXT_HTML}) – 定义方法产生的媒体类型本例为 "text/html"
+
+响应
+
+* 成功: HTTP 状态 为 201 的 text/html 文件和头的位置指定的资源已被创建
+* 错误:
+	* 400：没有足够的数据提供
+	* 409：冲突了。如果在服务器端被确定 具有相同的 podcast 的存在
+
+####3.2.2. 读 podcast
+
+#####3.2.2.1. 设计
+
+API 支持两种操作
+
+* 返回 podcast 的集合
+* 根据 id 返回  podcast
+
+<tbody align="center"><tr><td><b>&nbsp;Description</b></td><td><b>&nbsp;URI</b></td><td><b>&nbsp;HTTP method<br> </b></td><td><b>&nbsp;HTTP Status response</b></td><iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></tr><tr><td>返回所有 podcast </td><td>&nbsp;/podcasts/?orderByInsertionDate={ASC|DESC}&amp;numberDaysToLookBack={val}</td><td>GET</td><td>200&nbsp;OK</td></tr><tr><td>&nbsp;添加新的 podcast (所有值都要传递)</td><td>&nbsp;/podcasts/{id}</td><td>GET</td><td>200&nbsp;OK</td></tr></tbody>
+
+注意到集合资源的参数–rderByInsertionDate 和 numberDaysToLookBack。在URI查询参数添加过滤器而不是路径的一部分这个是很有道理的。
+
+#####3.2.2.2. 实现
+
+######3.2.2.2.1. 获取所有 podcasts (“/”)
+
+	/**
+	 * Returns all resources (podcasts) from the database
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws JsonMappingException
+	 * @throws JsonGenerationException
+	 * @throws AppException
+	 */
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<Podcast> getPodcasts(
+			@QueryParam("orderByInsertionDate") String orderByInsertionDate,
+			@QueryParam("numberDaysToLookBack") Integer numberDaysToLookBack)
+			throws JsonGenerationException, JsonMappingException, IOException,
+			AppException {
+		List<Podcast> podcasts = podcastService.getPodcasts(
+				orderByInsertionDate, numberDaysToLookBack);
+		return podcasts;
+	}
+
+注解
+
+* @GET – 指示方法响应到 HTTP GET 请求
+* @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML}) – 定义方法可以接受的媒体类型，本例为"application/json" 或者 "application/xml"（在 Podcast 类前 添加  @XmlRootElement ），将返回  JSON 或者 XML 格式的 podcast 集合 
+
+响应
+
+* 成功: HTTP 状态 为 200 的 podcast 数据集合
+
+######3.2.2.2.1. 读一个 podcast
+
+根据 id  获取一个 podcast
+
+	@GET
+	@Path("{id}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Response getPodcastById(@PathParam("id") Long id)
+			throws JsonGenerationException, JsonMappingException, IOException,
+			AppException {
+		Podcast podcastById = podcastService.getPodcastById(id);
+		return Response.status(200).entity(podcastById)
+				.header("Access-Control-Allow-Headers", "X-extra-header")
+				.allow("OPTIONS").build();
+	}
+
+注解
+
+* @GET – 指示方法响应到 HTTP GET 请求
+* @PathParam("id")- 绑定传递的参数值
+* @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML}) – 定义方法可以接受的媒体类型，本例为"application/json" 或者 "application/xml"（在 Podcast 类前 添加  @XmlRootElement ），将返回  JSON 或者 XML 格式的 podcast 集合 
+
+响应
+
+* 成功: HTTP 状态 为 200 的 podcast 
+* 错误： 404 Not found。如果没有在数据库中找到
+
+####3.2.3. 更新 podcast
+
+#####3.2.3.1. 设计
+
+<table cellspacing="0" cellpadding="5" border="1" align="center" style="width:600px"><tbody align="center"><tr><td><b>Description</b></td><td><b>URI</b></td><td><b>HTTP method<br> </b></td><td><b>HTTP Status response</b></td></tr><tr><td>更新 podcast (<strong>完全</strong>)</td><td>&nbsp;/podcasts/{id}</td><td>PUT</td><td>200&nbsp;OK</td></tr><tr><td>&nbsp;更新 podcast (<strong>部分</strong>)</td><td>&nbsp;/podcasts/{id}</td><td>POST</td><td>200&nbsp;OK</td></tr></tbody></table>
+
+1.完全更新  – 提供所有的值
+2.部分更新  – 传递部分属性值即可
+
+#####3.2.3.1. 实现
+
+######3.2.3.1.1. 完全更新
+
+创建或者完全更新资源
+	
+	@PUT
+	@Path("{id}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.TEXT_HTML })
+	public Response putPodcastById(@PathParam("id") Long id, Podcast podcast)
+			throws AppException {
+	
+		Podcast podcastById = podcastService.verifyPodcastExistenceById(id);
+	
+		if (podcastById == null) {
+			// resource not existent yet, and should be created under the
+			// specified URI
+			Long createPodcastId = podcastService.createPodcast(podcast);
+			return Response
+					.status(Response.Status.CREATED)
+					// 201
+					.entity("A new podcast has been created AT THE LOCATION you specified")
+					.header("Location",
+							"http://localhost:8888/demo-rest-jersey-spring/podcasts/"
+									+ String.valueOf(createPodcastId)).build();
+		} else {
+			// resource is existent and a full update should occur
+			podcastService.updateFullyPodcast(podcast);
+			return Response
+					.status(Response.Status.OK)
+					// 200
+					.entity("The podcast you specified has been fully updated created AT THE LOCATION you specified")
+					.header("Location",
+							"http://localhost:8888/demo-rest-jersey-spring/podcasts/"
+									+ String.valueOf(id)).build();
+		}
+	}
+
+注解
+
+* @PUT – 指示方法响应到 HTTP PUT  请求
+* @PathParam("id")- 绑定传递的参数值
+* @Consumes({MediaType.APPLICATION_JSON}) – 定义方法可以接受的媒体类型，本例为"application/json"
+* @Produces({MediaType.TEXT_HTML}) – 定义方法可以产生的媒体类型，本例为t"ext/html"
+
+响应
+
+* 创建
+	* 成功: HTTP 状态 为 201 Created
+	* 错误： 400 Bad Request。如果需要的属性值没有提供
+* 完全更新：
+	* 成功: HTTP 状态 为 200 
+	* 错误： 400 Bad Request。如果不是所有的属性都提供
+
+######3.2.3.1.2. 部分更新
+
+	//PARTIAL update
+	@POST
+	@Path("{id}")	
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.TEXT_HTML })
+	public Response partialUpdatePodcast(@PathParam("id") Long id, Podcast podcast) throws AppException {
+		podcast.setId(id);
+		podcastService.updatePartiallyPodcast(podcast);
+		return Response.status(Response.Status.OK)// 200
+				.entity("The podcast you specified has been successfully updated")
+				.build();	
+	}
+
+注解
+
+* @POST – 指示方法响应到 HTTP POST 请求
+* @PathParam("id")- 绑定传递的参数值
+* @Consumes({MediaType.APPLICATION_JSON}) – 定义方法可以接受的媒体类型，本例为"application/json"
+* @Produces({MediaType.TEXT_HTML}) – 定义方法可以产生的媒体类型，本例为t"ext/html"
+
+响应
+
+* 成功: HTTP 状态 为 200 OK
+* 错误： 404 Not Found。如果资源不存在
+
+####3.2.4. 删除 podcast
+
+#####3.2.4.1. 设计
+
+<table cellspacing="0" cellpadding="5" border="1" align="center" style="width:700px"><tbody align="center"><tr><td><b>Description</b></td><td><b>URI</b></td><td><b>HTTP method<br> </b></td><td><b>HTTP Status response</b></td></tr><tr><td>移除所有 podcasts</td><td>&nbsp;/podcasts/</td><td>DELETE</td><td>204 No content</td></tr><tr><td>移除特定位置的 podcast</td><td>&nbsp;/podcasts/{id}</td><td>DELETE</td><td>204 No content</td></tr></tbody></table>
+
+#####3.2.4.2. 实现
+
+######3.2.4.2.1. 删除所有资源
+
+	@DELETE
+	@Produces({ MediaType.TEXT_HTML })
+	public Response deletePodcasts() {
+		podcastService.deletePodcasts();
+		return Response.status(Response.Status.NO_CONTENT)// 204
+				.entity("All podcasts have been successfully removed").build();
+	}
+
+注解
+
+* @DELETE – 指示方法响应到 HTTP DELETE  请求
+* @Produces({MediaType.TEXT_HTML}) – 定义方法可以产生的媒体类型，本例为"text/html"
+
+响应
+
+* 返回 html  文档
+
+######3.2.4.2.2. 删除一个资源
+
+	@DELETE
+	@Path("{id}")
+	@Produces({ MediaType.TEXT_HTML })
+	public Response deletePodcastById(@PathParam("id") Long id) {
+		podcastService.deletePodcastById(id);
+		return Response.status(Response.Status.NO_CONTENT)// 204
+				.entity("Podcast successfully removed from database").build();
+	}
+
+注解
+
+* @DELETE – 指示方法响应到 HTTP DELETE 请求
+* @PathParam("id")- 绑定传递的参数值
+* @Consumes({MediaType.APPLICATION_JSON}) – 定义方法可以接受的媒体类型，本例为"application/json"
+* @Produces({MediaType.TEXT_HTML}) – 定义方法可以产生的媒体类型，本例为"text/html"
+
+响应
+
+* 成功: HTTP 状态 为 204 No Content
+* 错误： 404 Not Found。如果资源不存在
+
+##4. 日志
+
+详见 [http://www.codingpedia.org/ama/how-to-log-in-spring-with-slf4j-and-logback/](http://www.codingpedia.org/ama/how-to-log-in-spring-with-slf4j-and-logback/)
+
+##5. 异常处理
+
+错误处理要有统一的格式，就像下面
+	
+	{
+	   "status": 400,
+	   "code": 400,
+	   "message": "Provided data not sufficient for insertion",
+	   "link": "http://www.codingpedia.org/ama/tutorial-rest-api-design-and-implementation-with-jersey-and-spring",
+	   "developerMessage": "Please verify that the feed is properly generated/set"
+	}
+
+##6. 服务端添加 CORS 支持
+
+##7. 测试
+
+###7.1. 在Java集成测试
+
+###7.1.1. 配置
+
+#####7.1.1.1 Jersey 客户端依赖
+
+	<dependency>
+	    <groupId>org.glassfish.jersey.core</groupId>
+	    <artifactId>jersey-client</artifactId>
+	    <version>${jersey.version}</version>
+	    <scope>test</scope>
+	</dependency>
+
+#####7.1.1.2. Failsafe 插件
+
+	
+	<plugins>
+		[...]
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-failsafe-plugin</artifactId>
+	        <version>2.16</version>
+	        <executions>
+	            <execution>
+	                <id>integration-test</id>
+	                <goals>
+	                    <goal>integration-test</goal>
+	                </goals>
+	            </execution>
+	            <execution>
+	                <id>verify</id>
+	                <goals>
+	                    <goal>verify</goal>
+	                </goals>
+	            </execution>
+	        </executions>
+	    </plugin>
+		[...]
+	</plugins>
+
+#####7.1.1.2. Jetty Maven 插件
+
+	<plugins>
+		<plugin>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>${jetty.version}</version>
+			<configuration>
+				<jettyConfig>${project.basedir}/src/main/resources/config/jetty9.xml</jettyConfig>
+				<stopKey>STOP</stopKey>
+				<stopPort>9999</stopPort>
+				<stopWait>5</stopWait>
+				<scanIntervalSeconds>5</scanIntervalSeconds>
+			[...]
+			</configuration>
+			<executions>
+				<execution>
+					<id>start-jetty</id>
+					<phase>pre-integration-test</phase>
+					<goals>
+						<!-- stop any previous instance to free up the port -->
+						<goal>stop</goal>				
+						<goal>run-exploded</goal>
+					</goals>
+					<configuration>
+						<scanIntervalSeconds>0</scanIntervalSeconds>
+						<daemon>true</daemon>
+					</configuration>
+				</execution>
+				<execution>
+					<id>stop-jetty</id>
+					<phase>post-integration-test</phase>
+					<goals>
+						<goal>stop</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		[...]
+	</plugins>
+
+详细配置见源码中的 pom.xml
+
+####7.1.2. 编译集成测试
+
+使用 JUnit  作为测试框架。默认的 Failsafe 插件 自动包含所有测试类
+
+* "**/IT*.java" – “IT”开头的文件.
+* "**/*IT.java" – “IT”结尾的文件.
+* "**/*ITCase.java" – “ITCase”结尾的文件.
+
+创建了测试类 RestDemoServiceIT 
+
+	public class RestDemoServiceIT {
+	
+		[....]
+		@Test
+		public void testGetPodcast() throws JsonGenerationException,
+				JsonMappingException, IOException {
+	
+			ClientConfig clientConfig = new ClientConfig();
+			clientConfig.register(JacksonFeature.class);
+	
+			Client client = ClientBuilder.newClient(clientConfig);
+	
+			WebTarget webTarget = client
+					.target("http://localhost:8888/demo-rest-jersey-spring/podcasts/2");
+	
+			Builder request = webTarget.request(MediaType.APPLICATION_JSON);
+	
+			Response response = request.get();
+			Assert.assertTrue(response.getStatus() == 200);
+	
+			Podcast podcast = response.readEntity(Podcast.class);
+	
+			ObjectMapper mapper = new ObjectMapper();
+			System.out
+					.print("Received podcast from database *************************** "
+							+ mapper.writerWithDefaultPrettyPrinter()
+									.writeValueAsString(podcast));
+	
+		}
+	}
+
+注意：
+
+* 在客户也要注册 JacksonFeature ，这样才能解析 JSON格式
+* 用 jetty 测试，端口 8888
+* 期望 返回 200 状态 给我们的请求
+* org.codehaus.jackson.map.ObjectMapper 帮助返回格式化的 JSON 
+
+####7.1.3. 运行集成测试
+
+运行 
+	
+	mvn verify
+
+设置  `jetty.port` 属性到 8888,Eclipse  配置如下
+
+![](http://99btgc01.info/uploads/2014/11/run-integration-tests-eclipse.png)
+
+##8. 版本管理
+
+几个要点：
+
+* URL:  “/v1/podcasts/{id}”
+* Accept/Content-type header: application/json; version=1
+
+在 路径中 加入 版本信息
+
+	@Component
+	@Path("/v1/podcasts")
+	public class PodcastResource {...}
+
+
+参考：
+
+* [https://jersey.java.net/](https://jersey.java.net/)
+* [https://github.com/waylau/Jersey-2.x-User-Guide](https://github.com/waylau/Jersey-2.x-User-Guide)
+* [http://www.codingpedia.org/ama/tutorial-rest-api-design-and-implementation-in-java-with-jersey-and-spring/](http://www.codingpedia.org/ama/tutorial-rest-api-design-and-implementation-in-java-with-jersey-and-spring/)

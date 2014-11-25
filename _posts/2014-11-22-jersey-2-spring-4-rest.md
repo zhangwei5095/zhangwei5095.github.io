@@ -930,6 +930,10 @@ API 支持两种操作
 
 ![](http://99btgc01.info/uploads/2014/11/run-integration-tests-eclipse.png)
 
+###7.2. 用 SoapUI 集成测试
+
+[youtube视频教程](http://www.youtube.com/watch?v=XV7WW0bDy9c)（需翻墙）
+
 ##8. 版本管理
 
 几个要点：

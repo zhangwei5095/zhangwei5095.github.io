@@ -77,7 +77,7 @@ MySql 5.6
 
 ###1.4. 源码
 
-见
+见[https://github.com/waylau/RestDemo/tree/master/jersey-2-spring-4-rest](https://github.com/waylau/RestDemo/tree/master/jersey-2-spring-4-rest)
 
 ##2. 配置
 

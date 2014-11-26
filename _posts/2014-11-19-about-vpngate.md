@@ -5,7 +5,7 @@ date: 2014-11-19 01:41
 author: admin
 comments: true
 categories: [Web]
-tags: [VPNGate，翻墙]
+tags: [VPNGate,翻墙]
 ---
 
 ##VPN Gate 综述

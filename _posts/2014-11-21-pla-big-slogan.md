@@ -5,7 +5,7 @@ date: 2014-11-21 01:41
 author: admin
 comments: true
 categories: [Outdoor]
-tags: [Map，Google]
+tags: [Map,Google]
 ---
 
 茫茫大戈壁，随处可见的大字标语彰显我军的战斗精神！用美帝的谷歌卫星地图，清晰看到这一道道独特的风景。

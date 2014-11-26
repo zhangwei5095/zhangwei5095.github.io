@@ -5,7 +5,7 @@ date: 2014-11-21 02:41
 author: admin
 comments: true
 categories: [Web]
-tags: [Web，VPN]
+tags: [Web,VPN]
 ---
 
 之前介绍了《[用 VPN Gate 翻墙科学上网](http://www.waylau.com/about-vpngate/)》,通过安装客户端，方便实现 VPN 的连接。如果 你爱折腾，也可以手动设置 VPN 。这样的连接 更加稳定。

@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="iReport 5.1.0下载、安装、创建数据源、制作报表, Way Lau's Blog, Way Lau">
+  <title>iReport 5.1.0下载、安装、创建数据源、制作报表 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/ireport-5-1-0-to-download-install-create-a-data-source-report/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/ireport-5-1-0-to-download-install-create-a-data-source-report/">iReport 5.1.0下载、安装、创建数据源、制作报表</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2013年05月22日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#ireport">ireport</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>一、ireport下载最新版</p>
+
+<p>本例为5.1.0 <a href="http://sourceforge.net/projects/ireport/files/?source=navbar">http://sourceforge.net/projects/ireport/files/?source=navbar</a></p>
+
+<p>二、安装，直接下一步</p>
+
+<p>三、ireport连接数据库，创建数据源</p>
+
+<p>默认数据源是空的 ，需要自己创建数据源，当然也可以选择他的测试数据库</p>
+
+<p>&nbsp;</p>
+
+<p>1.点击图中按钮，弹出窗，点击 new</p>
+
+<p>&nbsp;</p>
+
+<p>2.这里选择的是 Database JDBC Connection</p>
+
+<p>&nbsp;</p>
+
+<p>3.iReport默认的数据库驱动为黑色字体部分，红色字体需另外导入包</p>
+
+<p>&nbsp;</p>
+
+<p>4.工具à选项</p>
+
+<p>&nbsp;</p>
+
+<p>5.在Classpath添加数据库驱动包</p>
+
+<p>这里我们连接的是sql2000数据库，填加一个jtds-1.2.2.jar</p>
+
+<p>&nbsp;</p>
+
+<p>6.再回到之前的那个数据源设置界面</p>
+
+<p>net.sourceforge.jtds.jdbc.Driver 变成了黑色。选中它</p>
+
+<p>&nbsp;</p>
+
+<p>7.JDBC URL中填入数据库的地址和库名，并填入正确的用户名和密码。</p>
+
+<p>本例选用了一个已经存在的数据库。</p>
+
+<p>点击Test，提示test succesful则说明连接成功。</p>
+
+<p>输入Name, 本例为"EEMS"。</p>
+
+<p>点击Save保存设置。</p>
+
+<p>&nbsp;</p>
+
+<p>四、新增报表模版</p>
+
+<p>1.文件 --&gt;new file，选择blank A4 ，点击 launch report wizard</p>
+
+<p>&nbsp;</p>
+
+<p>2.填入报表名称，选择输出的目录</p>
+
+<p>&nbsp;</p>
+
+<p>3.直接填入查询sql语句，或者选择load query导入已有的sql文件</p>
+
+<p>本例选用design query 采用可视化界面来设计sql语句</p>
+
+<p>&nbsp;</p>
+
+<p>双击选中的数据库表，选择要查询的字段</p>
+
+<p>&nbsp;</p>
+
+<p>点击OK，自动生成了sql语句</p>
+
+<p>&nbsp;</p>
+
+<p>4.选择要参与的字段</p>
+
+<p>&nbsp;</p>
+
+<p>这里向右移入所有字段</p>
+
+<p>&nbsp;</p>
+
+<p>5.选择要分组的字段</p>
+
+<p>这里选择loginName字段</p>
+
+<p>&nbsp;</p>
+
+<p>6.出现下面提示，说明模版创建成功！</p>
+
+<p>&nbsp;</p>
+
+<p>五、设计报表</p>
+
+<p>&nbsp;</p>
+
+<p>报表的结构包括如下部分：Title、Page Header、Column Header、Detail、Column Footer、Page Footer、Summary.下面一一的介绍各个部分。</p>
+
+<p><strong>Title</strong>：为报表的标题部分，如果报表有多页，则只显示在第一页。</p>
+
+<p><strong>Page Header</strong> ：为报表每页的一个头部名称，如果报表有多页，则每页都会显示。</p>
+
+<p><strong>Column Header</strong>:可以理解成表头，如果报表有多页，则每页都会显示。</p>
+
+<p><strong>Detail</strong>：详细记录，迭代列出所有的查询结果，有多少数据都会显示出来（分页）。</p>
+
+<p><strong>Column Footer</strong>：相当于表尾，如果报表有多页，则每页都会显示。</p>
+
+<p><strong>Page Footer</strong>:与Page Header对应，每页都会显示。</p>
+
+<p><strong>Summary</strong>：报表的一些统计信息。比如共有多少页，当前是第几页等信息。</p>
+
+<p>设计报表的要求是：列出所有用户的信息，（查询语句决定。）</p>
+
+<p>1.从组件面板中，拖出一个 Static Text 组件来，放置在报表的Title部分，输入"用户列表"。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>2.</strong>在Page Header 也同样拖入一个 Static Text 组件，输入"管理员"</p>
+
+<p>3.展开左侧的 Report Inspector，展开Fields子项，</p>
+
+<p>&nbsp;</p>
+
+<p>将图所示的字段，拖入Detail项中，此时会发现，Column Header项中自动填充了Static Text的表头，如图所示：</p>
+
+<p>&nbsp;</p>
+
+<p>在右侧"属性"，也可以对表头进行编辑，重命名等操作。可以调整各组件的位置、大小等信息。</p>
+
+<p>&nbsp;</p>
+
+<p>4.选择 预览方式，这里选HLML</p>
+
+<p>&nbsp;</p>
+
+<p>5.点击预览，选择Preview</p>
+
+<p>&nbsp;</p>
+
+<p>6.显示数据库数据啦，成功啦。~</p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/activiti-5-12-1-download-install-and-run/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Activiti 5.12.1 下载、安装和运行</a>
+
+
+<a class="pagination-item older" href="/air-sdk-location-does-not-exist-address/">AIR SDK 0 AIR SDK location does not exist 解决&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="iReport 5.1.0下载、安装、创建数据源、制作报表" data-thread-key="/ireport-5-1-0-to-download-install-create-a-data-source-report" data-url="http://www.waylau.com/ireport-5-1-0-to-download-install-create-a-data-source-report/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

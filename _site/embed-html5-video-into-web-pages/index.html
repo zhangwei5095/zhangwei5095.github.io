@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="嵌入视频到 html5 页面, Way Lau's Blog, Way Lau">
+  <title>嵌入视频到 html5 页面 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/embed-html5-video-into-web-pages/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/embed-html5-video-into-web-pages/">嵌入视频到 html5 页面</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年11月11日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#html5">html5</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>HTML5 的到来之前,每个视频的播放都需要通过 web 浏览器中通过第三方浏览器插件。最初我们亲眼目睹 RealPlayer，接着是 Windows Media Player 和 QuickTime, 现在是 Flash,这是目前主导的插件,播放大量的网络视频。</p>
+
+<p>HTML5 引入了一个新的标准在 web 页面中嵌入和播放视频,无任何第三方插件,只需使用一个视频元素。 似乎是容易的,对吗? 但是你会发现没有这样的一个视频格式,适用于目前所有 HTML5 web 浏览器。</p>
+
+<p>最大兼容浏览器 HTML5 视频,我们推荐你的视频编码转成如下HTML5视频格式，并在将它们嵌入到你的网页。</p>
+
+<ul>
+<li>H.264(Baseline) 在 mp4 容器。</li>
+<li>VP8/WEBM 在 webm 容器。</li>
+<li>Theroa/Vorbis 在 ogv 容器。</li>
+</ul>
+
+
+<p>如果你只有一个 HTML5 视频文件嵌入到网页,您可以简单地链接到它的 src 属性</p>
+
+<h2>Embed HTML5 video single source 嵌入单一来源视频</h2>
+
+<pre><code>&lt;video src="samplevideo.webm" width="640" height="480" autoplay&gt;&lt;/video&gt;
+</code></pre>
+
+<h2>Embed HTML5 video multiple sources 嵌入多来源视频</h2>
+
+<p>多个视频上面所提到的,是为了最大的 HTML5 视频浏览器兼容性，我们需要3个不同版本的视频。 您可以在web页面中嵌入多个 HTML5 视频在HTML5 视频元素,例子:</p>
+
+<p>源代码详见下面：</p>
+
+<pre><code>&lt;video width="640" height="360" controls&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" /&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" /&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" /&gt;
+&lt;/video&gt;
+</code></pre>
+
+<p>结果如下
+<video width="640" height="360" controls>
+<source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" />
+<source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" />
+<source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" />
+</video></p>
+
+<h2>HTML5 video with poster image 添加海报图片</h2>
+
+<p>现在,让我们去将海报图片添加到HTML5视频。</p>
+
+<pre><code>&lt;video poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360" controls&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" /&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" /&gt;
+&lt;source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" /&gt;
+&lt;/video&gt;
+</code></pre>
+
+<p>结果如下</p>
+
+<p><video poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360" controls>
+<source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4" />
+<source src="http://www.html5videoplayer.net/videos/toystory.webm" type="video/webm" />
+<source src="http://www.html5videoplayer.net/videos/toystory.ogv" type="video/ogg" />
+</video></p>
+
+<h2>HTML5 video autoplay 视频自动播放</h2>
+
+<p>如何播放 HTML5 视频? 只需添加 autoplay=”autoplay” 或简单的autoplay 到 video 标签即可。 如下</p>
+
+<pre><code>&lt;video autoplay="autoplay" poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360" controls&gt;
+</code></pre>
+
+<p>或</p>
+
+<pre><code>&lt;video poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360" autoplay controls&gt;
+</code></pre>
+
+<p>结果详见下表</p>
+
+<p><video poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="640" height="360" autoplay controls></p>
+
+<p><em>参考：</em><a href="http://www.html5videoplayer.net/html5video/embed-html5-video-into-web-pages/">http://www.html5videoplayer.net/html5video/embed-html5-video-into-web-pages/</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/top-10-warning-that-internet-brings/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;互联网带来的十大警示</a>
+
+
+<a class="pagination-item older" href="/maximize-hmtl5-video-compatibility/">最大化兼容 html5 视频&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="嵌入视频到 html5 页面" data-thread-key="/embed-html5-video-into-web-pages" data-url="http://www.waylau.com/embed-html5-video-into-web-pages/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

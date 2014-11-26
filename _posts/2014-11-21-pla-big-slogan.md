@@ -12,6 +12,8 @@ tags: [Map,Google]
 
 用[谷歌地图](http://ditu.google.cn/maps?output=classic&dg=ctry)输入坐标即可
 
+<!-- more -->
+
 苦练精兵： 43°43 45.72 N, 87°40 12.59 E
 
 ![](http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/82E67EC37CBE5175_zps9ae0a661.jpg)

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="SVG实例之电力开关, Way Lau's Blog, Way Lau">
+  <title>SVG实例之电力开关 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/svg-demo-power-switch/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/svg-demo-power-switch/">SVG实例之电力开关</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年05月24日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#svg">svg</a>	
+  </p>
+</header>
+<div class="post-main">
+<pre><code>&lt;?xml version="1.0" standalone="no"?&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="400" height="200" &gt;
+&lt;script&gt; 
+function lineGClick(evt) {
+
+var lineA = document.getElementById("lineA");
+if( lineA.getAttribute("display")=="none"){
+
+lineA.setAttribute("display","#000000");
+line2.setAttribute("display","none");
+
+}else{
+lineA.setAttribute("display","none");
+line2.setAttribute("display","#000000");
+}
+}
+ &lt;/script&gt;
+&lt;defs&gt;
+ &lt;g id="lineG1" &gt;
+  &lt;line id="line1" fill="none" stroke="#000000" stroke-width="4" x1="10" y1="10" x2="10" y2="40"/&gt;
+  &lt;line id="lineA" fill="none" display="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="10" y2="70"/&gt;
+  &lt;line id="line2" fill="none" stroke="#000000" stroke-width="4" x1="10" y1="40" x2="35" y2="60"/&gt;
+  &lt;line id="lineB" fill="none" stroke="#000000" stroke-width="4" x1="10" y1="70" x2="10" y2="100"/&gt;
+ &lt;/g&gt;
+&lt;/defs&gt;
+
+&lt;text x="10" y="20" fill="red"&gt;一个SVG电力开关的例子。点击开关，进行状态转换&lt;/text&gt;
+&lt;use x="10" y="30" xlink:href="#lineG1" onclick="lineGClick(evt)"/&gt;
+&lt;a xlink:href="http://www.waylau.com" target="_blank"&gt;
+&lt;text x="10" y="180" fill="red"&gt;欢迎访问wwww.waylau.com&lt;/text&gt;
+  &lt;/a&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p>效果：</p>
+
+<iframe style="width: 100%; height: 300px" src="http://sandbox.runjs.cn/show/p6jqofff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<p>解释：</p>
+
+<p><code>defs</code>标签定义了可以重复利用的组件</p>
+
+<p><code>use</code>引用了<code>defs</code>所定义的组件，其中<code>onclick</code>监听了鼠标点击事件</p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/test-photo-bucket/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;测试下几个网络相册</a>
+
+
+<a class="pagination-item older" href="/webstorm-svn-setting/">WebStorm配置svn共享、检出项目&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="SVG实例之电力开关" data-thread-key="/svg-demo-power-switch" data-url="http://www.waylau.com/svg-demo-power-switch/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

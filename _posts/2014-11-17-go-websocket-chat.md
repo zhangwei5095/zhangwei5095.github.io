@@ -10,6 +10,8 @@ tags: [Golang,WebSocket]
 
 这个示例应用程序展示了如何使用 [WebSocket](http://tools.ietf.org/html/rfc6455), [Golang](http://golang.org/) 和  [jQuery](http://jquery.com/) 创建一个简单的web聊天应用程序。这个示例的源代码在 [https://github.com/waylau/goChat](https://github.com/waylau/goChat) 。
 
+<!-- more -->
+
 ##Running the example 运行示例
 
 这个示例需要 Golang 开发环境。 该[页面](http://golang.org/doc/install.html)描述如何安装开发环境。

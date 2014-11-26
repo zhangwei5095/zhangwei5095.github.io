@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="SVG &lt;path&gt;路径, Way Lau's Blog, Way Lau">
+  <title>SVG &lt;path&gt;路径 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/svg-path/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/svg-path/">SVG &lt;path&gt;路径</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年05月04日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#svg">svg</a>	
+  </p>
+</header>
+<div class="post-main">
+<h2>7.路径 &lt;path&gt;</h2>
+
+<p>下面的命令可用于路径数据：</p>
+
+<ul>
+<li>M = moveto</li>
+<li>L = lineto</li>
+<li>H = horizontal lineto</li>
+<li>V = vertical lineto</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Belzier curve</li>
+<li>T = smooth quadratic Belzier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath</li>
+</ul>
+
+
+<p><strong>注释：</strong>以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。</p>
+
+<h4>示例7.1</h4>
+
+<p>例子定义了一条路径，它开始于位置 250 150，到达位置 150 350，然后从那里开始到 350 350，最后在 250 150 关闭路径。</p>
+
+<p><svg height="210" width="400">
+  <path d="M150 0 L75 200 L225 200 Z" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="400"&gt;
+  &lt;path d="M150 0 L75 200 L225 200 Z" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例7.2</h4>
+
+<p><svg height="400" width="450">
+  <path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+  stroke-width="3" fill="none" />
+  <path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+  stroke-width="3" fill="none" />
+  <path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+  fill="none" />
+  <path d="M 100 350 q 150 -300 300 0" stroke="blue"
+  stroke-width="5" fill="none" />
+  <g stroke="black" stroke-width="3" fill="black">
+   <circle id="pointA" cx="100" cy="350" r="3" />
+   <circle id="pointB" cx="250" cy="50" r="3" />
+   <circle id="pointC" cx="400" cy="350" r="3" />
+  </g>
+  <g font-size="30" font="sans-serif" fill="black" stroke="none"
+  text-anchor="middle">
+   <text x="100" y="350" dx="-30">A</text>
+   <text x="250" y="50" dy="-10">B</text>
+   <text x="400" y="350" dx="30">C</text>
+  </g>
+</svg></p>
+
+<pre><code>&lt;svg height="400" width="450"&gt;
+  &lt;path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+  stroke-width="3" fill="none" /&gt;
+  &lt;path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+  stroke-width="3" fill="none" /&gt;
+  &lt;path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+  fill="none" /&gt;
+  &lt;path d="M 100 350 q 150 -300 300 0" stroke="blue"
+  stroke-width="5" fill="none" /&gt;
+  &lt;!-- Mark relevant points --&gt;
+  &lt;g stroke="black" stroke-width="3" fill="black"&gt;
+    &lt;circle id="pointA" cx="100" cy="350" r="3" /&gt;
+    &lt;circle id="pointB" cx="250" cy="50" r="3" /&gt;
+    &lt;circle id="pointC" cx="400" cy="350" r="3" /&gt;
+  &lt;/g&gt;
+  &lt;!-- Label the points --&gt;
+  &lt;g font-size="30" font="sans-serif" fill="black" stroke="none"
+  text-anchor="middle"&gt;
+    &lt;text x="100" y="350" dx="-30"&gt;A&lt;/text&gt;
+    &lt;text x="250" y="50" dy="-10"&gt;B&lt;/text&gt;
+    &lt;text x="400" y="350" dx="30"&gt;C&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p>由于绘制路径的复杂性，因此强烈建议您使用 SVG 编辑器来创建复杂的图形。推荐用开源矢量图编辑器<a href="http://www.inkscape.org/">Inkscape</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/svg-shapes-polygon/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;SVG Shapes之多边形 &lt;polygon&gt;</a>
+
+
+<a class="pagination-item older" href="/svg-text/">SVG  &lt;text&gt;文本&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="SVG &lt;path&gt;路径" data-thread-key="/svg-path" data-url="http://www.waylau.com/svg-path/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

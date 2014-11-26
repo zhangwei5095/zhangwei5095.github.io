@@ -1,0 +1,530 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="Way Lau's Personal Site | www.waylau.com, Way Lau's Blog, 技术改变世界！, Way Lau">
+  <title>Way Lau's Personal Site | www.waylau.com</title>
+  <link rel="canonical" href="http://www.waylau.com">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/static-websites-on-heroku-deployment/">在Heroku上部署静态网站</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年04月10日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#web">web</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <p>静态网页是无法直接部署在Heroku的，push代码也报错。</p>
+
+<p>解决方法：增加一个index.php，包裹html将静态网站伪装成php网站即可，代码如下：</p>
+
+<pre><code> &lt;?php
+    include_once("index.html");
+?&gt;
+</code></pre>
+
+<p>此时，push 代码，Heroku会自动生成php框架。</p>
+
+<p><img class="alignnone" alt="" src="http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=0e5ac25a808ba61edbeec82a710fe637/32fa828ba61ea8d34270b094950a304e241f58d4.jpg?referer=12012c6453da81cb17f1b7fd98ca&amp;x=.jpg" width="550" height="144" /></p>
+
+      <div class="readall"><a href="/static-websites-on-heroku-deployment/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/html5-right-click-menu-demo/">HTML5右键菜单的例子</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年04月08日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#html5">html5</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <p><a href="http://labs.waylau.com/JsDemo/RightClickFirfoxDemo.html">http://labs.waylau.com/JsDemo/RightClickFirfoxDemo.html</a></p>
+
+<p><img class="alignnone" alt="" src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6ddb41ae0855b31998f982707392f31b/78310a55b319ebc4755d7b368026cffc1e171673.jpg?referer=df8d32e400087bf424fb62d95212&amp;x=.jpg" width="433" height="172" /></p>
+
+      <div class="readall"><a href="/html5-right-click-menu-demo/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/html5-fullscreen-demo/">HTML5全屏的例子</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年04月08日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#html5">html5</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <p><a title="全屏例子" href="http://labs.waylau.com/JsDemo/FullScreenDemo.html" target="_blank">http://labs.waylau.com/JsDemo/FullScreenDemo.html</a><img class="alignnone" alt="" src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=7b840e8db11bb0518b24b32d0641ab89/3812b31bb051f81954eb01e5d8b44aed2f73e757.jpg?referer=721f3f65533d269777c43c6d414d&amp;x=.jpg" width="550" height="182" /></p>
+
+<script type="text/javascript" src="http://runjs.cn/gist/duztnwvm/html/rdark"></script>
+
+
+      <div class="readall"><a href="/html5-fullscreen-demo/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/heroku-snova-c4-cross-wall/">用Heroku、snova-c4搭梯子上墙</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年04月03日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#herokuweb">herokuweb</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <p>1.snova-c4（翻墙软件）下载</p>
+
+<p>https://code.google.com/p/snova/downloads/list
+服务端
+https://snova.googlecode.com/files/snova-c4-java-server-0.22.0.war
+客户端
+https://snova.googlecode.com/files/gsnova_0.22.1_windows_386.zip</p>
+
+<p>2.在heroku.com部署snova-c4-java-server-0.22.0.war
+heroku login
+heroku plugins:install https://github.com/heroku/heroku-deploy --只需执行一次，以后不用执行
+heroku apps:create --此步创建一个app，名字随机，记住此步的appname（"xx.herokuapp.com"）。更新不用执行此步
+heroku deploy:war --war &lt;path_to_war_file&gt; --app &lt;app_name&gt;</p>
+
+<p>留意执行“heroku apps:create”时的输出，一般会显示创建的域名，为 "xx.herokuapp.com", 记下该域名，为配置Client准备</p>
+
+<p>输入域名，见下面页面，则说明部署成功x</p>
+
+<p><img class="alignnone" alt="" src="http://a.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=14c620458fb1cb133a693c16ed6f2773/5fdf8db1cb134954294da3ce544e9258d0094acc.jpg?referer=9acfb38b708b47109738c9fcb6c2&amp;x=.jpg" width="550" height="224" /></p>
+
+<p>3.解压gsnova_0.22.1_windows_386.zip
+修改gsnova.conf</p>
+
+<p>将GAE的Enable设置为0
+C4的Enable设置为1，WorkerNode[0]后面写上你的Heroku二级域名"xx.herokuapp.com"
+SPAC的Enable设置为0，确定保存</p>
+
+<p>双击打开gsnova.exe可执行文件。</p>
+
+<p>4.浏览器设置代理
+google 就装switchysharp
+代理设置端口时要与你在配置文件中设置的端口是一致的。
+默认是127.0.0.1 端口48102</p>
+
+<p><img class="alignnone" alt="" src="http://f.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=e4cac96a80025aafd7327ececbd6da59/72f082025aafa40f7e224177a964034f79f019b7.jpg?referer=b20f9de59c2f070806121e30676e&amp;x=.jpg" width="550" height="296" /></p>
+
+<p>翻墙成功</p>
+
+<p><img class="alignnone" alt="" src="http://f.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=9320d649ff1f4134e437057b1524e4f7/a9d3fd1f4134970a05705b8597cad1c8a7865d1c.jpg?referer=b4f54741b4fd5266fe3c08249bf2&amp;x=.jpg" width="550" height="315" /></p>
+
+      <div class="readall"><a href="/heroku-snova-c4-cross-wall/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/git-simple-use/">Git简单应用</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年04月01日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#git">git</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>First time using Git（首次用git）</h2>
+
+
+<div>
+<pre>cd myproject
+git init
+# add all your files.  Use can use specific filenames or directories instead of '.'
+git add .
+git commit -a -m 'Initial commit'
+git remote add origin ssh://waynelau521@git.code.sf.net/p/doufe-com/code
+git push origin master
+git branch --set-upstream master origin/master  # so 'git pull' will work later</pre>
+</div>
+
+
+<h2>Existing repository using Git(已经存在库)</h2>
+
+
+<div>
+<pre>cd myproject
+git remote add origin ssh://waynelau521@git.code.sf.net/p/doufe-com/code
+git push origin master
+git branch --set-upstream master origin/master  # so 'git pull' will work later</pre>
+</div>
+
+
+      <div class="readall"><a href="/git-simple-use/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/jersey-sqlserver-hibernate4/">用Jersey构建RESTful服务6--Jersey+SQLServer+Hibernate4.3</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年03月26日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#javajerseyrest">javajerseyrest</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h1>一、总体说明</h1>
+
+<p>本例运行演示了用Jersey构建RESTful服务中，如何同过Hibernate将数据持久化进SQLServer的过程</p>
+
+<h1>二、环境</h1>
+
+<ul>
+<li>1.上文的项目RestDemo</li>
+<li>2.SQLServer2005</li>
+<li>3.jtds数据库连接驱动：下载地址<a href="http://sourceforge.net/projects/jtds/files/latest/download?source=files">最新版本</a>,替换掉上文项目中的<code>mysql-connector</code></li>
+</ul>
+
+
+<h1>三、配置</h1>
+
+<p>1.与上文mysql的配置不同点主要在hibernate.cfg.xml文件；
+配置如下：</p>
+
+<pre><code class="xml">&lt;?xml version='1.0' encoding='utf-8'?&gt;  
+&lt;!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;  
+
+&lt;hibernate-configuration&gt;  
+   &lt;session-factory&gt;  
+   &lt;!-- Database connection settings --&gt;  
+        &lt;property name="connection.driver_class"&gt;net.sourceforge.jtds.jdbc.Driver&lt;/property&gt;  
+        &lt;property name="connection.url"&gt;jdbc:jtds:sqlserver://192.168.1.10:1433;RestDemo&lt;/property&gt;  
+        &lt;property name="connection.username"&gt;sa&lt;/property&gt;  
+        &lt;property name="connection.password"&gt;aA123456&lt;/property&gt;  
+        &lt;property name="hibernate.default_schema"&gt;RestDemo&lt;/property&gt;
+        &lt;!-- JDBC connection pool (use the built-in) --&gt;  
+        &lt;property name="connection.pool_size"&gt;1&lt;/property&gt;  
+        &lt;!-- SQL dialect --&gt;  
+        &lt;property name="dialect"&gt;org.hibernate.dialect.SQLServerDialect&lt;/property&gt;  
+        &lt;!-- Enable Hibernate's automatic session context management --&gt;  
+        &lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;  
+        &lt;!-- Disable the second-level cache  --&gt;  
+        &lt;property name="cache.provider_class"&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;  
+        &lt;!-- Echo all executed SQL to stdout --&gt;  
+        &lt;property name="show_sql"&gt;true&lt;/property&gt;  
+        &lt;!-- Drop and re-create the database schema on startup --&gt;  
+        &lt;property name="hbm2ddl.auto"&gt;update&lt;/property&gt;  
+        &lt;mapping resource="com/waylau/rest/bean/User.hbm.xml"/&gt;  
+      &lt;/session-factory&gt;  
+&lt;/hibernate-configuration&gt;  
+</code></pre>
+
+<p>2.修改于mysql不兼容的sql语句<code>com.waylau.rest.dao.impl</code>中的<code>UserDaoImpl</code>:</p>
+
+<p>getUserById修改成如下：</p>
+
+<pre><code>@Override
+public User getUserById(String id) {
+    SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
+    Session s = null;
+    Transaction t = null;
+    User user = null;
+    try{
+     s = sessionFactory.openSession();
+     t = s.beginTransaction();
+     String hql = "from User where userId='"+id+"'";  
+     Query query = s.createQuery(hql);  
+     user = (User) query.uniqueResult(); 
+     t.commit();
+    }catch(Exception err){
+    t.rollback();
+    err.printStackTrace();
+    }finally{
+    s.close();
+    }
+    return user;
+}
+</code></pre>
+
+<p>getAllUsers给成如下：</p>
+
+<pre><code>@Override
+public List&lt;User&gt; getAllUsers() {
+    SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
+    Session s = null;
+    Transaction t = null;
+    List&lt;User&gt; uesrs = null;
+    try{
+     s = sessionFactory.openSession();
+     t = s.beginTransaction();
+     String hql = "select * from [RestDemo].dbo.t_user";  
+     Query query = s.createSQLQuery(hql).addEntity(User.class);  
+     //query.setCacheable(true); // 设置缓存  
+     uesrs = query.list();  
+     t.commit();
+    }catch(Exception err){
+    t.rollback();
+    err.printStackTrace();
+    }finally{
+    s.close();
+    }
+    return uesrs;
+}
+</code></pre>
+
+<p>或者如下：</p>
+
+<pre><code>@Override
+public List&lt;User&gt; getAllUsers() {
+    SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); 
+    Session s = null;
+    Transaction t = null;
+    List&lt;User&gt; uesrs = null;
+    try{
+     s = sessionFactory.openSession();
+     t = s.beginTransaction();
+     String hql = " from User";  
+     Query query = s.createQuery(hql);  
+     //query.setCacheable(true); // 设置缓存  
+     uesrs = query.list();  
+     t.commit();
+    }catch(Exception err){
+    t.rollback();
+    err.printStackTrace();
+    }finally{
+    s.close();
+    }
+    return uesrs;
+}
+</code></pre>
+
+<h1>四、问题</h1>
+
+<h2>可能会出现如下错误</h2>
+
+<pre><code>ERROR: 指定的架构名称 "RestDemo" 不存在，或者您没有使用该名称的权限。
+三月 26, 2014 3:38:43 下午 org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: HHH000232: Schema update complete
+Hibernate: insert into RestDemo.T_USER (userName, age, USERID) values (?, ?, ?)
+三月 26, 2014 3:38:43 下午 org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 208, SQLState: S0002
+三月 26, 2014 3:38:43 下午 org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: 对象名 'RestDemo.T_USER' 无效。
+</code></pre>
+
+<h2>解决方案：</h2>
+
+<p>将配置文件中的<code>hibernate.default_schema</code>值修改为如下即可：</p>
+
+<pre><code>&lt;property name="hibernate.default_schema"&gt;RestDemo.dbo&lt;/property&gt;  
+</code></pre>
+
+<p>或者去掉上面的配置，在“User.hbm.xml”修改如下</p>
+
+<pre><code>&lt;class name="User" table="T_USER" schema="RestDemo.dbo"&gt;  
+</code></pre>
+
+<p><strong>本章源码</strong>：<a href="https://github.com/waylau/RestDemo/tree/master/jersey-demo6-sqlserver-hibernate">https://github.com/waylau/RestDemo/tree/master/jersey-demo6-sqlserver-hibernate</a></p>
+
+<p><a href="https://github.com/waylau/RestDemo/tree/master/jersey-demo6.2-sqlserver-hibernate">https://github.com/waylau/RestDemo/tree/master/jersey-demo6.2-sqlserver-hibernate</a></p>
+
+      <div class="readall"><a href="/jersey-sqlserver-hibernate4/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="pagination">
+  
+  
+  <a class="pagination-item newer" href="/page/11"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;上一页</a>
+  
+    
+
+    
+      <a href="/">1</a>
+      
+
+    
+      
+      <a href="/page/2">2</a>
+      
+    
+      
+      <a href="/page/3">3</a>
+      
+    
+      
+      <a href="/page/4">4</a>
+      
+    
+      
+      <a href="/page/5">5</a>
+      
+    
+      
+      <a href="/page/6">6</a>
+      
+    
+      
+      <a href="/page/7">7</a>
+      
+    
+      
+      <a href="/page/8">8</a>
+      
+    
+      
+      <a href="/page/9">9</a>
+      
+    
+      
+      <a href="/page/10">10</a>
+      
+    
+      
+      <a href="/page/11">11</a>
+      
+    
+      
+      <span class="current-page">12</span>
+      
+    
+      
+      <a href="/page/13">13</a>
+      
+    
+      
+      <a href="/page/14">14</a>
+      
+    
+      
+      <a href="/page/15">15</a>
+      
+    
+      
+      <a href="/page/16">16</a>
+      
+    
+      
+      <a href="/page/17">17</a>
+      
+    
+      
+      <a href="/page/18">18</a>
+      
+    
+      
+      <a href="/page/19">19</a>
+      
+    
+      
+      <a href="/page/20">20</a>
+      
+    
+      
+      <a href="/page/21">21</a>
+      
+    
+      
+      <a href="/page/22">22</a>
+      
+    
+  (共129篇)
+
+  
+  <a class="pagination-item older" href="/page/13">下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+  
+</div>
+
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

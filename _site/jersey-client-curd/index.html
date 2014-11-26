@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="用Jersey构建RESTful服务4--通过jersey-client客户端调用Jersey的Web服务模拟CURD, Way Lau's Blog, Way Lau">
+  <title>用Jersey构建RESTful服务4--通过jersey-client客户端调用Jersey的Web服务模拟CURD - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/jersey-client-curd/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/jersey-client-curd/">用Jersey构建RESTful服务4--通过jersey-client客户端调用Jersey的Web服务模拟CURD</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年03月19日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javajerseyrest">javajerseyrest</a>	
+  </p>
+</header>
+<div class="post-main">
+<h1>一、总体说明</h1>
+
+<p>通过jersey-client接口，创建客户端程序，来调用Jersey实现的RESTful服务，实现增、删、改、查等操作。
+服务端主要是通过内存的方式，来模拟用户的增加、删除、修改、查询等操作。</p>
+
+<h1>二、创建服务端</h1>
+
+<p>1.在上文项目中，
+在“com.waylau.rest.resources.UserResource“中修改代码，
+首先创建一个HashMap，用来保存添加的用户</p>
+
+<pre><code>private static Map&lt;String,User&gt; userMap  = new HashMap&lt;String,User&gt;();  
+</code></pre>
+
+<p>2.创建增、删、改、查 用户资源等操作
+```java
+    /<em>*
+     * 增加
+     * @param user
+     </em>/<br/>
+    @POST<br/>
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})<br/>
+    public void createStudent(User user)<br/>
+    {<br/>
+        userMap.put(user.getUserId(), user );<br/>
+    }</p>
+
+<pre><code>/** 
+ * 删除 
+ * @param id 
+ */  
+@DELETE  
+@Path("{id}")  
+public void deleteStudent(@PathParam("id")String id){  
+    userMap.remove(id);  
+}  
+
+/** 
+ * 修改 
+ * @param user 
+ */  
+@PUT  
+@Consumes(MediaType.APPLICATION_XML)  
+public void updateStudent(User user){  
+    userMap.put(user.getUserId(), user );  
+}  
+
+/** 
+ * 根据id查询 
+ * @param id 
+ * @return 
+ */  
+@GET  
+@Path("{id}")  
+@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})  
+public User getUserById(@PathParam("id") String id){  
+    User u = userMap.get(id);  
+    return u;  
+}  
+
+/** 
+ * 查询所有 
+ * @return 
+ */  
+@GET  
+@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})  
+public List&lt;User&gt; getAllUsers(){       
+    List&lt;User&gt; users = new ArrayList&lt;User&gt;();     
+    users.addAll( userMap.values() );    
+    return users;  
+}  
+</code></pre>
+
+<pre><code class="">
+#三、创建客户端程序
+
+1.创建包“com.waylau.rest.client”，在包下建一个UserClient.java，代码如下：
+</code></pre>
+
+<pre><code>package com.waylau.rest.client;  
+
+import javax.ws.rs.client.Client;  
+import javax.ws.rs.client.ClientBuilder;  
+import javax.ws.rs.client.Entity;  
+import javax.ws.rs.client.WebTarget;  
+import javax.ws.rs.core.MediaType;  
+import javax.ws.rs.core.Response;  
+
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;  
+
+import com.waylau.rest.bean.User;  
+
+
+/** 
+ * 用户客户端，用来测试资源 
+ * @author waylau.com 
+ * 2014-3-18 
+ */  
+public class UserClient {  
+
+    private static String serverUri = "http://localhost:8089/RestDemo/rest";  
+    /** 
+     * @param args 
+     */  
+    public static void main(String[] args) {  
+        addUser();  
+        getAllUsers();  
+        updateUser();  
+        getUserById();  
+        getAllUsers();  
+        delUser();  
+        getAllUsers();  
+
+    }  
+    /** 
+     * 添加用户 
+     */  
+     private static void addUser() {  
+         System.out.println("****增加用户addUser****");  
+         User user = new User("006","Susan","21");    
+         Client client = ClientBuilder.newClient();  
+         WebTarget target = client.target(serverUri + "/users");  
+         Response response = target.request().buildPost(Entity.entity(user, MediaType.APPLICATION_XML)).invoke();  
+         response.close();  
+    }  
+
+    /** 
+     * 删除用户 
+     */  
+     private static void delUser() {  
+         System.out.println("****删除用户****");  
+         Client client = ClientBuilder.newClient();  
+         WebTarget target = client.target(serverUri + "/users/006");  
+         Response response = target.request().delete();  
+         response.close();  
+    }  
+
+
+    /** 
+     * 修改用户 
+     */  
+     private static void updateUser() {  
+         System.out.println("****修改用户updateUser****");  
+         User user = new User("006","Susan","33");    
+         Client client = ClientBuilder.newClient();  
+         WebTarget target = client.target(serverUri + "/users");  
+         Response response = target.request().buildPut( Entity.entity(user, MediaType.APPLICATION_XML)).invoke();  
+         response.close();  
+    }  
+    /** 
+     * 根据id查询用户 
+     */  
+     private static void getUserById() {  
+         System.out.println("****根据id查询用户****");  
+         Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);// 注册json 支持  
+         WebTarget target = client.target(serverUri + "/users/006");  
+         Response response = target.request().get();  
+         User user = response.readEntity(User.class);  
+         System.out.println(user.getUserId() + user.getUserName()  +  user.getAge());  
+         response.close();  
+    }  
+    /** 
+     * 查询所有用户 
+     */  
+     private static void getAllUsers() {  
+         System.out.println("****查询所有getAllUsers****");  
+
+         Client client = ClientBuilder.newClient();  
+
+         WebTarget target = client.target(serverUri + "/users");  
+         Response response = target.request().get();  
+         String value = response.readEntity(String.class);  
+         System.out.println(value);  
+         response.close();  //关闭连接  
+     }  
+
+}  
+</code></pre>
+
+<p>```</p>
+
+<h1>四、运行</h1>
+
+<p>启动服务端项目，运行客户端程序UserClient，控制台输出如下</p>
+
+<pre><code>****增加用户addUser****  
+****查询所有getAllUsers****  
+[{"userId":"006","userName":"Susan","age":"21"}]  
+****修改用户updateUser****  
+****根据id查询用户****  
+006Susan33  
+****查询所有getAllUsers****  
+[{"userId":"006","userName":"Susan","age":"33"}]  
+****删除用户****  
+****查询所有getAllUsers****  
+[]  
+</code></pre>
+
+<h1>五、总结</h1>
+
+<p>1.客户端如果需要进行JSON转换，需要进行JSON注册</p>
+
+<pre><code>Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);  
+</code></pre>
+
+<p>2.WebTarget 指明了要请求的资源的地址</p>
+
+<p>3.target.request(). 后面跟的是请求的方法:POST，GET，PUT或DELETE</p>
+
+<p><strong>本章源码</strong>：<a href="https://github.com/waylau/RestDemo/tree/master/jersey-demo4-client-curd">https://github.com/waylau/RestDemo/tree/master/jersey-demo4-client-curd</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/jersey-restful-java-json/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;用Jersey构建RESTful服务3--JAVA对象转成JSON输出</a>
+
+
+<a class="pagination-item older" href="/jersey-mysql5-hibernate4/">用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="用Jersey构建RESTful服务4--通过jersey-client客户端调用Jersey的Web服务模拟CURD" data-thread-key="/jersey-client-curd" data-url="http://www.waylau.com/jersey-client-curd/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

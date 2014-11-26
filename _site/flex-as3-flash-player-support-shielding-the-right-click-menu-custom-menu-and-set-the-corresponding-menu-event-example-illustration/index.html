@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="Flex/AS3/flash player支持屏蔽右键菜单,自定义菜单，并设置相应的菜单事件(示例，图解), Way Lau's Blog, Way Lau">
+  <title>Flex/AS3/flash player支持屏蔽右键菜单,自定义菜单，并设置相应的菜单事件(示例，图解) - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/flex-as3-flash-player-support-shielding-the-right-click-menu-custom-menu-and-set-the-corresponding-menu-event-example-illustration/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/flex-as3-flash-player-support-shielding-the-right-click-menu-custom-menu-and-set-the-corresponding-menu-event-example-illustration/">Flex/AS3/flash player支持屏蔽右键菜单,自定义菜单，并设置相应的菜单事件(示例，图解)</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2013年03月04日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#flashflex">flashflex</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>Flex/AS3/flash player支持屏蔽右键菜单,自定义菜单，并设置相应的菜单事件(示例，图解)</p>
+
+<p>播放器 版本 11.2以后支持右键菜单屏蔽及自定义菜单
+1.更新播放器 ，11.2 以上版本</p>
+
+<pre><code>http://download.macromedia.com/get/flashplayer/updaters/11/playerglobal11_3.swc
+http://download.macromedia.com/get/flashplayer/updaters/11/playerglobal11_4.swc
+http://download.macromedia.com/get/flashplayer/updaters/11/playerglobal11_2.swc
+http://download.macromedia.com/get/flashplayer/updaters/11/playerglobal11_5.swc
+</code></pre>
+
+<p>2.编译器参数设置-swf-version=15（见图）</p>
+
+<p><img class="alignnone" alt="" src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=add4d17a74c6a7efbd26a823cdc1de6c/91ef76c6a7efce1bd7d3bc6fad51f3deb58f659e.jpg?referer=ecdbe946ff1f4134b920314ec374&amp;x=.jpg" width="280" height="115" /></p>
+
+<ol>
+<li>自定义 菜单，并设置相应的菜单事件 (Flex代码)</li>
+</ol>
+
+
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+               xmlns:twaver="http://www.servasoftware.com/2009/twaver/flex"
+               applicationComplete="init()"&gt;
+    &lt;fx:Script&gt;
+        &lt;![CDATA[
+
+            import mx.controls.Button;
+            import mx.controls.Menu;
+            import mx.events.MenuEvent;
+            import mx.controls.Alert;
+
+            private var menu:Menu = null;
+            private var bt:Button = new Button();
+
+            private function init():void {
+                bt.label = "走你~";
+                network.addElement(bt);
+                network.addEventListener(MouseEvent.RIGHT_CLICK,handleRighClick);//监听右键
+            }
+            private function handleRighClick(e:MouseEvent):void {
+
+                if(menu != null){
+                    menu.hide();
+                }
+                menu = Menu.createMenu(network, myMenuData, false);//myMenuData菜单数据源
+                menu.labelField = "@label";//右键菜单的文字
+
+                var point:Point = network.globalToLocal(new Point(e.stageX, e.stageY));
+                menu.show(point.x, point.y);
+                menu.addEventListener(MenuEvent.ITEM_CLICK,menuItemClickHandler);  //菜单事件
+            }
+
+            private function menuItemClickHandler(evt:MenuEvent):void{
+                Alert.show(evt.item.@eventName)  //将事件名显示出来
+            }
+        ]]&gt;
+    &lt;/fx:Script&gt;
+    &lt;fx:Declarations&gt;
+        &lt;fx:XML id="myMenuData"&gt;
+            &lt;root label="MenuItem 1" &gt;
+                &lt;menuitem label="new" eventName="new" /&gt;
+                &lt;menuitem label="refreash" eventName="refreash" /&gt;
+                &lt;menuitem label="remove" eventName="remove" /&gt;
+            &lt;/root&gt;
+
+        &lt;/fx:XML&gt;
+    &lt;/fx:Declarations&gt;
+    &lt;s:Group id="network" width="100%" height="100%"  /&gt;
+&lt;/s:Application&gt;</pre>
+
+
+<p><img class="alignnone" alt="" src="http://f.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=00d9908671f082022992913a7bc08ad0/d01373f082025aaf099d0a6ef9edab64024f1ae3.jpg?referer=0c19c643257f9e2f2922293866a2&amp;x=.jpg" width="211" height="129" /></p>
+
+<p><img class="alignnone" alt="" src="http://a.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=8e695c00087b020808c93fe452e283ee/1c950a7b02087bf4eabe234cf0d3572c10dfcfc1.jpg?referer=164b2af50e338744c5d21b4c29df&amp;x=.jpg" width="290" height="179" /></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/requirement-analyse/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;可行性分析与需求分析</a>
+
+
+<a class="pagination-item older" href="/flash-typeerro-2007/">在flex中监听鼠标右键事件,提示 TypeError Error 2007 参数type不能为空。&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="Flex/AS3/flash player支持屏蔽右键菜单,自定义菜单，并设置相应的菜单事件(示例，图解)" data-thread-key="/flex-as3-flash-player-support-shielding-the-right-click-menu-custom-menu-and-set-the-corresponding-menu-event-example-illustration" data-url="http://www.waylau.com/flex-as3-flash-player-support-shielding-the-right-click-menu-custom-menu-and-set-the-corresponding-menu-event-example-illustration/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

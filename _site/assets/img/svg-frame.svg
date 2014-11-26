@@ -1,0 +1,18 @@
+<?xml version='1.0' standalone='no'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+
+<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+    <image width="320" height="240" xlink:href="fan_128.png">
+        <animate id='frame_0' attributeName='display' values='inline;none'
+                 dur='0.5s' fill='freeze' begin="0s" repeatCount="indefinite"/>
+    </image>
+
+    <image width="320" height="240" xlink:href="fan_128.png">
+        <animate id='frame_1' attributeName='display' values='none;inline'
+                 dur='0.5s' fill='freeze' begin="0.5s" repeatCount="indefinite" />
+    </image>
+
+</svg>

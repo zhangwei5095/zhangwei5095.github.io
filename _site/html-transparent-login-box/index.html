@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="html透明登录框的实现, Way Lau's Blog, Way Lau">
+  <title>html透明登录框的实现 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/html-transparent-login-box/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/html-transparent-login-box/">html透明登录框的实现</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年08月17日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#html">html</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>html登录界面，看似简单，无非就是一个底图，一个名称，一个登录，一些底部信息，在没有美工的情况下，纯代码实现还是有些坑。</p>
+
+<p>本文详解透明的登录框的CSS实现。</p>
+
+<h1>设计界面元素</h1>
+
+<p>在把主页面的 html 的元素规定好。主要由底图、名称、登录表单、底部信息组成。如下：</p>
+
+<pre><code>&lt;img  src="img/bg.jpg"  /&gt;
+&lt;div id="login_id"&gt;
+    &lt;h1&gt;wwww.waylau.com&lt;br/&gt;信息管理系统&lt;/h1&gt;
+    &lt;form id="login_form"&gt;
+        &lt;input name="loginname" type="text" class="loginuser"    placeholder="用户名"   /&gt;
+        &lt;input name="password" type="password" class="loginpwd"   placeholder="密码"  /&gt;
+        &lt;input id="login" type="button" class="loginbtn" value="登录" /&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div id="buttom_id"&gt;
+    版权所有：&lt;a href="http://wwww.waylau.com" target="_blank"&gt;http://wwww.waylau.com&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><code>body</code> 的 底图我的需求是整张图拉伸铺满，而不是重复显示，或者留空。虽然 <code>body</code> 的  <code>background：url(xxx)</code> 可以插入底图，但是 设为<code>no-repeat</code>的话，如果图太小，会留空，<code>background-size</code>设置没有达到预期效果。所以直接用了<code>img</code>.</p>
+
+<h1>样式</h1>
+
+<h2>整体样式</h2>
+
+<p>整体是居中的</p>
+
+<pre><code>body {
+    text-align: center;
+    margin: 0;
+}
+</code></pre>
+
+<h2>底图的样式</h2>
+
+<pre><code>img {
+    width:100% ;height:100%;position:absolute;
+    top:0;left:0;right:100;bottom:500;z-index:-1;
+}
+</code></pre>
+
+<p>拉伸图片填充整个界面，其中<code>z-index:-1;</code> 就是让图片的深度降一级，意思是说，图片是在所有元素的后面。</p>
+
+<h2>表单样式</h2>
+
+<p>输入表单，我的需求是要透明（正常的<code>input</code>简直俗透了），只显示一个底部输入线条</p>
+
+<pre><code>#login_form input {
+    border: 0;
+    BACKGROUND-COLOR: transparent;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #ffffff;
+    HEIGHT: 18px;
+    font-size: 12pt
+}
+</code></pre>
+
+<p><code>border: 0;</code>就是不要显示输入框的边框。</p>
+
+<p><code>BACKGROUND-COLOR: transparent;</code>这里是设置了透明。</p>
+
+<p><code>BORDER-BOTTOM</code>就是 用来显示<code>底线</code>的，同理<code>BORDER-LEFT</code>、<code>BORDER-RIGHT</code>、<code>BORDER-TOP</code>就是设置上下左右的边框线条。</p>
+
+<h1>整体效果</h1>
+
+<p><img src="http://e.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=b3141eb3452309f7e36fad1742357dce/21a4462309f79052647c4c190ff3d7ca7bcbd5b2.jpg?referer=ec666d54f8f2b211bd39b07e1350&amp;x=.jpg" alt="整体效果" /></p>
+
+<p>么么滴，相册的水印真讨厌。╯﹏╰</p>
+
+<p>另外底图来自《星际争霸》原画，当年最爱的游戏Y(^_^)Y</p>
+
+<p>源码<a href="https://github.com/waylau/html-css-demo/blob/master/TransparentLoginBoxDemo.html">下载</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/svn-remove-project/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;将SVN服务器里面的项目删除</a>
+
+
+<a class="pagination-item older" href="/html-color-text-block/">html颜色块图标&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="html透明登录框的实现" data-thread-key="/html-transparent-login-box" data-url="http://www.waylau.com/html-transparent-login-box/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

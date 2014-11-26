@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Spring3.2, Way Lau's Blog, Way Lau">
+  <title>用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Spring3.2 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/jersey-sqlserver-hibernate4-spring3/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/jersey-sqlserver-hibernate4-spring3/">用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Spring3.2</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年07月25日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javajerseyrestspring">javajerseyrestspring</a>	
+  </p>
+</header>
+<div class="post-main">
+<h1>一、总体说明</h1>
+
+<p>本例运行演示了用 Jersey 构建 RESTful 服务中，如何集成 Spring3</p>
+
+<h1>二、环境</h1>
+
+<ul>
+<li>1.上文的项目RestDemo</li>
+<li>2.Spring及其他相关的jar ,导入项目
+<img src="http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d3d08e3730fa828bd5239de6cd243009/b03533fa828ba61ec73dc21d4234970a304e5934.jpg?referer=743b926cdec451daafe138dba7ea&amp;x=.jpg" alt="Spring及其他相关的jar" /></li>
+</ul>
+
+
+<h1>三、配置</h1>
+
+<p>1.根目录下下创建 Spring 的配置文件<code>applicationContext.xml</code>；
+配置如下：
+    &lt;?xml version="1.0" encoding="UTF-8"?></p>
+
+<pre><code>&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd"
+        &gt;
+    &lt;!-- 激活那些已经在g容器里注册过的bean --&gt;    
+    &lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;
+
+    &lt;!-- 在容器中注入bean --&gt;
+    &lt;bean id="UserServiceImpl" class="com.waylau.rest.service.impl.UserServiceImpl"/&gt;
+    &lt;bean id="UserDaoImpl" class="com.waylau.rest.dao.impl.UserDaoImpl"/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<p>2.在<code>com.waylau.rest.service</code>和<code>com.waylau.rest.service.impl</code>下分别增加 UserService 和 UserServiceImpl。</p>
+
+<p><code>UserService.java</code></p>
+
+<pre><code>package com.waylau.rest.service;
+
+import java.util.List;
+
+import com.waylau.rest.bean.User;
+
+
+/**
+ * User Service 接口
+ * @author waylau.com
+ * 2014-7-25
+ */
+public interface UserService {
+
+    public User getUserById(String id);
+
+    public boolean deleteUserById(String id);
+
+    public boolean createUser(User user);
+
+    public boolean updateUser(User user);
+
+    public List&lt;User&gt; getAllUsers();
+}
+</code></pre>
+
+<p><code>UserServiceImpl.java</code></p>
+
+<pre><code>package com.waylau.rest.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.waylau.rest.bean.User;
+import com.waylau.rest.dao.impl.UserDaoImpl;
+import com.waylau.rest.service.UserService;
+/**
+ * User Service 接口实现
+ * @author waylau.com
+ * 2014-7-25
+ */
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserDaoImpl userDaoImpl;
+
+    public UserServiceImpl() {
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public User getUserById(String id) {
+        return userDaoImpl.getUserById(id);
+    }
+
+    @Override
+    public boolean deleteUserById(String id) {
+        return userDaoImpl.deleteUserById(id);
+    }
+
+    @Override
+    public boolean createUser(User user) {
+        return userDaoImpl.createUser(user);
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        return userDaoImpl.updateUser(user);
+    }
+
+    @Override
+    public List&lt;User&gt; getAllUsers() {
+        return userDaoImpl.getAllUsers();
+    }
+
+}
+</code></pre>
+
+<p>3.修改 <code>UserResource.java</code></p>
+
+<pre><code>package com.waylau.rest.resources;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.waylau.rest.bean.User;
+import com.waylau.rest.service.impl.UserServiceImpl;
+
+/**
+ * 用户资源
+ * @author waylau.com
+ * 2014-7-26
+ */
+@Path("/users")
+public class UserResource {
+    private static final Logger LOGGER = Logger.getLogger(UserResource.class.getName());
+
+    @Autowired
+    private UserServiceImpl userServiceImpl;
+
+    public UserResource() {
+        LOGGER.fine("UserResource()");
+    }
+
+    /**
+     * 增加
+     * @param user
+     */
+    @POST
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void createUser(User user)
+    {
+        userServiceImpl.createUser(user);
+    }
+
+    /**
+     * 删除
+     * @param id
+     */
+    @DELETE
+    @Path("{id}")
+    public void deleteUser(@PathParam("id")String id){
+        userServiceImpl.deleteUserById(id);
+    }
+
+    /**
+     * 修改
+     * @param user
+     */
+    @PUT
+    @Consumes(MediaType.APPLICATION_XML)
+    public void updateUser(User user){
+        userServiceImpl.updateUser(user);
+    }
+
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
+    @GET
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public User getUserById(@PathParam("id") String id){
+        User u = userServiceImpl.getUserById(id);
+        return u;
+    }
+
+    /**
+     * 查询所有
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List&lt;User&gt; getAllUsers(){     
+        List&lt;User&gt; users = new ArrayList&lt;User&gt;();   
+        users = userServiceImpl.getAllUsers();
+        return users;
+    }
+}
+</code></pre>
+
+<p>4.修改web.xml,插入</p>
+
+<pre><code>&lt;module-name&gt;RestDemo&lt;/module-name&gt;
+
+&lt;listener&gt;
+  &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;context-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre>
+
+<h1>四、运行</h1>
+
+<p>1.先运行项目</p>
+
+<p>2.运行UserClient.java测试，控制台输出如下</p>
+
+<pre><code>****增加用户addUser****
+****查询所有getAllUsers****
+[{"userId":"002","userName":"sdfs","age":"23"},{"userId":"003","userName":"sdfs","age":"23"},{"userId":"004","userName":"sdfs","age":"23"},{"userId":"005","userName":"sdfs","age":"23"},{"userId":"006","userName":"Susan","age":"21"},{"userId":"007","userName":"sdfs","age":"23"},{"userId":"ds","userName":"ds","age":"ds"}]
+****修改用户updateUser****
+****根据id查询用户****
+006Susan33
+****查询所有getAllUsers****
+[{"userId":"002","userName":"sdfs","age":"23"},{"userId":"003","userName":"sdfs","age":"23"},{"userId":"004","userName":"sdfs","age":"23"},{"userId":"005","userName":"sdfs","age":"23"},{"userId":"006","userName":"Susan","age":"33"},{"userId":"007","userName":"sdfs","age":"23"},{"userId":"ds","userName":"ds","age":"ds"}]
+****删除用户****
+****查询所有getAllUsers****
+[{"userId":"002","userName":"sdfs","age":"23"},{"userId":"003","userName":"sdfs","age":"23"},{"userId":"004","userName":"sdfs","age":"23"},{"userId":"005","userName":"sdfs","age":"23"},{"userId":"007","userName":"sdfs","age":"23"},{"userId":"ds","userName":"ds","age":"ds"}]
+</code></pre>
+
+<p><strong>本章源码（含jar包）</strong>：<a href="https://github.com/waylau/RestDemo/tree/master/jersey-demo7-sqlserver-hibernate-spring3">https://github.com/waylau/RestDemo/tree/master/jersey-demo7-sqlserver-hibernate-spring3</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/build-java-project-with-maven/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;使用maven编译Java项目</a>
+
+
+<a class="pagination-item older" href="/spring-4-third-party-libraries-relationship/">Spring 4.x 与可选的第三方库的关系&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Spring3.2" data-thread-key="/jersey-sqlserver-hibernate4-spring3" data-url="http://www.waylau.com/jersey-sqlserver-hibernate4-spring3/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

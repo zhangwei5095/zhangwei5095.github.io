@@ -10,6 +10,8 @@ tags: [Jersey,Spring,REST]
 
 本文介绍了如何通过 Jersey 框架优美的在 Java 实现了 REST 的 API。CRUD 的 操作存储在 MySQL 中
 
+<!-- more -->
+
 ##1. 示例
 
 ###1.1 为什么

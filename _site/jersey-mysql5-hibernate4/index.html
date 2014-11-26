@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3, Way Lau's Blog, Way Lau">
+  <title>用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/jersey-mysql5-hibernate4/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/jersey-mysql5-hibernate4/">用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年03月23日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javajersey">javajersey</a>	
+  </p>
+</header>
+<div class="post-main">
+<h1>一、总体说明</h1>
+
+<p>本例运行演示了用Jersey构建RESTful服务中，如何同过Hibernate将数据持久化进MySQL的过程</p>
+
+<h1>二、环境</h1>
+
+<p>1.上文的项目RestDemo</p>
+
+<p>2.MySQL5.6下载<a href="http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-win32.zip">http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-win32.zip</a></p>
+
+<p>3.Hibernate4.3.4下载<a href="http://sourceforge.net/projects/hibernate/files/hibernate4/4.3.4.Final/hibernate-release-4.3.4.Final.zip">http://sourceforge.net/projects/hibernate/files/hibernate4/4.3.4.Final/hibernate-release-4.3.4.Final.zip</a></p>
+
+<p>4.Java程序连接MySQL的驱动mysql-connector-java-5.1.29-bin.jar下载
+<a href="http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.29.zip">http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.29.zip</a></p>
+
+<h1>三、数据库准备</h1>
+
+<p>1.搭建MySQL数据库</p>
+
+<p>2.创建数据库RestDemo ,及数据表t_user,结构如下</p>
+
+<pre><code>DROP TABLE IF EXISTS `t_user`;
+CREATE TABLE `t_user` (
+  `userId` varchar(50) NOT NULL,
+  `userName` varchar(50) NOT NULL,
+  `age` varchar(50) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+
+<p><img src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=3cef56bfbb389b503cffe057b50e94e0/2e2eb9389b504fc2df5cfca4e7dde71190ef6d0b.jpg?referer=c6811510820a19d89214b135cb09&x=.jpg"/></p>
+
+<p><strong>PS:</strong>   userId 非自增长类型，需要在业务添加</p>
+
+<h1>四、引入Hibernate</h1>
+
+<p>1.解压Hibernate的包，在lib\required文件夹下所有jar引入进项目
+<img src="http://b.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a094d07d8813632711edc236a1b4d1d1/a8ec8a13632762d04648e81ea2ec08fa513dc619.jpg?referer=d1125cbcd62a28341ab1023b22f7&x=.jpg"/></p>
+
+<p>2.解压mysql-connector-java-5.1.29.zip，将mysql-connector-java-5.1.29-bin.jar引入进项目</p>
+
+<p>3.在项目的根目录创建hibernate的配置文件hibernate.cfg.xml，内容如下：</p>
+
+<pre><code class="xml">&lt;?xml version='1.0' encoding='utf-8'?&gt;  
+&lt;!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;  
+
+&lt;hibernate-configuration&gt;  
+   &lt;session-factory&gt;  
+   &lt;!-- Database connection settings --&gt;  
+        &lt;property name="connection.driver_class"&gt;com.mysql.jdbc.Driver&lt;/property&gt;  
+        &lt;property name="connection.url"&gt;jdbc:mysql://127.0.0.1:3306/RestDemo&lt;/property&gt;  
+        &lt;property name="connection.username"&gt;root&lt;/property&gt;  
+        &lt;property name="connection.password"&gt;&lt;/property&gt;  
+
+        &lt;!-- JDBC connection pool (use the built-in) --&gt;  
+        &lt;property name="connection.pool_size"&gt;1&lt;/property&gt;  
+
+        &lt;!-- SQL dialect --&gt;  
+        &lt;property name="dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;  
+
+        &lt;!-- Enable Hibernate's automatic session context management --&gt;  
+        &lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;  
+
+        &lt;!-- Disable the second-level cache  --&gt;  
+        &lt;property name="cache.provider_class"&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;  
+
+        &lt;!-- Echo all executed SQL to stdout --&gt;  
+        &lt;property name="show_sql"&gt;true&lt;/property&gt;  
+
+        &lt;!-- Drop and re-create the database schema on startup --&gt;  
+        &lt;property name="hbm2ddl.auto"&gt;update&lt;/property&gt;  
+
+
+        &lt;mapping resource="com/waylau/rest/bean/User.hbm.xml"/&gt;  
+
+    &lt;/session-factory&gt;  
+&lt;/hibernate-configuration&gt;  
+</code></pre>
+
+<p>4.在项目User.java 的同个目录下，创建该类的映射文件User.hbm.xml</p>
+
+<pre><code class="xml">&lt;?xml version="1.0"?&gt;  
+&lt;!DOCTYPE hibernate-mapping PUBLIC  
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;  
+
+
+&lt;hibernate-mapping package="com.waylau.rest.bean"&gt;  
+
+    &lt;class name="User" table="T_USER"&gt;  
+        &lt;id name="userId" column="USERID"  type="string" &gt;  
+            &lt;generator class="assigned"/&gt;  
+        &lt;/id&gt;  
+        &lt;property name="userName" type="string" /&gt;  
+        &lt;property name="age" type="string" /&gt;  
+    &lt;/class&gt;  
+
+&lt;/hibernate-mapping&gt;   
+</code></pre>
+
+<p>5.创建包com.waylau.rest.util，在该包下创建HibernateUtil.java</p>
+
+<pre><code class="java">package com.waylau.rest.util;  
+
+import org.hibernate.SessionFactory;  
+import org.hibernate.boot.registry.StandardServiceRegistry;  
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;  
+import org.hibernate.cfg.Configuration;  
+/** 
+ * Hibernate 初始化配置工具类 
+ * @author waylau.com 
+ * 2014-3-23 
+ */  
+public class HibernateUtil {  
+     private static Configuration configuration;  
+     private static SessionFactory sessionFactory;  
+     private static StandardServiceRegistry standardServiceRegistry;  
+        static {  
+            try {  
+             //第一步:读取Hibernate的配置文件  hibernamte.cfg.xml文件  
+              configuration = new Configuration().configure("hibernate.cfg.xml");          
+             //第二步:创建服务注册构建器对象，通过配置对象中加载所有的配置信息  
+              StandardServiceRegistryBuilder sb = new StandardServiceRegistryBuilder();  
+              sb.applySettings(configuration.getProperties());  
+             //创建注册服务  
+              standardServiceRegistry = sb.build();    
+            //第三步:创建会话工厂  
+              sessionFactory = configuration.buildSessionFactory(standardServiceRegistry);     
+            } catch (Throwable ex) {  
+                // Make sure you log the exception, as it might be swallowed  
+                System.err.println("Initial SessionFactory creation failed." + ex);  
+                throw new ExceptionInInitializerError(ex);  
+            }  
+        }  
+
+        public static SessionFactory getSessionFactory() {  
+            return sessionFactory;  
+        }  
+}  
+</code></pre>
+
+<p>6.在项目中建com.waylau.rest.dao包，在该包下建立User操作的接口UserDao.java</p>
+
+<pre><code class="java">package com.waylau.rest.dao;  
+
+import java.util.List;  
+
+import com.waylau.rest.bean.User;  
+
+
+/** 
+ * User Dao 接口 
+ * @author waylau.com 
+ * 2014-3-18 
+ */  
+public interface UserDao {  
+
+    public User getUserById(String id);  
+
+    public boolean deleteUserById(String id);  
+
+    public boolean createUser(User user);  
+
+    public boolean updateUser(User user);  
+
+    public List&lt;User&gt; getAllUsers();  
+}  
+</code></pre>
+
+<p>7.在项目中建com.waylau.rest.dao.impl包，在该包下建立User操作接口的实现UserDaoImpl.java</p>
+
+<pre><code class="java">package com.waylau.rest.dao.impl;  
+
+import java.util.List;  
+
+import org.hibernate.Query;  
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+import org.hibernate.Transaction;  
+
+import com.waylau.rest.bean.User;  
+import com.waylau.rest.dao.UserDao;  
+import com.waylau.rest.util.HibernateUtil;  
+/** 
+ * 用户DAO实现 
+ * @author waylau.com 
+ * 2014-3-23 
+ */  
+public class UserDaoImpl implements UserDao {  
+
+    @Override  
+    public User getUserById(String id) {  
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();   
+        Session s = null;  
+        Transaction t = null;  
+        User user = null;  
+        try{  
+         s = sessionFactory.openSession();  
+         t = s.beginTransaction();  
+         String hql = "from User where userId="+id;    
+         Query query = s.createQuery(hql);    
+         user = (User) query.uniqueResult();   
+         t.commit();  
+        }catch(Exception err){  
+        t.rollback();  
+        err.printStackTrace();  
+        }finally{  
+        s.close();  
+        }  
+        return user;  
+    }  
+
+    @Override  
+    public boolean deleteUserById(String id) {  
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();   
+        Session s = null;  
+        Transaction t = null;  
+        boolean flag = false;  
+        try{  
+         s = sessionFactory.openSession();  
+         t = s.beginTransaction();  
+         User user = new User();    
+         user.setUserId(id);  
+         s.delete(user);  
+         t.commit();  
+         flag = true;  
+        }catch(Exception err){  
+        t.rollback();  
+        err.printStackTrace();  
+        }finally{  
+        s.close();  
+        }  
+        return flag;  
+    }  
+
+    @Override  
+    public boolean createUser(User user) {  
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();   
+        Session s = null;  
+        Transaction t = null;  
+        boolean flag = false;  
+        try{  
+         s = sessionFactory.openSession();  
+         t = s.beginTransaction();  
+         s.save(user);  
+         t.commit();  
+         flag = true;  
+        }catch(Exception err){  
+        t.rollback();  
+        err.printStackTrace();  
+        }finally{  
+        s.close();  
+        }  
+        return flag;  
+    }  
+
+    @Override  
+    public boolean updateUser(User user) {  
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();   
+        Session s = null;  
+        Transaction t = null;  
+        boolean flag = false;  
+        try{  
+         s = sessionFactory.openSession();  
+         t = s.beginTransaction();  
+         s.update(user);  
+         t.commit();  
+         flag = true;  
+        }catch(Exception err){  
+        t.rollback();  
+        err.printStackTrace();  
+        }finally{  
+        s.close();  
+        }  
+        return flag;  
+    }  
+
+    @Override  
+    public List&lt;User&gt; getAllUsers() {  
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();   
+        Session s = null;  
+        Transaction t = null;  
+        List&lt;User&gt; uesrs = null;  
+        try{  
+         s = sessionFactory.openSession();  
+         t = s.beginTransaction();  
+         String hql = "select * from t_user";    
+         Query query = s.createSQLQuery(hql).addEntity(User.class);    
+         query.setCacheable(true); // 设置缓存    
+         uesrs = query.list();    
+         t.commit();  
+        }catch(Exception err){  
+        t.rollback();  
+        err.printStackTrace();  
+        }finally{  
+        s.close();  
+        }  
+        return uesrs;  
+    }  
+
+}  
+</code></pre>
+
+<p>8.修改项目中 com.waylau.rest.resources包下的UserResource.java，使之前在内存中模拟CURD转为在数据库中实现</p>
+
+<pre><code class="java">package com.waylau.rest.resources;  
+
+import java.util.ArrayList;  
+import java.util.List;  
+
+import javax.ws.rs.Path;  
+import javax.ws.rs.Produces;  
+import javax.ws.rs.Consumes;  
+import javax.ws.rs.PathParam;  
+import javax.ws.rs.core.MediaType;  
+import javax.ws.rs.DELETE;  
+import javax.ws.rs.GET;  
+import javax.ws.rs.POST;  
+import javax.ws.rs.PUT;  
+
+import com.waylau.rest.bean.User;  
+import com.waylau.rest.dao.impl.UserDaoImpl;  
+
+/** 
+ * 用户资源 
+ * @author waylau.com 
+ * 2014-3-19 
+ */  
+@Path("/users")  
+public class UserResource {  
+    private UserDaoImpl userDaoImpl = new UserDaoImpl();  
+    /** 
+     * 增加 
+     * @param user 
+     */  
+    @POST  
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})  
+    public void createUser(User user)  
+    {  
+        userDaoImpl.createUser(user);  
+    }  
+
+    /** 
+     * 删除 
+     * @param id 
+     */  
+    @DELETE  
+    @Path("{id}")  
+    public void deleteUser(@PathParam("id")String id){  
+        userDaoImpl.deleteUserById(id);  
+    }  
+
+    /** 
+     * 修改 
+     * @param user 
+     */  
+    @PUT  
+    @Consumes(MediaType.APPLICATION_XML)  
+    public void updateUser(User user){  
+        userDaoImpl.updateUser(user);  
+    }  
+
+    /** 
+     * 根据id查询 
+     * @param id 
+     * @return 
+     */  
+    @GET  
+    @Path("{id}")  
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})  
+    public User getUserById(@PathParam("id") String id){  
+        User u = userDaoImpl.getUserById(id);  
+        return u;  
+    }  
+
+    /** 
+     * 查询所有 
+     * @return 
+     */  
+    @GET  
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})  
+    public List&lt;User&gt; getAllUsers(){       
+        List&lt;User&gt; users = new ArrayList&lt;User&gt;();     
+        users = userDaoImpl.getAllUsers();  
+        return users;  
+    }  
+
+
+}  
+</code></pre>
+
+<h1>五、运行</h1>
+
+<p>1.将服务端运行后</p>
+
+<p>2.运行UserClient客户端，可以看到数据库已经实现增删改查</p>
+
+<p>完整项目架构如下：
+<img src="http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=007dc5876f224f4a5399731639cce16f/42166d224f4a20a4f4a58f6692529822730ed0dc.jpg?referer=5bd6b3bbc45c10387d69faf210b2&x=.jpg"/></p>
+
+<p><strong>本章源码</strong>：<a href="https://github.com/waylau/RestDemo/tree/master/jersey-demo5-mysql-hibernate">https://github.com/waylau/RestDemo/tree/master/jersey-demo5-mysql-hibernate</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/jersey-client-curd/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;用Jersey构建RESTful服务4--通过jersey-client客户端调用Jersey的Web服务模拟CURD</a>
+
+
+<a class="pagination-item older" href="/jersey-sqlserver-hibernate4/">用Jersey构建RESTful服务6--Jersey+SQLServer+Hibernate4.3&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="用Jersey构建RESTful服务5--Jersey+MySQL5.6+Hibernate4.3" data-thread-key="/jersey-mysql5-hibernate4" data-url="http://www.waylau.com/jersey-mysql5-hibernate4/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="WebSocket 和 Golang 实现聊天功能, Way Lau's Blog, Way Lau">
+  <title>WebSocket 和 Golang 实现聊天功能 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/go-websocket-chat/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/go-websocket-chat/">WebSocket 和 Golang 实现聊天功能</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年11月17日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#golang">golang</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>这个示例应用程序展示了如何使用 <a href="http://tools.ietf.org/html/rfc6455">WebSocket</a>, <a href="http://golang.org/">Golang</a> 和  <a href="http://jquery.com/">jQuery</a> 创建一个简单的web聊天应用程序。这个示例的源代码在 <a href="https://github.com/waylau/goChat">https://github.com/waylau/goChat</a> 。</p>
+
+<h2>Running the example 运行示例</h2>
+
+<p>这个示例需要 Golang 开发环境。 该<a href="http://golang.org/doc/install.html">页面</a>描述如何安装开发环境。</p>
+
+<p>一旦你去启动和运行,您可以下载、构建和运行的例子, 使用命令:</p>
+
+<pre><code>go get gary.burd.info/go-websocket-chat
+go-websocket-chat
+</code></pre>
+
+<p>在支持 websocket 的浏览器尝试打开 <a href="http://127.0.0.1:8080/">http://127.0.0.1:8080/</a> 启动应用</p>
+
+<h2>Server 服务器</h2>
+
+<p>服务器程序实现了 <a href="http://golang.org/pkg/net/http/">http</a> 包，包含了 Go 分发和 Gorilla 项目的 websocket 包.</p>
+
+<p>应用程序定义了两种类型, connection 和 hub 。服务器为每个 webscocket 连接 创建的一个 connection 类型的实例 。 连接器扮演了 websocket 和 hub 类型单例 之间的媒介 。 hub 保持一组注册了的连接器 和 广播到连接器的信息。</p>
+
+<p>程序运行了一个 goroutine 给 hub ,两个 goroutine 给每个连接器。 goroutine 通过 channel 和其他进行交流。 hub 拥有注册连接器、注销连接器和广播信息的 channel。一个连机器拥有缓存的发出信息的 channel 。其中一个 连接器的 goroutine 从这个 channel 中读信息 并把信息写入 webscoket。另外一个连接器 goroutine 从 websocket  读信息，并把信息发送到 hub。</p>
+
+<p>下面是 hub 类型代码：</p>
+
+<pre><code>package main
+
+type hub struct {
+    // 注册了的连接器
+    connections map[*connection]bool
+
+    // 从连接器中发入的信息
+    broadcast chan []byte
+
+    // 从连接器中注册请求
+    register chan *connection
+
+    // 从连接器中注销请求
+    unregister chan *connection
+}
+
+var h = hub{
+    broadcast:   make(chan []byte),
+    register:    make(chan *connection),
+    unregister:  make(chan *connection),
+    connections: make(map[*connection]bool),
+}
+
+func (h *hub) run() {
+    for {
+        select {
+        case c := &lt;-h.register:
+            h.connections[c] = true
+        case c := &lt;-h.unregister:
+            if _, ok := h.connections[c]; ok {
+                delete(h.connections, c)
+                close(c.send)
+            }
+        case m := &lt;-h.broadcast:
+            for c := range h.connections {
+                select {
+                case c.send &lt;- m:
+                default:
+                    delete(h.connections, c)
+                    close(c.send)
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>应用程序的 主要 函数启动 hub 以 goroutine 形式运行方法。连接器 发送请求到 hub 通过 注册、注销和广播 channel。</p>
+
+<p>hub 注册连接器通过添加 connection 的指针作为 connections map 的主键。这个  map 的值通常是 true。</p>
+
+<p>注销的代码有点复杂。除了从 connections map 删除连接器的指针外,  hub 关闭了 connection 的发送，来标识没有信息再被发送到 connection了。</p>
+
+<p>hub 通过循环注册连接器和发送信息到连接器的发送 channel 来控制信息。 如果连接器的发送缓冲区已经满了，那么  hub 假设 客户端已死或卡住了。这种情况下, hub 注销连接器 并关闭 websocket.</p>
+
+<p>下面关于 connection 类型的代码：</p>
+
+<pre><code>package main
+
+import (
+    "github.com/gorilla/websocket"
+    "net/http"
+)
+
+type connection struct {
+    // websocket 连接器
+    ws *websocket.Conn
+
+    // 发送信息的缓冲 channel 
+    send chan []byte
+}
+
+func (c *connection) reader() {
+    for {
+        _, message, err := c.ws.ReadMessage()
+        if err != nil {
+            break
+        }
+        h.broadcast &lt;- message
+    }
+    c.ws.Close()
+}
+
+func (c *connection) writer() {
+    for message := range c.send {
+        err := c.ws.WriteMessage(websocket.TextMessage, message)
+        if err != nil {
+            break
+        }
+    }
+    c.ws.Close()
+}
+
+var upgrader = &amp;websocket.Upgrader{ReadBufferSize: 1024, WriteBufferSize: 1024}
+
+func wsHandler(w http.ResponseWriter, r *http.Request) {
+    ws, err := upgrader.Upgrade(w, r, nil)
+    if err != nil {
+        return
+    }
+    c := &amp;connection{send: make(chan []byte, 256), ws: ws}
+    h.register &lt;- c
+    defer func() { h.unregister &lt;- c }()
+    go c.writer()
+    c.reader()
+}
+</code></pre>
+
+<p>wsHandler 方法被主函数当做<a href="http://golang.org/pkg/net/http/#Handler">http handler</a>注册。HTTP 连接到 WebSocket 协议的升级，创建一个连接对象，注册这个连接到 sub ,并通过 <a href="http://weekly.golang.org/doc/effective_go.html#defer">defer</a>延迟语句 来控制 连接的注销。</p>
+
+<p>接着，wsHandler 方法开启 连接器的写入方法作为一个 goroutine。 写入方法将信息从连接器的 channel 转入 websocket。当 hub 关闭 channel 或者 在写入 websocket 时出错，写入方法关闭。</p>
+
+<p>最后，wsHandler 方法 调用连接器的 读 方法。 读方法将 入站消息 从 websocket 转到 hub。</p>
+
+<p>这里是服务器的代码的其余部分:</p>
+
+<pre><code>package main
+
+import (
+    "flag"
+    "go/build"
+    "log"
+    "net/http"
+    "path/filepath"
+    "text/template"
+)
+
+var (
+    addr      = flag.String("addr", ":8080", "http service address")
+    assets    = flag.String("assets", defaultAssetPath(), "path to assets")
+    homeTempl *template.Template
+)
+
+func defaultAssetPath() string {
+    p, err := build.Default.Import("gary.burd.info/go-websocket-chat", "", build.FindOnly)
+    if err != nil {
+        return "."
+    }
+    return p.Dir
+}
+
+func homeHandler(c http.ResponseWriter, req *http.Request) {
+    homeTempl.Execute(c, req.Host)
+}
+
+func main() {
+    flag.Parse()
+    homeTempl = template.Must(template.ParseFiles(filepath.Join(*assets, "home.html")))
+    go h.run()
+    http.HandleFunc("/", homeHandler)
+    http.HandleFunc("/ws", wsHandler)
+    if err := http.ListenAndServe(*addr, nil); err != nil {
+        log.Fatal("ListenAndServe:", err)
+    }
+}
+</code></pre>
+
+<p>应用主程序启动 hub goroutine。 接着 主程序 注册 主页 和 websocket 连接器的控制器N。最后主程序启动 HTTP 服务器。</p>
+
+<h2>Client 客户端</h2>
+
+<p>客户端的实现是一个简单的 HTML 文件：</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Chat Example&lt;/title&gt;
+&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    $(function() {
+
+    var conn;
+    var msg = $("#msg");
+    var log = $("#log");
+
+    function appendLog(msg) {
+        var d = log[0]
+        var doScroll = d.scrollTop == d.scrollHeight - d.clientHeight;
+        msg.appendTo(log)
+        if (doScroll) {
+            d.scrollTop = d.scrollHeight - d.clientHeight;
+        }
+    }
+
+    $("#form").submit(function() {
+        if (!conn) {
+            return false;
+        }
+        if (!msg.val()) {
+            return false;
+        }
+        conn.send(msg.val());
+        msg.val("");
+        return false
+    });
+
+    if (window["WebSocket"]) {
+        conn = new WebSocket("ws:///ws");
+        conn.onclose = function(evt) {
+            appendLog($("&lt;div&gt;&lt;b&gt;Connection closed.&lt;/b&gt;&lt;/div&gt;"))
+        }
+        conn.onmessage = function(evt) {
+            appendLog($("&lt;div/&gt;").text(evt.data))
+        }
+    } else {
+        appendLog($("&lt;div&gt;&lt;b&gt;Your browser does not support WebSockets.&lt;/b&gt;&lt;/div&gt;"))
+    }
+    });
+&lt;/script&gt;
+&lt;style type="text/css"&gt;
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: gray;
+}
+
+#log {
+    background: white;
+    margin: 0;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    right: 0.5em;
+    bottom: 3em;
+    overflow: auto;
+}
+
+#form {
+    padding: 0 0.5em 0 0.5em;
+    margin: 0;
+    position: absolute;
+    bottom: 1em;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="log"&gt;&lt;/div&gt;
+&lt;form id="form"&gt;
+    &lt;input type="submit" value="Send" /&gt;
+    &lt;input type="text" id="msg" size="64"/&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>客户端使用 <a href="http://jquery.com/">jQuery</a></p>
+
+<p>文档加载。脚本检查 websocket 的功能 。如果 WebSocket 功能 可以用，然后打开脚本与服务器的连接，并注册一个回调处理来自服务器的信息。回调使用 appendlog 方法将消息添加到聊天记录。</p>
+
+<p>appendlog 方法检查在添加新的内容时的滚动位置，从而可以让用户手动滚动聊天记录而不会被新来的消息中断。如果聊天记录滚动至底部，那么新内容添加的到旧内容的后面。否则，滚动的位置不会改变。</p>
+
+<p>表单处理器将用户的输入写入到 WebSocket 并且清除输入字段。</p>
+
+<p><em>参考：</em><a href="http://gary.burd.info/go-websocket-chat">http://gary.burd.info/go-websocket-chat</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/maximize-hmtl5-video-compatibility/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;最大化兼容 html5 视频</a>
+
+
+<a class="pagination-item older" href="/chinese-administrative-division/">中国行政区划的英文&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="WebSocket 和 Golang 实现聊天功能" data-thread-key="/go-websocket-chat" data-url="http://www.waylau.com/go-websocket-chat/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="在SVG中使用外部绘图, Way Lau's Blog, Way Lau">
+  <title>在SVG中使用外部绘图 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/svg-using-external-image/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/svg-using-external-image/">在SVG中使用外部绘图</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年06月12日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#svg">svg</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>您可以在 SVG 文档中包括预定义的内容 —— 在呈现的文档内或文档之外定义的内容。</p>
+
+<h1>引用内部绘图</h1>
+
+<p>symbol,defs 都可以事先定义好图形，而后use来引用</p>
+
+<pre><code class="svg">&lt;svg  width="200" height="200" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;symbol id="shape2"&gt;
+        &lt;circle cx="25" cy="25" r="25"&gt;&lt;/circle&gt;
+        &lt;title&gt;My image&lt;/title&gt;
+    &lt;/symbol&gt;
+
+    &lt;defs&gt;
+        &lt;g id="shape3"&gt;
+            &lt;circle cx="25" cy="25" r="25" fill="red"&gt;&lt;/circle&gt;
+        &lt;/g&gt;
+    &lt;/defs&gt;
+    &lt;use xlink:href="#shape2" x="50" y="25" &gt;&lt;/use&gt;
+    &lt;use xlink:href="#shape3" x="150" y="25" &gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><svg  width="200" height="200"  version="1.1"
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<symbol id="shape2">
+<circle cx="25" cy="25" r="25"></circle>
+<title>My image</title>
+</symbol>
+<defs>
+<g id="shape3">
+   <circle cx="25" cy="25" r="25" fill="red"></circle>
+</g>
+</defs>
+<use xlink:href="#shape2" x="50" y="25" ></use>
+<use xlink:href="#shape3" x="150" y="25" ></use>
+</svg></p>
+
+<p>有关symbol,defs的异同点，可以参考<a href="http://www.html5zhan.com/jingyan/info/530577c72e05e83b801642dc">这篇文章</a></p>
+
+<h1>引用外部绘图</h1>
+
+<p>我们事先已经准备好了一个外部绘图svg文件<a href="../assets/img/svg-file-test.svg">svg-file-test.svg</a></p>
+
+<h2>1.使用&lt;image&gt;</h2>
+
+<p>使用预定义内容作为 SVG 绘图一部分的方法之一是使用 &lt;image&gt;元素。在概念上，SVG 中的&lt;image&gt;与 HTML 中的 &lt;img&gt;非常类似：该元素只须指示呈现客户机在当前的 SVG 环境中绘制外部图像的内容 —— 其本身可能是 SVG 或者是 JPEG 或 PNG 格式的光栅图像。您几乎可以像调整一个规则的图形元素那样来调整外部图像的大小和改变其位置</p>
+
+<pre><code class="svg">&lt;svg  width="100%" height="100%" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;image  x="0" y="0" width="300" height="200"  xlink:href="../assets/img/svg-file-test.svg"&gt;&lt;/image&gt;
+
+    &lt;image  x="0" y="200" width="300" height="200"  xlink:href="../assets/img/wl_white.png"&gt;&lt;/image&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><svg   width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<image  x="0" y="0" width="300" height="200"  xlink:href="../assets/img/svg-file-test.svg"></image>
+<image  x="0" y="200" width="300" height="200"  xlink:href="../assets/img/wl_white.png"></image>
+</svg></p>
+
+<h2>2.使用&lt;use&gt;元素</h2>
+
+<p>任何svg, symbol, g, 单个的图形元素和use元素本质上都可以作为模板对象被use元素引用(例如初始化)。use引用的图形内容会在指定的位置渲染。与image元素不同，use元素不能引用整个文档。</p>
+
+<pre><code class="svg">&lt;svg    width="100%" height="100%" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;use xlink:href="../assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" &gt;&lt;/use&gt;
+    &lt;use xlink:href="../assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" &gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><svg    width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="../assets/img/svg-file-test.svg#svg2" x="0" y="0"  width="100" height="100" ></use>
+<use xlink:href="../assets/img/svg-file-test.svg#rect2985" x="0" y="325"  width="300" height="200" ></use>
+</svg></p>
+
+<p>第一个use引用了该文件的整个svg元素。</p>
+
+<p>第二个use引用了该文件的rect元素。</p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/javascript-use-strict-mode/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;JavaScript使用严格模式(Strict Mode)</a>
+
+
+<a class="pagination-item older" href="/github-use-watch-star-fork/">Github中watch、star、fork的用法&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="在SVG中使用外部绘图" data-thread-key="/svg-using-external-image" data-url="http://www.waylau.com/svg-using-external-image/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

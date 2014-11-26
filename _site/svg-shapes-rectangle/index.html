@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="SVG Shapes之矩形 &lt;rect&gt;, Way Lau's Blog, Way Lau">
+  <title>SVG Shapes之矩形 &lt;rect&gt; - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/svg-shapes-rectangle/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/svg-shapes-rectangle/">SVG Shapes之矩形 &lt;rect&gt;</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年05月04日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#svg">svg</a>	
+  </p>
+</header>
+<div class="post-main">
+<h2>SVG 形状</h2>
+
+<p>SVG 有一些预定义的形状元素，可被开发者使用和操作：</p>
+
+<ul>
+<li>矩形 &lt;rect&gt;</li>
+<li>圆形 &lt;circle&gt;</li>
+<li>椭圆 &lt;ellipse&gt;</li>
+<li>线  &lt;line&gt;</li>
+<li>折线 &lt;polygon&gt;</li>
+<li>多边形 &lt;polyline&gt;</li>
+<li>路径 &lt;path&gt;</li>
+</ul>
+
+
+<h2>1.矩形 &lt;rect&gt;</h2>
+
+<h4>示例1.1</h4>
+
+<p><svg width="400" height="110">
+  <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+</svg></p>
+
+<pre><code>&lt;svg width="400" height="110"&gt;
+  &lt;rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>style 属性用来定义 CSS 属性</li>
+<li>CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）</li>
+<li>CSS 的 stroke-width 属性定义矩形边框的宽度</li>
+<li>CSS 的 stroke 属性定义矩形边框的颜色</li>
+</ul>
+
+
+<h4>示例1.2</h4>
+
+<p><svg width="400" height="180">
+  <rect x="50" y="20" width="150" height="150"
+  style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9" />
+</svg></p>
+
+<pre><code>&lt;svg width="400" height="180"&gt;
+  &lt;rect x="50" y="20" width="150" height="150"
+  style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>x 属性定义矩形的左侧位置（例如，x="0" 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y="0" 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+</ul>
+
+
+<h4>示例1.3</h4>
+
+<p><svg width="400" height="180">
+  <rect x="50" y="20" width="150" height="150"
+  style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5" />
+</svg></p>
+
+<pre><code>&lt;svg width="400" height="180"&gt;
+  &lt;rect x="50" y="20" width="150" height="150"
+  style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>CSS 的 opacity 属性定义整个元素的透明值（合法的范围是：0 - 1）
+参考:</li>
+</ul>
+
+
+<h4>示例1.4</h4>
+
+<p><svg width="400" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+  style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+</svg></p>
+
+<pre><code>&lt;svg width="400" height="180"&gt;
+  &lt;rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+  style="fill:red;stroke:black;stroke-width:5;opacity:0.5" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>rx 和 ry 属性可使矩形产生圆角。</li>
+</ul>
+
+
+<h4>示例1.5</h4>
+
+<p><svg width="400" height="180">
+   <rect x="50" y="70" width="35" height="20"
+style="fill: yellow; fill-opacity: 0.5;
+  stroke: green; stroke-width: 2; stroke-dasharray: 5 2"/>
+</svg></p>
+
+<pre><code>&lt;svg width="400" height="180"&gt;
+   &lt;rect x="50" y="70" width="35" height="20"
+    style="fill: yellow; fill-opacity: 0.5;
+    stroke: green; stroke-width: 2; stroke-dasharray: 5 2"/&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>stroke-dasharray定义断续线，实线和虚线分别以5和2的长度交替显示。</li>
+</ul>
+
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/svg-basic/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;SVG基本知识</a>
+
+
+<a class="pagination-item older" href="/svg-shapes-circle/">SVG Shapes之圆形 &lt;circle&gt;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="SVG Shapes之矩形 &lt;rect&gt;" data-thread-key="/svg-shapes-rectangle" data-url="http://www.waylau.com/svg-shapes-rectangle/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

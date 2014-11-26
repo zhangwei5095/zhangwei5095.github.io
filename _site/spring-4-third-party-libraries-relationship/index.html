@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="Spring 4.x 与可选的第三方库的关系, Way Lau's Blog, Way Lau">
+  <title>Spring 4.x 与可选的第三方库的关系 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/spring-4-third-party-libraries-relationship/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/spring-4-third-party-libraries-relationship/">Spring 4.x 与可选的第三方库的关系</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年07月26日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javaspring">javaspring</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>1.<code>Spring 4</code>唯一的外部强制性的依库是 jakarta <code>commons-logging</code></p>
+
+<p>2.<code>Spring 4</code>与可选的第三方库一般只支持在2010年底或后来发布的版本：特别是，<code>Hibernate 3.6+</code>, <code>EhCache 2.1+</code>, <code>Quartz 1.8+</code>, <code>Groovy 1.8+</code>, and <code>Joda-Time 2.0+</code>。作为另外，<code>Spring 4</code> 要求最近的<code>Hibernate Validator 4.3 +</code>，并支持<code>Jackson 2.0+</code> （<code>Jackson 1.8/1.9</code>只保留对 <code>Spring 3.2</code> 支持；现在是处在废弃的状态）。</p>
+
+<p>3.<code>Spring 4</code> 对低支持到 <code>JDK 6 update 18</code>，在新项目中，最好用<code>Java 7/8</code>.</p>
+
+<p>4.<code>Java EE 6/7</code>现在被认为是<code>Spring 4</code>的最低标准。建议使用<code>JPA 2</code>
+和<code>Servlet 3</code>规范。为了兼容<code>Google
+App Engine</code>和老旧的应用，它可以部署 <code>Spring4</code>应用到<code>servlet
+2.5</code>环境。然而，强烈建议用 <code>Servlet 3+</code>作为测试环境</p>
+
+<p>5.<code>Gradle</code>作为项目构建工具</p>
+
+<p>参考：spring-framework-reference (<a href="http://docs.spring.io/spring/docs/4.0.6.RELEASE/spring-framework-reference/htmlsingle/">v4.0.6Release</a>)</p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/jersey-sqlserver-hibernate4-spring3/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;用Jersey构建RESTful服务7--Jersey+SQLServer+Hibernate4.3+Spring3.2</a>
+
+
+<a class="pagination-item older" href="/jersey-sqlserver-hibernate4-spring3-jquery/">用Jersey构建RESTful服务8--Jersey+SQLServer+Hibernate4.3+Spring3.2+jquery&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="Spring 4.x 与可选的第三方库的关系" data-thread-key="/spring-4-third-party-libraries-relationship" data-url="http://www.waylau.com/spring-4-third-party-libraries-relationship/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

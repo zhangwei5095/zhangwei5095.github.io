@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="html颜色块图标, Way Lau's Blog, Way Lau">
+  <title>html颜色块图标 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/html-color-text-block/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/html-color-text-block/">html颜色块图标</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年08月18日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#html">html</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>html颜色块图标醒目大方。</p>
+
+<p>本文详解颜色块图标的CSS实现。</p>
+
+<h1>设计界面元素</h1>
+
+<p>在把主页面的 html 的元素规定好。主要由四个图标组成。如下：</p>
+
+<pre><code>&lt;body&gt;
+&lt;div class="container"&gt;
+    &lt;div class="bgblue"&gt; 0#柴油&lt;br/&gt;&lt;h1&gt;7.84&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class="bgblue"&gt; 90#柴油&lt;br/&gt;&lt;h1&gt;8.26&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class="bgblue"&gt; 93#柴油&lt;br/&gt;&lt;h1&gt;7.80&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class="bgblue"&gt; 97#柴油&lt;br/&gt;&lt;h1&gt;8.45&lt;/h1&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="buttom_id"&gt;
+    更多示例访问：&lt;a href="http://wwww.waylau.com" target="_blank"&gt;http://wwww.waylau.com&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>图标直接用的是<code>div</code></p>
+
+<h1>样式</h1>
+
+<h2>图标样式</h2>
+
+<p>底色</p>
+
+<pre><code>background:#123456;
+</code></pre>
+
+<p>字体颜色（白色）</p>
+
+<pre><code>color:#fff;
+</code></pre>
+
+<p>文本布局（垂直居中）</p>
+
+<pre><code>vertical-align: middle;
+text-align: center;
+float: left;
+padding: 20px;
+margin-left: 20px;
+</code></pre>
+
+<p>效果
+<img src="http://g.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=2ca8846b88d4b31cf43c94beb7ed5642/2f738bd4b31c8701c7ce2dce247f9e2f0708ff9a.jpg?referer=2553c73a4c4a20a4680909f73978&amp;x=.jpg" alt="整体效果" /></p>
+
+<h1>圆形图标</h1>
+
+<p>可以将图标设置成圆形或者任意角度弧形
+增加样式：</p>
+
+<pre><code>border:4px solid;
+border-radius:55px;
+</code></pre>
+
+<p>其中  <code>border-radius</code> 控制<code>div</code>角度，<code>border</code>是边框</p>
+
+<h1>整体效果</h1>
+
+<p><img src="http://h.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=684d82201c30e924cba49c347c331f3b/29381f30e924b899c644e6106d061d950a7bf69a.jpg?referer=63b67dd278cb0a46dc35be093278&amp;x=.jpg" alt="整体效果2" /></p>
+
+<p>源码<a href="https://github.com/waylau/html-css-demo/blob/master/ColorTextDemo.html">下载</a></p>
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/html-transparent-login-box/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;html透明登录框的实现</a>
+
+
+<a class="pagination-item older" href="/window-size-latency/">$(window).resize() 执行延迟&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="html颜色块图标" data-thread-key="/html-color-text-block" data-url="http://www.waylau.com/html-color-text-block/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

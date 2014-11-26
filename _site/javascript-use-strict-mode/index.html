@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="JavaScript使用严格模式(Strict Mode), Way Lau's Blog, Way Lau">
+  <title>JavaScript使用严格模式(Strict Mode) - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/javascript-use-strict-mode/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/javascript-use-strict-mode/">JavaScript使用严格模式(Strict Mode)</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年06月07日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javascript">javascript</a>	
+  </p>
+</header>
+<div class="post-main">
+<p>ECMAScript5中引入的严格模式,通过让JavaScript运行环境对一些开发过程中最常见和不易发现的错误做出和当前不同的处理,来让开发者拥有一个”更好”的JavaScript语言。很长一段时间内,由于只有Firefox支持严格模式,我曾对严格模式表示怀疑。但到了今天,所有主流的浏览器都在他们的最新版本中支持了严格模式(包括IE10,Opera12和Android4,IOS5)是时候开始使用严格模式了。</p>
+
+<h1>严格模式能起到什么作用?</h1>
+
+<p>严格模式为JavaScript引入了很多变化,我把他们分为两类(明显的和细微的)。细微改进的目标是修复当前JavaScript中的一些细节问题,对于这些问题我不在这里进行深入介绍;如果你有兴趣,请阅读Dmitry Soshnikov撰写的精彩文档<a href="http://dmitrysoshnikov.com/ecmascript/es5-chapter-2-strict-mode/">ECMA-262-5 in Detail Chapter 2 Strict Mode</a>。 我在这里主要介绍严格模式引入的明显变化,那些在你使用严格模式前应该知道的概念和那些对你帮助最大的改变。</p>
+
+<p>在开始学习具体特性前,请记住<code>严格模式的一大目标是让你能更快更方便的调试</code>。运行环境在发现问题时显性的抛出错误比默不做声的失败或怪异行事(未开启严格模式的JavaScript运行环境经常这样)要好。严格模式会抛出更多错误,但这是好事,因为这些错误会唤起你注意并修复很多以前很难被发现的潜在问题。</p>
+
+<h2>去除with关键词</h2>
+
+<p>首先,严格模式中去除了with语句,包含with语句的代码在严格模式中会抛出异常。所以使用严格模式的第一步:确保你的代码中没有使用with。</p>
+
+<pre><code>// 在严格模式中以下JavaScript代码会抛出错误
+with (location) {
+    alert(href);
+}
+</code></pre>
+
+<h2>防止意外为全局变量赋值</h2>
+
+<p>其次,局部变量在赋值前必须先进行申明。在启用严格模式之前,为一个未申明的局部变量复制时会自动创建一个同名全局变量。这是Javacript程序中最容易出现的错误之一, 在严格模式中尝试这么做时会有显性的异常抛出。</p>
+
+<pre><code>// 严格模式下会抛出异常
+(function() {
+    someUndeclaredVar = "foo";
+}());
+</code></pre>
+
+<h2>函数中的this不再默认指向全局</h2>
+
+<p>严格模式中另一个重要的变化是函数中未被定义或为空( null or undefined)的this不在默认指向全局环境(global)。这会造成一些依赖函数中默认this行为的代码执行出错,例如:</p>
+
+<pre><code>window.color = "red";
+function sayColor() {
+    alert(this.color);
+}
+// 在strict模式中会报错, 如果不在严格模式中则提示 “red"
+sayColor();
+// 在strict模式中会报错, 如果不在严格模式中则提示 “red"
+sayColor.call(null);
+</code></pre>
+
+<p>this在被赋值之前会一直保持为undefined,这意味着当一个构造函数在执行时,如果之前没有明确的new关键词,会抛出异常。</p>
+
+<pre><code>function Person(name) {
+    this.name = name;
+}
+//在严格模式中会报错
+var me = Person("Nicholas");
+</code></pre>
+
+<p>在上面的代码中,Person构造函数运行时因为之前没有new,函数中的this会保留为undefined, 由于你不能为undefined设置属性,上面的代码会抛出错误。 在非strict模式环境中,没有被复制的this会默认指向window全局变量,运行的结果将是意外的为window全局变量设置name属性。</p>
+
+<h2>防止重名</h2>
+
+<p>当编写大量代码时,对象属性和函数参数很容易一不小心被设置成一个重复的名字。严格模式在这种情况下会显性的抛出错误</p>
+
+<pre><code>//重复的变量名,在严格模式下会报错
+function doSomething(value1, value2, value1) {
+    //code
+}
+
+//重复的对象属性名,在严格模式下会报错:
+var object = {
+    foo: "bar",
+    foo: "baz"
+};
+</code></pre>
+
+<p>以上的代码在严格模式中都会被认为是语法错误而在执行前就让你能得到提示。</p>
+
+<h2>安全的 eval()</h2>
+
+<p>虽然eval()语句最终没有被移除,但在严格模式中仍然对它进行了一些改进。最大的改变是在eval()中执行的变量和函数申明不会直接在当前作用域中创建相应变量或函数,例如:</p>
+
+<pre><code>(function() {
+    eval("var x = 10;");
+    // 非严格模式中,alert 10
+    // 严格模式中则因x未被定义而抛出异常,
+    alert(x);
+}());
+</code></pre>
+
+<p>任何在eval()执行过程中创建的变量或者函数保留在eval()中。但你能明确的从eval()语句的返回值来获取eval()中的执行结果,例如:</p>
+
+<pre><code>(function() {
+    var result = eval("var x = 10, y = 20; x + y");
+    // 在strict或非strict模式中都能正确的运行余下的语句.(resulst为30)
+    alert(result);
+}());
+</code></pre>
+
+<h2>对只读属性修改时抛出异常</h2>
+
+<p>ECMAScript5中还引入为对象的特定属性设为只读,或让整个对象不可修改的能力。 但在非严格模式中,尝试修改一个只读属性只会默不做声的失败。 在你和一些浏览器原生API打交道过程中,你很可能遇到这种情况。严格模式会在这种情况下明确的抛出异常,提醒你修改这个属性是不被允许的。</p>
+
+<pre><code>var person = {};
+Object.defineProperty(person, "name" {
+    writable: false,
+    value: "Nicholas"
+});
+// 在非严格模式时,沉默的失败,在严格模式则抛出异常.
+person.name = "John";
+</code></pre>
+
+<p>上面的例子中,name属性被设为只读,非严格模式中执行对name属性的修改不会引发报错,但修改不会成功。但严格模式则会明确的抛出异常。</p>
+
+<p><em>NOTE:</em> 强烈建议你在使用任何ECMAScript属性特性指定时开启严格模式。</p>
+
+<h2>如何使用?</h2>
+
+<p>在现代浏览器中开启严格模式非常容易,只需要在JavaScript代码中出现以下指令即可</p>
+
+<pre><code>"use strict";
+</code></pre>
+
+<p>虽然看上去上面的代码仅仅只是未赋予某个变量的字符串,它实际上起到指示JavaScript引擎切换到严格模式的作用(不支持严格模式的浏览器会忽略以上代码,不会对后续的执行产生任何影响)。虽然你能把这个指令作用到全局或某个函数中,但这里还是要提醒,不要在全局环境下启用严格模式。</p>
+
+<pre><code>// 请不要这么使用
+"use strict";
+function doSomething() {
+    // 这部分代码会运行于严格模式
+}
+function doSomethingElse() {
+    // 这部分代码也会运行于严格模式
+}
+</code></pre>
+
+<p>虽然上面的代码看起来不算一个大问题。但当你不负责维护页面中引入的全部代码时,这样使用strict模式会让你面临由于第三方代码没有为严格模式做好准备而引发的问题。
+因此,最好把开启严格模式的指令作用于函数中,例如:</p>
+
+<pre><code>function doSomething() {
+    "use strict";
+    // 这个函数中的代码将会运行于严格模式
+}
+function doSomethingElse() {
+    // 这个函数中代码不会运行于严格模式
+}
+</code></pre>
+
+<p>如果你想让严格模式在不止一个函数中开启,请使用立即执行函数表达式</p>
+
+<pre><code>(immediately-invoked function expression ,IIFE):
+(function() {
+    "use strict";
+    function doSomething() {
+        // 这个函数运行于严格模式
+    }
+    function doSomethingElse() {
+        // 这个函数同样运行于严格模式
+    }
+}());
+</code></pre>
+
+<h1>结论</h1>
+
+<p>我强烈建议你从现在开始就启用JavaScript严格模式,它能帮你发现代码中未曾注意到的错误。不要在全局环境中启用,但你能尽量多的使用IIFE(立即执行函数表达式)来把严格模式作用到多个函数范围内。一开始,你会遇到之前未曾碰到过的错误提示,这是正常的。当启用严格模式后,请确保在支持的浏览器中做了测试,以发现新的潜在问题。一定不要仅仅在代码中添加一行”use strict”就假定余下的代码能正常工作。最后,请在严格模式下开始编写更好的代码。</p>
+
+<h1>注：</h1>
+
+<p><a href="http://caniuse.com/use-strict">这里</a>有各款浏览器对严格模式支持情况的一个汇总。</p>
+
+<p>可以在这个<a href="http://java-script.limewebs.com/strictMode/test_hosted.html">页面</a>对当前浏览器的严格模式支持度进行测试。</p>
+
+<p>参考：</p>
+
+<ul>
+<li><p><a href="http://www.nczonline.net/blog/2012/03/13/its-time-to-start-using-javascript-strict-mode/">http://www.nczonline.net/blog/2012/03/13/its-time-to-start-using-javascript-strict-mode/</a></p></li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode</a></p></li>
+</ul>
+
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/svg-viewport-view-box/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;SVG Viewport和View Box</a>
+
+
+<a class="pagination-item older" href="/svg-using-external-image/">在SVG中使用外部绘图&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="JavaScript使用严格模式(Strict Mode)" data-thread-key="/javascript-use-strict-mode" data-url="http://www.waylau.com/javascript-use-strict-mode/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

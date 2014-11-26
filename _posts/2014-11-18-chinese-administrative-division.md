@@ -12,6 +12,8 @@ tags: [English]
 
 分为几个级别（government level/level）；宪法（Constitution）规定了三个级别（de jure level），但实际上有五个级别（de facto level/practical level）——33个省级（province/province-level region/province-level division）、333个地区级（prefecture/prefecture-level region/prefecture-level division/second-level division）【非宪法区划】、2862个县级（county/county-level region/county-level division）、41636个乡级（township/township-level region/township-level division）及无数村级（village/village-level region/village-level division）【非宪法区划】行政区。各个级别又有不同名称，下面加以详细讨论【具体数字以2005年统计数据为准】。
 
+<!-- more -->
+
 ##省级行政区
 
 * 22个省（province）【台湾省也可以叫‘据称’的省份，claimed province】

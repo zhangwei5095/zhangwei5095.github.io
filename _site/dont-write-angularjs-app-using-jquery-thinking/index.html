@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="不要用jQuery思维写AngularJS应用, Way Lau's Blog, Way Lau">
+  <title>不要用jQuery思维写AngularJS应用 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/dont-write-angularjs-app-using-jquery-thinking/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/dont-write-angularjs-app-using-jquery-thinking/">不要用jQuery思维写AngularJS应用</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年08月23日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#angularjs">angularjs</a>	
+  </p>
+</header>
+<div class="post-main">
+<h1>jQuery and AngularJS 苹果、橙</h1>
+
+<p>jQuery 和 AngularJS 就像苹果和橙，本身不是一类东西，注重点也不同。</p>
+
+<p>jQuery 主要是用来操作DOM，作用就是消除各浏览器的差异，简化和丰富DOM 的API，比如 DOM 文档的转换，事件处理，动画，和 AJAX 交互等。</p>
+
+<p>AngularJS 是一个完整的框架，试图解决现代 Web 2.0 应用程序开发的各个方面。 AngularJS 有着诸多特性，最为核心的是：MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入，等等。(看到了Flex 和 Spring 的影子)</p>
+
+<p>最重要的是，用 AngularJS 以一种完全不同的方法构建用户界面，其中以声明方式指定视图的模型驱动的变化。而 jQuery 常常需要编写以DOM为中心的代码，随着项目的增长（无论是在规模和交互性方面）将会变得越来越难控制。</p>
+
+<p>用 AngularJS 以现代的Web应用程序开发的整体方法，并试图让浏览器更好的发展平台。</p>
+
+<h1>简单的例子比较</h1>
+
+<p>几个例子看出他们的不同点</p>
+
+<h2>模板</h2>
+
+<p>在jQuery里面，会用编程的方式来修改视图，像下面这样用<code>ul</code>标签来定义一个下拉列表：</p>
+
+<pre><code>&lt;ul class="main-menu"&gt;
+    &lt;li class="active"&gt;
+        &lt;a href="#/home"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#/menu1"&gt;Menu 1&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#/sm1"&gt;Submenu 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#/sm2"&gt;Submenu 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#/sm3"&gt;Submenu 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#/home"&gt;Menu 2&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>在jQuery里面，会像下面这行代码一样来创建这个下拉列表：</p>
+
+<pre><code>$('.main-menu').dropdownMenu();
+</code></pre>
+
+<p>如果我们仅仅看视图代码，我们无法立刻发现它有什么功能。对于小型的应用来说，这样做还算可以。但是对于大型应用来说，很快就会变得混乱并难以维护。</p>
+
+<p>然而，在AngularJS中，视图是一种模板，一种潜规则，<code>ul</code>声明看起来就像下面这样：</p>
+
+<pre><code>&lt;ul class="main-menu" dropdown-menu&gt;
+    ...
+&lt;/ul&gt;
+</code></pre>
+
+<p>两种方式的效果完全相同，但是在 AngularJS 的版本中，每一个看到模板的人都知道它在做什么（潜规则）。 不管什么时候开发团队有新人进来，她看到这种代码之后就会立即明白，存在一个叫做<code>dropdownMenu</code>的指令，这个指令负责操控这个视图。凭直觉就可以知道答案，没有必要看任何代码。视图本身已经告诉了我们这里会发生什么。这样就更加清晰了。</p>
+
+<h2>数据绑定</h2>
+
+<p>数据绑定作为 AngularJS 的特性之一，更新视图，无需操纵 DOM ，剩下很多代码（ 想想 Flex ）。在jQuery更新视图的步骤是这样的，将设有如下视图</p>
+
+<pre><code>&lt;ul class="messages" id="log"&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>我要在<code>ul</code>插入<code>li</code>,需要操作 DOM 来添加节点元素。</p>
+
+<pre><code>$.ajax({
+  url: '/myEndpoint.json',
+  success: function ( data, status ) {
+    $('ul#log').append('&lt;li&gt;Data Received!&lt;/li&gt;');
+  }
+});
+</code></pre>
+
+<p>假设，此时，我要删除<code>log</code>视图，那我不得不去 操作 DOM,把ajax 里面的添加方法修改了。太蛋疼了。其实在 js 里面写 html 本身就是一件困难的事，因为 html 包含尖括号、属性、双引号、单引号、方法，在 js 需要对这些特殊符号进行转义 ，代码将会变得冗长易出错且难以识别。 如下面的例子：</p>
+
+<pre><code>var str = "&lt;a href=# name=link5 class="menu1 id=link1" + "onmouseover=MM_showMenu(window.mm_menu_0604091621_0,-10,20,null,\'link5\');"+ "sel1.style.display=\'none\';sel2.style.display=\'none\';sel3.style.display='none\';"+" onmouseout=MM_startTimeout();&gt;Free Services&lt;/a&gt; ";
+
+document.write(str);
+</code></pre>
+
+<p>看下 AngularJS 是怎么干的，先定义一个界面模板</p>
+
+<pre><code>&lt;ul class="messages"&gt;
+    &lt;li ng-repeat="entry in log"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>而后更新数据</p>
+
+<pre><code>$http( '/myEndpoint.json' ).then( function ( response ) {
+    $scope.log.push( { msg: 'Data Received!' } );
+});
+</code></pre>
+
+<p>视图就会根据数据自动刷新了。而界面改成什么样，并不需要去修改更新数据的接口，比如改成下面的样子</p>
+
+<pre><code>&lt;div class="messages"&gt;
+    &lt;div class="alert" ng-repeat="entry in log"&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h1>不要用jQuery思维写AngularJS应用</h1>
+
+<p>用 AngularJS 模型为中心和 jQuery DOM为中心的范式完全不同。经验丰富的jQuery开发者开发 AngularJS 可能会陷入“范式的陷阱”。建议你跳过 JQuery 的依赖，同时学习用 AngularJS（只是不想回到旧的习惯和学会用AngularJS方式解决问题）。不要混合使用 jQuery 和 AngularJS 。不要使用 jQuery 。最好不要引入它。当你遇到一个问题，而这个问题你知道如何使用 jQuery 去解决，那么在你使用$之前， 请思考一下如何以 AngularJS 的方式去解决它。 jQuery 从来就不是必须的。</p>
+
+<p>在架构上，AngularJS 主要是用来构架<a href="http://n.wikipedia.org/wiki/Single-page_application">SPA</a>单页面应用，而不是普通的网页集合，所以在架构上要整体考虑，包括服务端和客户端，如何将应用进行分解，划分模块，考虑模块的独立性、可扩展行，以及可测试性。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><p><a href="https://www.packtpub.com/web-development/mastering-web-application-development-angularjs">Mastering Web Application Development with AngularJS</a></p></li>
+<li><p><a href="http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background">http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background</a></p></li>
+</ul>
+
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/convention-over-configuration-in-action/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;约定大于配置--实战</a>
+
+
+<a class="pagination-item older" href="/sql-start-time-end-time/">SQL Server取开始时间、截止时间&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="不要用jQuery思维写AngularJS应用" data-thread-key="/dont-write-angularjs-app-using-jquery-thinking" data-url="http://www.waylau.com/dont-write-angularjs-app-using-jquery-thinking/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

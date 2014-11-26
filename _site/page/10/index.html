@@ -1,0 +1,650 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="Way Lau's Personal Site | www.waylau.com, Way Lau's Blog, 技术改变世界！, Way Lau">
+  <title>Way Lau's Personal Site | www.waylau.com</title>
+  <link rel="canonical" href="http://www.waylau.com">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-text/">SVG  &lt;text&gt;文本</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>8.文本 &lt;text&gt;</h2>
+
+<h4>示例8.1</h4>
+
+<p>写一个文本：</p>
+
+<p><svg height="30" width="200">
+  <text x="0" y="15" fill="red">欢迎访问wwww.waylau.com </text>
+</svg></p>
+
+<pre><code> &lt;svg height="30" width="200"&gt;
+  &lt;text x="0" y="15" fill="red"&gt;欢迎访问wwww.waylau.com &lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例8.2</h4>
+
+<p>让文本转个角度：</p>
+
+<p><svg height="60" width="200">
+  <text x="0" y="15" fill="red" transform="rotate(10 20,40)">欢迎访问wwww.waylau.com</text>
+</svg></p>
+
+<pre><code>&lt;svg height="60" width="200"&gt;
+  &lt;text x="0" y="15" fill="red" transform="rotate(10 20,40)"&gt;欢迎访问wwww.waylau.com&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例8.3</h4>
+
+<p>让文本引用path：</p>
+
+<p><svg width="500" height="200">
+<defs>
+<path id="myTextPath2"
+  d="M75,20 l100,0 l100,30 q0,100 150,100"/>
+</defs>
+<text x="10" y="100" style="stroke: #ff0000;">
+<textPath xlink:href="#myTextPath2">
+  欢迎访问www.waylau.com个人博客欢迎访问www.waylau.com
+</textPath>
+</text>
+</svg></p>
+
+<pre><code>&lt;svg width="500" height="220"&gt;
+ &lt;defs&gt;
+   &lt;path id="myTextPath2"
+   d="M75,20 l100,0 l100,30 q0,100 150,100"/&gt;
+&lt;/defs&gt;
+
+&lt;text x="10" y="100" style="stroke: #000000;"&gt;
+   &lt;textPath xlink:href="#myTextPath2"&gt;
+   欢迎访问www.waylau.com个人博客欢迎访问www.waylau.com
+  &lt;/textPath&gt;
+&lt;/text&gt;  
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例8.4</h4>
+
+<p>可以使用 &lt;tspan&gt; 将文本元素分成几部分，允许每部分有各自的样式</p>
+
+<p><svg height="90" width="200">
+  <text x="10" y="20" style="fill:red;">Several lines:
+   <tspan x="10" y="45">欢迎访问</tspan>
+   <tspan x="10" y="70">wwww.waylau.com</tspan>
+  </text>
+</svg></p>
+
+<pre><code>&lt;svg height="90" width="200"&gt;
+  &lt;text x="10" y="20" style="fill:red;"&gt;Several lines:
+    &lt;tspan x="10" y="45"&gt;欢迎访问&lt;/tspan&gt;
+    &lt;tspan x="10" y="70"&gt;wwww.waylau.com&lt;/tspan&gt;
+  &lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例8.5</h4>
+
+<p>使用 &lt;a&gt; 使文本变成一个链接</p>
+
+<p><svg height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <a xlink:href="http://www.waylau.com" target="_blank">
+   <text x="0" y="15" fill="red">欢迎访问wwww.waylau.com
+   </text>
+  </a>
+</svg></p>
+
+<pre><code>&lt;svg height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+  &lt;a xlink:href="http://www.waylau.com" target="_blank"&gt;
+    &lt;text x="0" y="15" fill="red"&gt;欢迎访问wwww.waylau.com&lt;/text&gt;
+  &lt;/a&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例8.6</h4>
+
+<p>垂直样式</p>
+
+<p><svg height="260" width="200">
+<text x="10" y="10" fill="red" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+   欢迎访问wwww.waylau.com
+</text>
+<text x="110" y="10" fill="red"  style="writing-mode: tb; glyph-orientation-vertical: 90;">
+   欢迎访问wwww.waylau.com
+</text>
+</svg></p>
+
+<pre><code>&lt;svg height="260" width="200"&gt;
+&lt;text x="10" y="10" fill="red" style="writing-mode: tb; glyph-orientation-vertical: 0;"&gt;
+   欢迎访问wwww.waylau.com
+&lt;/text&gt;
+&lt;text x="110" y="10" fill="red"  style="writing-mode: tb; glyph-orientation-vertical: 90;"&gt;
+   欢迎访问wwww.waylau.com
+&lt;/text&gt; 
+&lt;/svg&gt;
+</code></pre>
+
+      <div class="readall"><a href="/svg-text/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-path/">SVG &lt;path&gt;路径</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>7.路径 &lt;path&gt;</h2>
+
+<p>下面的命令可用于路径数据：</p>
+
+<ul>
+<li>M = moveto</li>
+<li>L = lineto</li>
+<li>H = horizontal lineto</li>
+<li>V = vertical lineto</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Belzier curve</li>
+<li>T = smooth quadratic Belzier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath</li>
+</ul>
+
+
+<p><strong>注释：</strong>以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。</p>
+
+<h4>示例7.1</h4>
+
+<p>例子定义了一条路径，它开始于位置 250 150，到达位置 150 350，然后从那里开始到 350 350，最后在 250 150 关闭路径。</p>
+
+<p><svg height="210" width="400">
+  <path d="M150 0 L75 200 L225 200 Z" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="400"&gt;
+  &lt;path d="M150 0 L75 200 L225 200 Z" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例7.2</h4>
+
+<p><svg height="400" width="450">
+  <path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+  stroke-width="3" fill="none" />
+  <path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+  stroke-width="3" fill="none" />
+  <path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+  fill="none" />
+  <path d="M 100 350 q 150 -300 300 0" stroke="blue"
+  stroke-width="5" fill="none" />
+  <g stroke="black" stroke-width="3" fill="black">
+   <circle id="pointA" cx="100" cy="350" r="3" />
+   <circle id="pointB" cx="250" cy="50" r="3" />
+   <circle id="pointC" cx="400" cy="350" r="3" />
+  </g>
+  <g font-size="30" font="sans-serif" fill="black" stroke="none"
+  text-anchor="middle">
+   <text x="100" y="350" dx="-30">A</text>
+   <text x="250" y="50" dy="-10">B</text>
+   <text x="400" y="350" dx="30">C</text>
+  </g>
+</svg></p>
+
+<pre><code>&lt;svg height="400" width="450"&gt;
+  &lt;path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+  stroke-width="3" fill="none" /&gt;
+  &lt;path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+  stroke-width="3" fill="none" /&gt;
+  &lt;path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+  fill="none" /&gt;
+  &lt;path d="M 100 350 q 150 -300 300 0" stroke="blue"
+  stroke-width="5" fill="none" /&gt;
+  &lt;!-- Mark relevant points --&gt;
+  &lt;g stroke="black" stroke-width="3" fill="black"&gt;
+    &lt;circle id="pointA" cx="100" cy="350" r="3" /&gt;
+    &lt;circle id="pointB" cx="250" cy="50" r="3" /&gt;
+    &lt;circle id="pointC" cx="400" cy="350" r="3" /&gt;
+  &lt;/g&gt;
+  &lt;!-- Label the points --&gt;
+  &lt;g font-size="30" font="sans-serif" fill="black" stroke="none"
+  text-anchor="middle"&gt;
+    &lt;text x="100" y="350" dx="-30"&gt;A&lt;/text&gt;
+    &lt;text x="250" y="50" dy="-10"&gt;B&lt;/text&gt;
+    &lt;text x="400" y="350" dx="30"&gt;C&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p>由于绘制路径的复杂性，因此强烈建议您使用 SVG 编辑器来创建复杂的图形。推荐用开源矢量图编辑器<a href="http://www.inkscape.org/">Inkscape</a></p>
+
+      <div class="readall"><a href="/svg-path/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-shapes-polygon/">SVG Shapes之多边形 &lt;polygon&gt;</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>5.多边形 &lt;polygon&gt;</h2>
+
+<h4>示例5.1</h4>
+
+<p><svg height="210" width="500">
+  <polygon points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="500"&gt;
+  &lt;polygon points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>points 属性定义多边形每个角的 x 和 y 坐标</li>
+</ul>
+
+
+<h4>示例5.2</h4>
+
+<p><svg height="250" width="500">
+  <polygon points="220,10 300,210 170,250 123,234" style="fill:lime;stroke:purple;stroke-width:1" />
+</svg></p>
+
+<pre><code>&lt;svg height="250" width="500"&gt;
+  &lt;polygon points="220,10 300,210 170,250 123,234" style="fill:lime;stroke:purple;stroke-width:1" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例5.3</h4>
+
+<p><svg height="210" width="500">
+  <polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="500"&gt;
+  &lt;polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例5.4</h4>
+
+<p>fill-rule属性改为"evenodd"</p>
+
+<p><svg height="210" width="500">
+  <polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="500"&gt;
+  &lt;polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+      <div class="readall"><a href="/svg-shapes-polygon/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-shapes-polyline/">SVG Shapes之折线 &lt;polyline&gt;</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>6.折线 &lt;polyline&gt;</h2>
+
+<h4>示例6.1</h4>
+
+<p><svg height="200" width="500">
+  <polyline points="20,20 40,25 60,40 80,120 120,140 200,180"
+  style="fill:none;stroke:black;stroke-width:3" />
+</svg></p>
+
+<pre><code>&lt;svg height="200" width="500"&gt;
+  &lt;polyline points="20,20 40,25 60,40 80,120 120,140 200,180"
+  style="fill:none;stroke:black;stroke-width:3" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例6.2</h4>
+
+<p><svg height="180" width="500">
+  <polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+  style="fill:white;stroke:red;stroke-width:4" />
+</svg></p>
+
+<pre><code>&lt;svg height="180" width="500"&gt;
+  &lt;polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+  style="fill:white;stroke:red;stroke-width:4" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+      <div class="readall"><a href="/svg-shapes-polyline/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-shapes-line/">SVG Shapes之线条 &lt;line&gt;</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>4.线条 &lt;line&gt;</h2>
+
+<h4>示例4.1</h4>
+
+<p><svg height="210" width="500">
+  <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+</svg></p>
+
+<pre><code>&lt;svg height="210" width="500"&gt;
+  &lt;line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ul>
+
+
+      <div class="readall"><a href="/svg-shapes-line/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="posts">
+  <section class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a href="/svg-shapes-ellipse/">SVG Shapes之椭圆 &lt;ellipse&gt;</a></h1>
+      <p class="post-meta">
+        <i class="fa fa-calendar"></i>
+        2014年05月04日
+        <i class="space"></i>
+        <i class="fa fa-tags"></i>
+        <a class="post-category" href="/page/category.html#svg">svg</a>
+      </p>
+    </header>
+    <div class="post-main">
+      <h2>3.椭圆 &lt;ellipse&gt;</h2>
+
+<h4>示例3.1</h4>
+
+<p><svg height="140" width="500">
+  <ellipse cx="200" cy="80" rx="100" ry="50"
+  style="fill:yellow;stroke:purple;stroke-width:2" />
+</svg></p>
+
+<pre><code>&lt;svg height="140" width="500"&gt;
+  &lt;ellipse cx="200" cy="80" rx="100" ry="50"
+  style="fill:yellow;stroke:purple;stroke-width:2" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p><strong>代码解释：</strong></p>
+
+<ul>
+<li>cx 属性定义圆点的 x 坐标</li>
+<li>cy 属性定义圆点的 y 坐标</li>
+<li>rx 属性定义水平半径</li>
+<li>ry 属性定义垂直半径</li>
+</ul>
+
+
+<h4>示例3.2</h4>
+
+<p><svg height="150" width="500">
+  <ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple" />
+  <ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime" />
+  <ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow" />
+</svg></p>
+
+<pre><code>&lt;svg height="150" width="500"&gt;
+  &lt;ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple" /&gt;
+  &lt;ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime" /&gt;
+  &lt;ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h4>示例3.3</h4>
+
+<p><svg height="100" width="500">
+  <ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow" />
+  <ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white" />
+</svg></p>
+
+<pre><code>&lt;svg height="100" width="500"&gt;
+  &lt;ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow" /&gt;
+  &lt;ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+      <div class="readall"><a href="/svg-shapes-ellipse/" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
+    </div>
+  </section>
+</div>
+
+<div class="pagination">
+  
+  
+  <a class="pagination-item newer" href="/page/9"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;上一页</a>
+  
+    
+
+    
+      <a href="/">1</a>
+      
+
+    
+      
+      <a href="/page/2">2</a>
+      
+    
+      
+      <a href="/page/3">3</a>
+      
+    
+      
+      <a href="/page/4">4</a>
+      
+    
+      
+      <a href="/page/5">5</a>
+      
+    
+      
+      <a href="/page/6">6</a>
+      
+    
+      
+      <a href="/page/7">7</a>
+      
+    
+      
+      <a href="/page/8">8</a>
+      
+    
+      
+      <a href="/page/9">9</a>
+      
+    
+      
+      <span class="current-page">10</span>
+      
+    
+      
+      <a href="/page/11">11</a>
+      
+    
+      
+      <a href="/page/12">12</a>
+      
+    
+      
+      <a href="/page/13">13</a>
+      
+    
+      
+      <a href="/page/14">14</a>
+      
+    
+      
+      <a href="/page/15">15</a>
+      
+    
+      
+      <a href="/page/16">16</a>
+      
+    
+      
+      <a href="/page/17">17</a>
+      
+    
+      
+      <a href="/page/18">18</a>
+      
+    
+      
+      <a href="/page/19">19</a>
+      
+    
+      
+      <a href="/page/20">20</a>
+      
+    
+      
+      <a href="/page/21">21</a>
+      
+    
+      
+      <a href="/page/22">22</a>
+      
+    
+  (共129篇)
+
+  
+  <a class="pagination-item older" href="/page/11">下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+  
+</div>
+
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1400 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Way Lau's Personal Site | www.waylau.com">
+  <meta name="author" content="Way Lau">
+  <meta name="keywords" content="JavaScript规范, Way Lau's Blog, Way Lau">
+  <title>JavaScript规范 - Way Lau's Blog</title>
+  <link rel="canonical" href="http://www.waylau.com/javascript-style-guide/">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/res/css/public.css">
+  <link rel="stylesheet" href="/res/css/light.css">
+  <script src="/res/js/light.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?28cf5fa48a599e39c5cc760931de942f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="blog">
+    <div class="sidebar">
+  <div class="profilepic">
+    <a href="/"><img src="/res/img/icon.png" alt="logo"></img></a>
+  </div>
+  <h1 class="title"><a href="/">Way Lau's Blog</a></h1>
+  <h2 class="sub-title">技术改变世界！</h2>
+  <nav id="nav">
+    <ul>
+    
+      <li><a href="/timing/"><i class="fa fa-clock-o"></i>&nbsp;时光机</a></li>
+    
+      <li><a href="/categories/"><i class="fa fa-tags"></i>&nbsp;分类</a></li>
+    
+      <li><a href="/tags/"><i class="fa fa-bookmark"></i>&nbsp;标签</a></li>
+    
+      <li><a href="http://labs.waylau.com/"><i class="fa fa-building"></i>&nbsp;示例</a></li>
+    
+      <li><a href="/books/"><i class="fa fa-book"></i>&nbsp;书籍</a></li>
+    
+      <li><a href="/about/"><i class="fa fa-paper-plane-o"></i>&nbsp;关于</a></li>
+    
+    </ul>
+  </nav>  
+  <nav id="sub-nav">
+    <a class="weibo " href="http://weibo.com/waylau521" title="新浪微博" target="_blank"><i class="fa fa-weibo "></i></a>
+    <a class="github" href="https://github.com/waylau" title="GitHub" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    <a class="twitter" href="https://twitter.com/waylau521" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="rss" href="/page/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+  </nav>
+  <div id="license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" >
+    <img alt="License" height="31" width="88" src="/res/img/license.png" /></a>
+  </div>
+</div>
+    <div class="main">
+    <header class="post-header">
+  <h1 class="post-title"><a href="/javascript-style-guide/">JavaScript规范</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    2014年06月20日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#javascript">javascript</a>	
+  </p>
+</header>
+<div class="post-main">
+<h2><a name='TOC'>目录</a></h2>
+
+<ol>
+<li> <a href="#types">类型</a></li>
+<li> <a href="#objects">对象</a></li>
+<li> <a href="#arrays">数组</a></li>
+<li> <a href="#strings">字符串</a></li>
+<li> <a href="#functions">函数</a></li>
+<li> <a href="#properties">属性</a></li>
+<li> <a href="#variables">变量</a></li>
+<li> <a href="#conditionals">条件表达式和等号</a></li>
+<li> <a href="#blocks">块</a></li>
+<li> <a href="#comments">注释</a></li>
+<li> <a href="#whitespace">空白</a></li>
+<li> <a href="#commas">逗号</a></li>
+<li> <a href="#semicolons">分号</a></li>
+<li> <a href="#type-coercion">类型转换</a></li>
+<li> <a href="#naming-conventions">命名约定</a></li>
+<li> <a href="#accessors">存取器</a></li>
+<li> <a href="#constructors">构造器</a></li>
+<li> <a href="#events">事件</a></li>
+<li> <a href="#modules">模块</a></li>
+<li> <a href="#jquery">jQuery</a></li>
+<li> <a href="#dont-use">不使用</a></li>
+</ol>
+
+
+<h2><a name='types'>类型</a></h2>
+
+<ul>
+<li><p><strong>原始值</strong>: 相当于传值</p>
+
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul>
+
+
+<pre><code class="javascript">var foo = 1,
+    bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // =&gt; 1, 9
+</code></pre></li>
+<li><p><strong>复杂类型</strong>: 相当于传引用</p>
+
+<ul>
+<li><code>object</code></li>
+<li><code>array</code></li>
+<li><code>function</code></li>
+</ul>
+
+
+<pre><code class="javascript">var foo = [1, 2],
+    bar = foo;
+
+bar[0] = 9;
+
+console.log(foo[0], bar[0]); // =&gt; 9, 9
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='objects'>对象</a></h2>
+
+<ul>
+<li><p>使用字面值创建对象</p>
+
+<pre><code class="javascript">// bad
+var item = new Object();
+
+// good
+var item = {};
+</code></pre></li>
+<li><p>不要使用保留字 <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words">reserved words</a> 作为键</p>
+
+<pre><code class="javascript">// bad
+var superman = {
+  class: 'superhero',
+  default: { clark: 'kent' },
+  private: true
+};
+
+// good
+var superman = {
+  klass: 'superhero',
+  defaults: { clark: 'kent' },
+  hidden: true
+};
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='arrays'>数组</a></h2>
+
+<ul>
+<li><p>使用字面值创建数组</p>
+
+<pre><code class="javascript">// bad
+var items = new Array();
+
+// good
+var items = [];
+</code></pre></li>
+<li><p>如果你不知道数组的长度，使用push</p>
+
+<pre><code class="javascript">var someStack = [];
+
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+</code></pre></li>
+<li><p>当你需要拷贝数组时使用slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7">jsPerf</a></p>
+
+<pre><code class="javascript">var len = items.length,
+    itemsCopy = [],
+    i;
+
+// bad
+for (i = 0; i &lt; len; i++) {
+  itemsCopy[i] = items[i];
+}
+
+// good
+itemsCopy = items.slice();
+</code></pre></li>
+<li><p>使用slice将类数组的对象转成数组.</p>
+
+<pre><code class="javascript">function trigger() {
+  var args = Array.prototype.slice.call(arguments);
+  ...
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='strings'>字符串</a></h2>
+
+<ul>
+<li><p>对字符串使用单引号 <code>''</code></p>
+
+<pre><code class="javascript">// bad
+var name = "Bob Parr";
+
+// good
+var name = 'Bob Parr';
+
+// bad
+var fullName = "Bob " + this.lastName;
+
+// good
+var fullName = 'Bob ' + this.lastName;
+</code></pre></li>
+<li><p>超过80个字符的字符串应该使用字符串连接换行</p></li>
+<li><p>注: 如果过度使用，长字符串连接可能会对性能有影响. <a href="http://jsperf.com/ya-string-concat">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40">Discussion</a></p>
+
+<pre><code class="javascript">// bad
+var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+// bad
+var errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+// good
+var errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+</code></pre></li>
+<li><p>编程时使用join而不是字符串连接来构建字符串，特别是IE: <a href="http://jsperf.com/string-vs-array-concat/2">jsPerf</a>.</p>
+
+<pre><code class="javascript"> var items,
+    messages,
+    length,
+    i;
+
+messages = [{
+  state: 'success',
+  message: 'This one worked.'
+}, {
+  state: 'success',
+  message: 'This one worked as well.'
+}, {
+  state: 'error',
+  message: 'This one did not work.'
+}];
+
+length = messages.length;
+
+// bad
+function inbox(messages) {
+  items = '&lt;ul&gt;';
+
+  for (i = 0; i &lt; length; i++) {
+    items += '&lt;li&gt;' + messages[i].message + '&lt;/li&gt;';
+  }
+
+  return items + '&lt;/ul&gt;';
+}
+
+// good
+function inbox(messages) {
+  items = [];
+
+  for (i = 0; i &lt; length; i++) {
+    items[i] = messages[i].message;
+  }
+
+  return '&lt;ul&gt;&lt;li&gt;' + items.join('&lt;/li&gt;&lt;li&gt;') + '&lt;/li&gt;&lt;/ul&gt;';
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='functions'>函数</a></h2>
+
+<ul>
+<li><p>函数表达式:</p>
+
+<pre><code class="javascript">// 匿名函数表达式
+var anonymous = function() {
+  return true;
+};
+
+// 有名函数表达式
+var named = function named() {
+  return true;
+};
+
+// 立即调用函数表达式
+(function() {
+  console.log('Welcome to the Internet. Please follow me.');
+})();
+</code></pre></li>
+<li><p>绝对不要在一个非函数块里声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但是它们解析不同。</p></li>
+<li><p><strong>注:</strong> ECMA-262定义把<code>块</code>定义为一组语句，函数声明不是一个语句。<a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97">阅读ECMA-262对这个问题的说明</a>.</p>
+
+<pre><code class="javascript">// bad
+if (currentUser) {
+  function test() {
+    console.log('Nope.');
+  }
+}
+
+// good
+if (currentUser) {
+  var test = function test() {
+    console.log('Yup.');
+  };
+}
+</code></pre></li>
+<li><p>绝对不要把参数命名为 <code>arguments</code>, 这将会逾越函数作用域内传过来的 <code>arguments</code> 对象.</p>
+
+<pre><code class="javascript">// bad
+function nope(name, options, arguments) {
+  // ...stuff...
+}
+
+// good
+function yup(name, options, args) {
+  // ...stuff...
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='properties'>属性</a></h2>
+
+<ul>
+<li><p>一般而言，对象中的属性的值是通过点(.)运算符来取值</p>
+
+<pre><code class="javascript">var luke = {
+  jedi: true,
+  age: 28
+};
+
+// bad
+var isJedi = luke['jedi'];
+
+// good
+var isJedi = luke.jedi;
+</code></pre></li>
+<li><p>如果一个对象的属性本身就包含点(.)的键(self.ref)，点操作符就无能为力了</p>
+
+<pre><code class="javascript">var ref = {
+  id : "reference1",
+  func : function(){
+    return this.id;
+  }
+};
+
+var obj = {
+  id : "object1",
+  "self.ref" : ref
+};
+</code></pre>
+
+<p>当我们尝试访问obj的”self.ref”这个属性的时候：obj.self.ref，解释器会以为obj中有个名为self的属性，而self对象又有个ref的属性，这样会发生不可预知的错误，一个好的解决方法是使用中括号([])运算符来访问：</p>
+
+<p>  obj["self.ref"].func();</p></li>
+</ul>
+
+
+<p>在这种情况下，中括号操作符成为唯一可行的方式，因此，建议在不知道对象的内部结构的时候(比如要遍历对象来获取某个属性的值)，一定要使用中括号操作符，这样可以避免一些意想不到的bug。</p>
+
+<ul>
+<li><p>当使用变量访问属性时使用中括号.</p>
+
+<pre><code class="javascript">var luke = {
+  jedi: true,
+  age: 28
+};
+
+function getProp(prop) {
+  return luke[prop];
+}
+
+var isJedi = getProp('jedi');
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='variables'>变量</a></h2>
+
+<ul>
+<li><p>总是使用 <code>var</code> 来声明变量，如果不这么做将导致产生全局变量，我们要避免污染全局命名空间。</p>
+
+<pre><code class="javascript">// bad
+superPower = new SuperPower();
+
+// good
+var superPower = new SuperPower();
+</code></pre></li>
+<li><p>使用一个 <code>var</code> 以及新行声明多个变量，缩进4个空格。</p>
+
+<pre><code class="javascript">// bad
+var items = getItems();
+var goSportsTeam = true;
+var dragonball = 'z';
+
+// good
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
+</code></pre></li>
+<li><p>最后再声明未赋值的变量，当你想引用之前已赋值变量的时候很有用。</p>
+
+<pre><code class="javascript">// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i, items = getItems(),
+    dragonball,
+    goSportsTeam = true,
+    len;
+
+// good
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball,
+    length,
+    i;
+</code></pre></li>
+<li><p>在作用域顶部声明变量，避免变量声明和赋值引起的相关问题。</p>
+
+<pre><code class="javascript">// bad
+function() {
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  var name = getName();
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// good
+function() {
+  var name = getName();
+
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// bad
+function() {
+  var name = getName();
+
+  if (!arguments.length) {
+    return false;
+  }
+
+  return true;
+}
+
+// good
+function() {
+  if (!arguments.length) {
+    return false;
+  }
+
+  var name = getName();
+
+  return true;
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='conditionals'>条件表达式和等号</a></h2>
+
+<ul>
+<li>适当使用 <code>===</code> 和 <code>!==</code> 以及 <code>==</code> 和 <code>!=</code>.</li>
+<li><p>条件表达式的强制类型转换遵循以下规则：</p>
+
+<ul>
+<li><strong>对象</strong> 被计算为 <strong>true</strong></li>
+<li><strong>Undefined</strong> 被计算为 <strong>false</strong></li>
+<li><strong>Null</strong> 被计算为 <strong>false</strong></li>
+<li><strong>布尔值</strong> 被计算为 <strong>布尔的值</strong></li>
+<li><strong>数字</strong> 如果是 <strong>+0, -0, or NaN</strong> 被计算为 <strong>false</strong> , 否则为 <strong>true</strong></li>
+<li><strong>字符串</strong> 如果是空字符串 <code>''</code> 则被计算为 <strong>false</strong>, 否则为 <strong>true</strong></li>
+</ul>
+
+
+<pre><code class="javascript">if ([0]) {
+  // true
+  // An array is an object, objects evaluate to true
+}
+</code></pre></li>
+<li><p>使用快捷方式.</p>
+
+<pre><code class="javascript">// bad
+if (name !== '') {
+  // ...stuff...
+}
+
+// good
+if (name) {
+  // ...stuff...
+}
+
+// bad
+if (collection.length &gt; 0) {
+  // ...stuff...
+}
+
+// good
+if (collection.length) {
+  // ...stuff...
+}
+</code></pre></li>
+<li><p>阅读 <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> 了解更多</p>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='blocks'>块</a></h2>
+
+<ul>
+<li><p>给所有多行的块使用大括号</p>
+
+<pre><code class="javascript">// bad
+if (test)
+  return false;
+
+// good
+if (test) return false;
+
+// good
+if (test) {
+  return false;
+}
+
+// bad
+function() { return false; }
+
+// good
+function() {
+  return false;
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='comments'>注释</a></h2>
+
+<ul>
+<li><p>使用 <code>/** ... */</code> 进行多行注释，包括描述，指定类型以及参数值和返回值</p>
+
+<pre><code class="javascript">// bad
+// make() returns a new element
+// based on the passed in tag name
+//
+// @param &lt;String&gt; tag
+// @return &lt;Element&gt; element
+function make(tag) {
+
+  // ...stuff...
+
+  return element;
+}
+
+// good
+/**
+ * make() returns a new element
+ * based on the passed in tag name
+ *
+ * @param &lt;String&gt; tag
+ * @return &lt;Element&gt; element
+ */
+function make(tag) {
+
+  // ...stuff...
+
+  return element;
+}
+</code></pre></li>
+<li><p>使用 <code>//</code> 进行单行注释，在评论对象的上面进行单行注释，注释前放一个空行.</p>
+
+<pre><code class="javascript">// bad
+var active = true;  // is current tab
+
+// good
+// is current tab
+var active = true;
+
+// bad
+function getType() {
+  console.log('fetching type...');
+  // set the default type to 'no type'
+  var type = this._type || 'no type';
+
+  return type;
+}
+
+// good
+function getType() {
+  console.log('fetching type...');
+
+  // set the default type to 'no type'
+  var type = this._type || 'no type';
+
+  return type;
+}
+</code></pre></li>
+<li><p>如果你有一个问题需要重新来看一下或如果你建议一个需要被实现的解决方法的话需要在你的注释前面加上 <code>FIXME</code> 或 <code>TODO</code> 帮助其他人迅速理解</p>
+
+<pre><code class="javascript">function Calculator() {
+
+  // FIXME: shouldn't use a global here
+  total = 0;
+
+  return this;
+}
+</code></pre>
+
+<pre><code class="javascript">function Calculator() {
+
+  // TODO: total should be configurable by an options param
+  this.total = 0;
+
+  return this;
+}
+</code></pre>
+
+<p>  <strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='whitespace'>空白</a></h2>
+
+<ul>
+<li><p>多行数组和元素初始化时，最好缩进两个空格。</p>
+
+<pre><code class="javascript">// 对象初始化
+var inset = {
+  top: 10,
+  right: 20,
+  bottom: 15,
+  left: 12
+};
+
+// 数组初始化
+this.rows_ = [
+  '"Slartibartfast" &lt;fjordmaster@magrathea.com&gt;',
+  '"Zaphod Beeblebrox" &lt;theprez@universe.gov&gt;',
+  '"Ford Prefect" &lt;ford@theguide.com&gt;',
+  '"Arthur Dent" &lt;has.no.tea@gmail.com&gt;',
+  '"Marvin the Paranoid Android" &lt;marv@googlemail.com&gt;',
+  'the.mice@magrathea.com'
+];
+
+// 直接在方法中调用
+goog.dom.createDom(goog.dom.TagName.DIV, {
+  id: 'foo',
+  className: 'some-css-class',
+  style: 'display:none'
+}, 'Hello, world!');
+</code></pre></li>
+<li><p>尽可能的将所有的函数参数都写在同一行上，但为了保持增强可读性，如果一行超过了80字符的话可适当的换行，甚至可以每个参数都独立一行，记得格式上的优化，比如缩进4个空格和对齐括号。</p>
+
+<pre><code class="javascript">// Four-space, wrap at 80.  Works with very long function names, survives
+// renaming without reindenting, low on space.
+goog.foo.bar.doThingThatIsVeryDifficultToExplain = function(
+    veryDescriptiveArgumentNumberOne, veryDescriptiveArgumentTwo,
+    tableModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
+  // ...
+};
+
+// Four-space, one argument per line.  Works with long function names,
+// survives renaming, and emphasizes each argument.
+goog.foo.bar.doThingThatIsVeryDifficultToExplain = function(
+    veryDescriptiveArgumentNumberOne,
+    veryDescriptiveArgumentTwo,
+    tableModelEventHandlerProxy,
+    artichokeDescriptorAdapterIterator) {
+  // ...
+};
+
+// Parenthesis-aligned indentation, wrap at 80.  Visually groups arguments,
+// low on space.
+function foo(veryDescriptiveArgumentNumberOne, veryDescriptiveArgumentTwo,
+             tableModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
+  // ...
+}
+
+// Parenthesis-aligned, one argument per line.  Visually groups and
+// emphasizes each individual argument.
+function bar(veryDescriptiveArgumentNumberOne,
+             veryDescriptiveArgumentTwo,
+             tableModelEventHandlerProxy,
+             artichokeDescriptorAdapterIterator) {
+  // ...
+}
+</code></pre></li>
+<li><p>事实上，除了数组和元素的初始化和传递匿名方法以外，都应该相对于上一行表达式的左对齐缩进4个空格，而不是2个</p>
+
+<pre><code class="javascript">someWonderfulHtml = '' +
+                    getEvenMoreHtml(someReallyInterestingValues, moreValues,
+                                    evenMoreParams, 'a duck', true, 72,
+                                    slightlyMoreMonkeys(0xfff)) +
+                    '';
+
+thisIsAVeryLongVariableName =
+    hereIsAnEvenLongerOtherFunctionNameThatWillNotFitOnPrevLine();
+
+thisIsAVeryLongVariableName = 'expressionPartOne' + someMethodThatIsLong() +
+    thisIsAnEvenLongerOtherFunctionNameThatCannotBeIndentedMore();
+
+someValue = this.foo(
+    shortArg,
+    'Some really long string arg - this is a pretty common case, actually.',
+    shorty2,
+    this.bar());
+
+if (searchableCollection(allYourStuff).contains(theStuffYouWant) &amp;&amp;
+    !ambientNotification.isActive() &amp;&amp; (client.isAmbientSupported() ||
+                                        client.alwaysTryAmbientAnyways())) {
+  ambientNotification.activate();
+}
+</code></pre></li>
+<li><p>二元和三元操作符</p>
+
+<pre><code class="javascript">// 能放一行的都放在一行里
+var x = a ? b : c; 
+
+// 缩进4个空格
+var y = a ?
+    longButSimpleOperandB : longButSimpleOperandC;
+
+// 缩进到第一个判断变量位置
+var z = a ?
+        moreComplicatedB :
+        moreComplicatedC;
+</code></pre></li>
+<li><p>大括号前放一个空格</p>
+
+<pre><code class="javascript">// bad
+function test(){
+  console.log('test');
+}
+
+// good
+function test() {
+  console.log('test');
+}
+
+// bad
+dog.set('attr',{
+  age: '1 year',
+  breed: 'Bernese Mountain Dog'
+});
+
+// good
+dog.set('attr', {
+  age: '1 year',
+  breed: 'Bernese Mountain Dog'
+});
+</code></pre></li>
+<li><p>在做长方法链时使用缩进.</p>
+
+<pre><code class="javascript">// bad
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+// good
+$('#items')
+  .find('.selected')
+    .highlight()
+    .end()
+  .find('.open')
+    .updateCount();
+
+// bad
+var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+    .attr('width',  (radius + margin) * 2).append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
+
+// good
+var leds = stage.selectAll('.led')
+    .data(data)
+  .enter().append('svg:svg')
+    .class('led', true)
+    .attr('width',  (radius + margin) * 2)
+  .append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='commas'>逗号</a></h2>
+
+<ul>
+<li><p>不要将逗号放前面</p>
+
+<pre><code class="javascript">// bad
+var once
+  , upon
+  , aTime;
+
+// good
+var once,
+    upon,
+    aTime;
+
+// bad
+var hero = {
+    firstName: 'Bob'
+  , lastName: 'Parr'
+  , heroName: 'Mr. Incredible'
+  , superPower: 'strength'
+};
+
+// good
+var hero = {
+  firstName: 'Bob',
+  lastName: 'Parr',
+  heroName: 'Mr. Incredible',
+  superPower: 'strength'
+};
+</code></pre></li>
+<li><p>不要加多余的逗号，这可能会在IE下引起错误，同时如果多一个逗号某些ES3的实现会计算多数组的长度。</p>
+
+<pre><code class="javascript">// bad
+var hero = {
+  firstName: 'Kevin',
+  lastName: 'Flynn',
+};
+
+var heroes = [
+  'Batman',
+  'Superman',
+];
+
+// good
+var hero = {
+  firstName: 'Kevin',
+  lastName: 'Flynn'
+};
+
+var heroes = [
+  'Batman',
+  'Superman'
+];
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='semicolons'>分号</a></h2>
+
+<ul>
+<li><p>语句结束一定要加分号</p>
+
+<pre><code class="javascript">// bad
+(function() {
+  var name = 'Skywalker'
+  return name
+})()
+
+// good
+(function() {
+  var name = 'Skywalker';
+  return name;
+})();
+
+// good
+;(function() {
+  var name = 'Skywalker';
+  return name;
+})();
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='type-coercion'>类型转换</a></h2>
+
+<ul>
+<li>在语句的开始执行类型转换.</li>
+<li><p>字符串:</p>
+
+<pre><code class="javascript">//  =&gt; this.reviewScore = 9;
+
+// bad
+var totalScore = this.reviewScore + '';
+
+// good
+var totalScore = '' + this.reviewScore;
+
+// bad
+var totalScore = '' + this.reviewScore + ' total score';
+
+// good
+var totalScore = this.reviewScore + ' total score';
+</code></pre></li>
+<li><p>对数字使用 <code>parseInt</code> 并且总是带上类型转换的基数.</p>
+
+<pre><code class="javascript">var inputValue = '4';
+
+// bad
+var val = new Number(inputValue);
+
+// bad
+var val = +inputValue;
+
+// bad
+var val = inputValue &gt;&gt; 0;
+
+// bad
+var val = parseInt(inputValue);
+
+// good
+var val = Number(inputValue);
+
+// good
+var val = parseInt(inputValue, 10);
+
+// good
+/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */
+var val = inputValue &gt;&gt; 0;
+</code></pre></li>
+<li><p>布尔值:</p>
+
+<pre><code class="javascript">var age = 0;
+
+// bad
+var hasAge = new Boolean(age);
+
+// good
+var hasAge = Boolean(age);
+
+// good
+var hasAge = !!age;
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='naming-conventions'>命名约定</a></h2>
+
+<ul>
+<li>JavaScript文件命名。所有js文件名，多个单词组成时，采用中划线连接方式，比如说： 账号模型文件 <code>account-model.js</code></li>
+<li><p>避免单个字符名，让你的变量名有描述意义。</p>
+
+<pre><code class="javascript">// bad
+function q() {
+  // ...stuff...
+}
+
+// good
+function query() {
+  // ..stuff..
+}
+</code></pre></li>
+<li><p>当命名对象、函数和实例时使用驼峰命名规则</p>
+
+<pre><code class="javascript">// bad
+var OBJEcttsssss = {};
+var this_is_my_object = {};
+var this-is-my-object = {};
+function c() {};
+var u = new user({
+  name: 'Bob Parr'
+});
+
+// good
+var thisIsMyObject = {};
+function thisIsMyFunction() {};
+var user = new User({
+  name: 'Bob Parr'
+});
+</code></pre></li>
+<li><p>当命名构造函数或类时使用驼峰式大写</p>
+
+<pre><code class="javascript">// bad
+function user(options) {
+  this.name = options.name;
+}
+
+var bad = new user({
+  name: 'nope'
+});
+
+// good
+function User(options) {
+  this.name = options.name;
+}
+
+var good = new User({
+  name: 'yup'
+});
+</code></pre></li>
+<li><p>命名私有属性时前面加个下划线 <code>_</code></p>
+
+<pre><code class="javascript">// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+
+// good
+this._firstName = 'Panda';
+</code></pre></li>
+<li><p>当保存对 <code>this</code> 的引用时使用 <code>_this</code>.</p>
+
+<pre><code class="javascript">// bad
+function() {
+  var self = this;
+  return function() {
+    console.log(self);
+  };
+}
+
+// bad
+function() {
+  var that = this;
+  return function() {
+    console.log(that);
+  };
+}
+
+// good
+function() {
+  var _this = this;
+  return function() {
+    console.log(_this);
+  };
+}
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='accessors'>存取器</a></h2>
+
+<ul>
+<li>属性的存取器函数不是必需的</li>
+<li><p>如果你确实有存取器函数的话使用getVal() 和 setVal('hello')</p>
+
+<pre><code class="javascript">// bad
+dragon.age();
+
+// good
+dragon.getAge();
+
+// bad
+dragon.age(25);
+
+// good
+dragon.setAge(25);
+</code></pre></li>
+<li><p>如果属性是布尔值，使用isVal() 或 hasVal()</p>
+
+<pre><code class="javascript">// bad
+if (!dragon.age()) {
+  return false;
+}
+
+// good
+if (!dragon.hasAge()) {
+  return false;
+}
+</code></pre></li>
+<li><p>可以创建get()和set()函数，但是要保持一致</p>
+
+<pre><code class="javascript">function Jedi(options) {
+  options || (options = {});
+  var lightsaber = options.lightsaber || 'blue';
+  this.set('lightsaber', lightsaber);
+}
+
+Jedi.prototype.set = function(key, val) {
+  this[key] = val;
+};
+
+Jedi.prototype.get = function(key) {
+  return this[key];
+};
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='constructors'>构造器</a></h2>
+
+<ul>
+<li><p>给对象原型分配方法，而不是用一个新的对象覆盖原型，覆盖原型会使继承出现问题。</p>
+
+<pre><code class="javascript">function Jedi() {
+  console.log('new jedi');
+}
+
+// bad
+Jedi.prototype = {
+  fight: function fight() {
+    console.log('fighting');
+  },
+
+  block: function block() {
+    console.log('blocking');
+  }
+};
+
+// good
+Jedi.prototype.fight = function fight() {
+  console.log('fighting');
+};
+
+Jedi.prototype.block = function block() {
+  console.log('blocking');
+};
+</code></pre></li>
+<li><p>方法可以返回 <code>this</code> 帮助方法可链。</p>
+
+<pre><code class="javascript">// bad
+Jedi.prototype.jump = function() {
+  this.jumping = true;
+  return true;
+};
+
+Jedi.prototype.setHeight = function(height) {
+  this.height = height;
+};
+
+var luke = new Jedi();
+luke.jump(); // =&gt; true
+luke.setHeight(20) // =&gt; undefined
+
+// good
+Jedi.prototype.jump = function() {
+  this.jumping = true;
+  return this;
+};
+
+Jedi.prototype.setHeight = function(height) {
+  this.height = height;
+  return this;
+};
+
+var luke = new Jedi();
+
+luke.jump()
+  .setHeight(20);
+</code></pre></li>
+<li><p>可以写一个自定义的toString()方法，但是确保它工作正常并且不会有副作用。</p>
+
+<pre><code class="javascript">function Jedi(options) {
+  options || (options = {});
+  this.name = options.name || 'no name';
+}
+
+Jedi.prototype.getName = function getName() {
+  return this.name;
+};
+
+Jedi.prototype.toString = function toString() {
+  return 'Jedi - ' + this.getName();
+};
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='events'>事件</a></h2>
+
+<ul>
+<li><p>当给事件附加数据时，传入一个哈希而不是原始值，这可以让后面的贡献者加入更多数据到事件数据里而不用找出并更新那个事件的事件处理器</p>
+
+<pre><code class="js">// bad
+$(this).trigger('listingUpdated', listing.id);
+
+...
+
+$(this).on('listingUpdated', function(e, listingId) {
+  // do something with listingId
+});
+</code></pre>
+
+<p>更好:</p>
+
+<pre><code class="js">// good
+$(this).trigger('listingUpdated', { listingId : listing.id });
+
+...
+
+$(this).on('listingUpdated', function(e, data) {
+  // do something with data.listingId
+});
+</code></pre></li>
+</ul>
+
+
+<p>  <strong><a href="#TOC">[↑]</a></strong></p>
+
+<h2><a name='modules'>模块</a></h2>
+
+<ul>
+<li>模块应该以 <code>!</code> 开始，这保证了如果一个有问题的模块忘记包含最后的分号在合并后不会出现错误</li>
+<li>这个文件应该以驼峰命名，并在同名文件夹下，同时导出的时候名字一致</li>
+<li>加入一个名为noConflict()的方法来设置导出的模块为之前的版本并返回它</li>
+<li><p>总是在模块顶部声明 <code>'use strict';</code></p>
+
+<pre><code class="javascript">// fancyInput/fancyInput.js
+
+!function(global) {
+  'use strict';
+
+  var previousFancyInput = global.FancyInput;
+
+  function FancyInput(options) {
+    this.options = options || {};
+  }
+
+  FancyInput.noConflict = function noConflict() {
+    global.FancyInput = previousFancyInput;
+    return FancyInput;
+  };
+
+  global.FancyInput = FancyInput;
+}(this);
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='jquery'>jQuery</a></h2>
+
+<ul>
+<li><p>缓存jQuery查询</p>
+
+<pre><code class="javascript">// bad
+function setSidebar() {
+  $('.sidebar').hide();
+
+  // ...stuff...
+
+  $('.sidebar').css({
+    'background-color': 'pink'
+  });
+}
+
+// good
+function setSidebar() {
+  var $sidebar = $('.sidebar');
+  $sidebar.hide();
+
+  // ...stuff...
+
+  $sidebar.css({
+    'background-color': 'pink'
+  });
+}
+</code></pre></li>
+<li><p>对DOM查询使用级联的 <code>$('.sidebar ul')</code> 或 <code>$('.sidebar ul')</code>，<a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p></li>
+<li><p>对有作用域的jQuery对象查询使用 <code>find</code></p>
+
+<pre><code class="javascript">// bad
+$('.sidebar', 'ul').hide();
+
+// bad
+$('.sidebar').find('ul').hide();
+
+// good
+$('.sidebar ul').hide();
+
+// good
+$('.sidebar &gt; ul').hide();
+
+// good (slower)
+$sidebar.find('ul');
+
+// good (faster)
+$($sidebar[0]).find('ul');
+</code></pre>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<h2><a name='dont-use'>不使用</a></h2>
+
+<ul>
+<li>生成标签。在 JavaScript 文件中生成标签让内容变得更难查找，更难编辑，性能更差。应该尽量避免这种情况的出现。</li>
+<li>eval 非特殊业务， 禁用！！！</li>
+<li><p>with 非特殊业务， 禁用！！！</p>
+
+<p><strong><a href="#TOC">[↑]</a></strong></p></li>
+</ul>
+
+
+<hr />
+
+<h3>参考</h3>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a></li>
+<li><a href="https://github.com/adamlu/javascript-style-guide">https://github.com/adamlu/javascript-style-guide</a></li>
+<li><a href="http://chajn.org/jsguide/javascriptguide.html">http://chajn.org/jsguide/javascriptguide.html</a></li>
+</ul>
+
+
+</div>
+<div class="share">
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  </div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","sqq"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/res/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+<div class="pagination">
+
+<a class="pagination-item newer" href="/github-use-watch-star-fork/"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Github中watch、star、fork的用法</a>
+
+
+<a class="pagination-item older" href="/newborn-beat-vibration/">新生儿拍隔&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+
+</div>
+<div class="comments">
+  <div class="ds-thread" data-title="JavaScript规范" data-thread-key="/javascript-style-guide" data-url="http://www.waylau.com/javascript-style-guide/"></div>
+  <script type="text/javascript">var duoshuoQuery = {short_name:"waylau"};(function(){var ds = document.createElement('script');ds.type = 'text/javascript';ds.async = true;ds.src = '/res/js/embed.js';ds.charset = 'UTF-8';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);})();</script>
+</div>
+    <footer>Copyright&nbsp;&copy;&nbsp;2014 <a href="http://www.waylau.com">Way Lau's Blog</a><br/><i class="fa fa-cogs" style="color:blueviolet;">&nbsp;</i>Powered by <a href="https://github.com/waylau/jekyll-theme-blog" target="_blank">jekyll-theme-blog</a></footer>
+    </div>
+
+
+  </div>    
+  <div id="top"><a id="rocket" href="javascript:;" title="返回顶部"><i></i></a></div>
+  
+
+
+</body>
+</html>

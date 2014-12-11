@@ -22,6 +22,8 @@ tags: [Markdown,GitBook]
 
     $ git clone https://github.com/waylau/gitbook.git
   
+<!-- more -->
+
 ###Build 编译
 
 	$ gitbook build ./

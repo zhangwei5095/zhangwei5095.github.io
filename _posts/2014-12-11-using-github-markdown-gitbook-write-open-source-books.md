@@ -50,11 +50,17 @@ GitBook 让你在保持在 Github 的书写习惯外，稍加配置，就能自�
 
 ![](http://99btgc01.info/uploads/2014/12/04%282%29.jpg)
 
-#1.注册账户
+#注册账户
 
 需要拥有 [Github](https://github.com) 和 [GitBook](https://www.gitbook.com) 的账户
 
-#2.关联账号
+#关联账号
 
-将 GitBook 关联上  Github 的账号
+将 GitBook 的书关联上  Github 的库
+
+<a href="http://s1288.photobucket.com/user/waylau/media/waylau%20blog/gitbook/09_zpsaeaf67fe.jpg.html" target="_blank"><img src="http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/gitbook/09_zpsaeaf67fe.jpg" border="0" alt=" photo 09_zpsaeaf67fe.jpg"/></a>
+
+<a href="http://s1288.photobucket.com/user/waylau/media/waylau%20blog/gitbook/10_zpsedcdd57a.jpg.html" target="_blank"><img src="http://i1288.photobucket.com/albums/b484/waylau/waylau%20blog/gitbook/10_zpsedcdd57a.jpg" border="0" alt=" photo 10_zpsedcdd57a.jpg"/></a>
+
+
 

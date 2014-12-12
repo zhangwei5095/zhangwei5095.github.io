@@ -1,12 +1,13 @@
-
 ---
 layout: post
-title: Activiti 5.x 下载、安装和运行
-date: 2014-12-12 01:42
+title: Activiti 5 下载、安装和运行
+date: 2014-12-12 01:21
 author: admin
 comments: true
 categories: [Activiti]
+tags: [Activiti]
 ---
+ 
 ##下载和安装
 
 ###activiti下载：

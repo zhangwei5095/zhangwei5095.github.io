@@ -21,8 +21,9 @@ title: 关于
 * Watching science-fiction movies.
 * Learning English.
 
-###Connet:
+###Contact:
 
+* Blog:[www.waylau.com](http://www.waylau.com)
 * Gmail: [waylau521@gmail.com](mailto:waylau521@gmail.com)
 * Weibo: [waylau521](http://weibo.com/waylau521)
 * Twitter: [waylau521](https://twitter.com/waylau521)

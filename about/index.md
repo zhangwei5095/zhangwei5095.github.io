@@ -32,7 +32,7 @@ title: 关于
 
 ###Open source:
 
-* github : [waylau](https://github.com/waylau)
+* Github : [waylau](https://github.com/waylau)
 
 ----
 

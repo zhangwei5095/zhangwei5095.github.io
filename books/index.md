@@ -8,7 +8,7 @@ comments: true
 
 ##以下是作者的书籍作品
 
-* [Apache Shiro 1.2.x 用户指南](https://github.com/waylau/apache-shiro-1.2.x-reference)
+* [Apache Shiro 1.2.x 参考手册](http://waylau.gitbooks.io/apache-shiro-1-2-x-reference/)
 * [Jersey 2.x 用户指南](https://github.com/waylau/Jersey-2.x-User-Guide)
 * [Gradle 2 用户指南](https://github.com/waylau/Gradle-2-User-Guide)
 * [Github 帮助文档](https://github.com/waylau/github-help)

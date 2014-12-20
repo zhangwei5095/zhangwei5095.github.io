@@ -73,16 +73,12 @@ from Win2000 to Win8 including server variants.
 
 只有客户端下载。sever 是云服务器
 
---------------------------
-
 ####3.4 WANdisco 
 
 下载说明<http://www.wandisco.com/subversion/download>
 
 
 目前 svn 最新为 1.8.10 ，需要注册。客户端 smartSvn收费
-
-------------------------
 
 ####3.5 CollabNet 
 

@@ -8,7 +8,7 @@ categories: [Tomcat]
 tags: [Tomcat,Maven]
 ---
 
-Apache Tomcat 的 Maven 插件提供了 goal，实现将 Apache Tomcat servlet 容器整合进 WAR 项目。你可以运行 WAR Apache Maven 项目而无需部署 WAR 文件到 Apache Tomcat 的实例。
+Apache Tomcat 的 Maven 插件提供了 goal，实现将 Apache Tomcat servlet 容器整合进 WAR 项目。你可以通过 Apache Maven 运行 WAR 项目而无需部署 WAR 文件到 Apache Tomcat 的实例。
 
 <!-- more -->
 
@@ -22,7 +22,9 @@ Apache Tomcat 的 Maven 插件提供了 goal，实现将 Apache Tomcat servlet �
  
 ##源码：
 
-<http://tomcat.apache.org/maven-plugin-2.2/>
+svn 路径：
+
+<http://svn.apache.org/repos/asf/tomcat/maven-plugin/trunk/>
 
 ##功能：
 

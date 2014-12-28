@@ -277,4 +277,7 @@ svn 路径：
 
 使用 `http://localhost:8080/manager/text` 替换默认的 tomcat6 url
 
+
+参考：
+
 * <http://tomcat.apache.org/maven-plugin.html>

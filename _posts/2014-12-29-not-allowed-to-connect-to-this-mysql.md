@@ -12,7 +12,7 @@ tags: [MySQL]
 
 ##问题：
 
-	ERROR 1130: Host '192.168.1.3' is not allowed to connect to this MySQL server...
+	ERROR 1130: Host '192.168.11.104' is not allowed to connect to this MySQL server...
 
 <img src="http://99btgc01.info/uploads/2014/12/m1.png" alt="m1.png" title="m1.png" />
 

@@ -4,8 +4,8 @@ title:  在 Jersey 2 使用 Spring 4
 date: 2014-12-30 01:21
 author: admin
 comments: true
-categories: [Jersey]
-tags: [Spring]
+categories: [Spring,Jersey]
+tags: [Spring,Jersey]
 ---
 
 Jersey 提供对 Spring DI 的扩展。使得 Jersey 在使用 Spring bean 时 就像是 JAX-RS 的组件 (比如 资源和提供者) 并且允许 Spring 注入 Jersey 管理的组件中。比如：

@@ -12,13 +12,15 @@ tags: [MySQL]
 
 ##问题：
 
-	ERROR 1130: Host '192.168.1.3' is not allowed to connect to this MySQL server...
+	ERROR 1130: Host '192.168.11.104' is not allowed to connect to this MySQL server...
 
 <img src="http://99btgc01.info/uploads/2014/12/m1.png" alt="m1.png" title="m1.png" />
 
 ##原因：
 
 用户 root 没有远程访问的权限
+
+<!-- more -->
 
 ##解决方法：
 

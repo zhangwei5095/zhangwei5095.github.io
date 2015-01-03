@@ -15,7 +15,8 @@ tags: [Hibernate]
 [http://tools.jboss.org/downloads/overview.html](http://tools.jboss.org/downloads/overview.html)
 
 选择对应的版本
-`Eclipse Luna 4.4`的最新版本是 `JBoss Tools 4.2.0.Beta3`
+
+至今（2014-12-14） `Eclipse Luna 4.4`的最新版本是 `JBoss Tools  4.2.1.Final
 
 ##下载
 

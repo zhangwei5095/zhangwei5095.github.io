@@ -54,9 +54,7 @@ tags: [Hibernate]
 
 ###3. 使用 Hibernate Code Generation Configurations 自动生成实体
 
-
-<img src="http://99btgc01.info/uploads/2015/01/htools2.jpg" alt="htools2.jpg" title="htools2.jpg" />
-
+<img src="http://99btgc01.info/uploads/2015/01/htools3.jpg" alt="htools3.jpg" title="htools3.jpg" />
 
 选择 上一步中创建好的 Console Configuration，填写包名
 
@@ -64,7 +62,8 @@ tags: [Hibernate]
 
 选择要生成的的文件类型
 
-<img src="http://99btgc01.info/uploads/2015/01/htools3.jpg" alt="htools3.jpg" title="htools3.jpg" />
+<img src="http://99btgc01.info/uploads/2015/01/htools2.jpg" alt="htools2.jpg" title="htools2.jpg" />
+
 
 会有一个 “The serializable class SdUser does not declare a static final serialVersionUID field of type long” 的警告
 

@@ -62,6 +62,7 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
 3. 修改`create.html`用来添加用户信息，`ng-model`是模型
 
 ```html
+
 	<div class="page-header">
 		<h3>Create</h3>
 	</div>
@@ -125,10 +126,13 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
  
       </div>
     </div>
+
 ```
 
 4. 修改`detail.html`用来显示用户信息并提供修改、删除等功能 
+
 ```html
+
   <form role="form" name="userForm">
   
      <div class="row">&nbsp;</div>
@@ -197,11 +201,13 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
 
  
   </form>
+
 ```
 
 5. 修改`index.html`作为主页面,嵌入其他子页面，`ng-app`声明这个是模块，`ng-controller`说明他的控制器叫`ListCtrl`,`ng-view`用来存放子视图（页面）。
 
 ```html
+
 	<!doctype html>
 	<html ng-app="appMain" ng-controller="ListCtrl">
 	<head>
@@ -232,7 +238,9 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
 	    <script src="js/controller.js"></script>
 	</body>
 	</html>
+
 ```
+
 6. 修改`app.js` ，声明模块`appMain`,提供路由功能，说明了调转到哪个页面，用哪个控制器
 
 ```javascript
@@ -252,6 +260,7 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
 7. 修改`controller.js`，控制器。主要是对业务逻辑的操作，常见的CURD功能，http访问RESTful接口，并且返回数据
 
 ```javascript	
+
 	var url = 'http://localhost:8089/RestDemo/rest';
 	
 	function ListCtrl($scope, $http) {
@@ -302,6 +311,7 @@ angularjs 、bootstrap 的js,css文件放别放入相应的目录，
 	        }) ;
 		};
 	}
+
 ```	
  
 	 

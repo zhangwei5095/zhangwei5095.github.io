@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Git GUI 中文乱码问题
-date: 2014-12-30 01:21
+date: 2014-12-31 01:21
 author: admin
 comments: true
 categories: [Git]

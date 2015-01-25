@@ -12,7 +12,7 @@ tags: [POI]
 
 Apache POI 项目的使命是创造和维护 Java API 操纵各种格式的文件,其中包括基于 Office Open XML 标准（OOXML）和微软的OLE 2 Compound Document 格式（OLE2）。总之，你可以使用 Java 读写 MS Excel 文件。此外，您可以使用 Java 读取和写入 MS Word 和 MS PowerPoint 文件。Apache POI 是你的 Java Excel 解决方案（用于Excel 97-2008）。包含了一个完整的 API 用于移植其他 OOXML 和OLE2 格式。
 
-OLE2 文件包括了  Microsoft Office 文件，比如 XLS, DOC, PPT 以及 MFC 的序列化 API 为基础的文件格式。。 项目提供 [OLE2 Filesystem (POIFS)](http://poi.apache.org/poifs/index.html) 和 [OLE2 Document Properties (HPSF)](http://poi.apache.org/hpsf/index.html) 等 API。
+OLE2 文件包括了  Microsoft Office 文件，比如 XLS, DOC, PPT 以及 MFC 的序列化 API 为基础的文件格式。项目提供 [OLE2 Filesystem (POIFS)](http://poi.apache.org/poifs/index.html) 和 [OLE2 Document Properties (HPSF)](http://poi.apache.org/hpsf/index.html) 等 API。
 
 Office OpenXML Format 是  Microsoft Office 2007 和 2008 中新的基于 XML 的标准。包括 XLSX, DOCX 和 PPTX。该项目提供了一个低级别的 API 使用 [openxml4j](http://poi.apache.org/oxml4j/index.html)来支持  Open Packaging Conventions（开放打包约定）。
 
@@ -20,6 +20,8 @@ Office OpenXML Format 是  Microsoft Office 2007 和 2008 中新的基于 XML �
 Word (HWPF+XWPF)，PowerPoint (HSLF+XSLF)，Outlook (HSMF)， Visio (HDGF), TNEF (HMEF), 和 Publisher (HPBF).
 
 该项目尽可能与其他项目合作提供此功能。比如：[Cocoon](http://xml.apache.org/cocoon)提供 HSSF 的序列化;与[Open Office.org](http://www.openoffice.org/)合作处理 XLS 格式;和 [Tika](http://tika.apache.org/)/ [Lucene](http://lucene.apache.org/)提供格式解释器。
+
+<!-- more -->
 
 ##组件
 

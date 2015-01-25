@@ -21,8 +21,10 @@ tags: [Java, Jersey, RESTful]
 	private static Map<String,User> userMap  = new HashMap<String,User>();  
 
 2.创建增、删、改、查 用户资源等操作
+
 ```java
-	/** 
+
+    /** 
      * 增加 
      * @param user 
      */  
@@ -77,6 +79,7 @@ tags: [Java, Jersey, RESTful]
         users.addAll( userMap.values() );    
         return users;  
     }  
+
 ```    
 
 #三、创建客户端程序
@@ -84,6 +87,7 @@ tags: [Java, Jersey, RESTful]
 1.创建包“com.waylau.rest.client”，在包下建一个UserClient.java，代码如下：
 
 ```java
+
 	package com.waylau.rest.client;  
 	  
 	import javax.ws.rs.client.Client;  
@@ -182,6 +186,7 @@ tags: [Java, Jersey, RESTful]
 	     }  
 	       
 	}  
+
 ```
 
 #四、运行

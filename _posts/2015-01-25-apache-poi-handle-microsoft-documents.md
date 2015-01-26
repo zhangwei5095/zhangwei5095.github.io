@@ -21,6 +21,8 @@ Word (HWPF+XWPF)，PowerPoint (HSLF+XSLF)，Outlook (HSMF)， Visio (HDGF), TNEF
 
 该项目尽可能与其他项目合作提供此功能。比如：[Cocoon](http://xml.apache.org/cocoon)提供 HSSF 的序列化;与[Open Office.org](http://www.openoffice.org/)合作处理 XLS 格式;和 [Tika](http://tika.apache.org/)/ [Lucene](http://lucene.apache.org/)提供格式解释器。
 
+<!-- more -->
+
 ##组件
 
 <table class="ForrestTable" cellspacing="1" cellpadding="4">

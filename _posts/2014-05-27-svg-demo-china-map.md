@@ -65,7 +65,7 @@ SVG 做地图具有可以任意比例放大缩小不失真的优点。本例基�
                             .text(data.properties.name);
                 })
                 .on('mouseout', function(data) {
-                    d3.select(this).attr('fill', 'rgba(128,124,139,0.61');
+                    d3.select(this).attr('fill', 'rgba(128,124,139,0.61)');
                     //Remove the tooltip
                     d3.select("#tooltip1").remove();
                     d3.select("#tooltip2").remove();

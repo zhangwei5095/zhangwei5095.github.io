@@ -190,7 +190,7 @@ wb.createShee 是用来创建 Sheet
 
 ##项目源码
  
-见<https://github.com/waylau/poi-demos> 项目中 `hssf-helloword` 示例
+见<https://github.com/waylau/poi-demos> 项目中 [HelloWorld.java](https://github.com/waylau/poi-demos/blob/master/poi-demos/src/main/java/com/waylau/poi/hssf/HelloWorld.java) 示例
 
 ##参考：
 

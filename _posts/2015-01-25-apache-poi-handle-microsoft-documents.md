@@ -117,7 +117,7 @@ Word (HWPF+XWPF)，PowerPoint (HSLF+XSLF)，Outlook (HSMF)， Visio (HDGF), TNEF
 
 ###创建一个 POI 项目
 
- 	mvn archetype:create -DgroupId=com.waylau.poi -DartifactId=hssf-helloword
+ 	mvn archetype:create -DgroupId=com.waylau.poi -DartifactId=poi-demos
   
 ###引入相关 POI 依赖
 

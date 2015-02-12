@@ -14,3 +14,4 @@ comments: true
 * [Github 帮助文档](https://github.com/waylau/github-help)
 * [Activiti 5.x 用户指南](https://github.com/waylau/activiti-5.x-user-guide)
 * [Spring Framework 4.x参考文档](https://github.com/waylau/spring-framework-4-reference)
+* [Netty 4.x 用户指南](https://github.com/waylau/netty-4-user-guide)

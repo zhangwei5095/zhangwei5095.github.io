@@ -19,6 +19,8 @@ tags: [Netty]
 * Netty 4.x 
 * Eclipse 4.x
 
+<!-- more -->
+
 ##服务端
 
 让我们从 handler （处理器）的实现开始，handler 是由 Netty 生成用来处理 I/O 事件的。

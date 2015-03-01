@@ -12,6 +12,13 @@ tags: [Netty]
 
 下面，就基于 Netty 快速实现一个聊天小程序。
 
+##准备
+
+* JDK 7+ 
+* Maven 3.2.x
+* Netty 4.x 
+* Eclipse 4.x
+
 ##服务端
 
 让我们从 handler （处理器）的实现开始，handler 是由 Netty 生成用来处理 I/O 事件的。

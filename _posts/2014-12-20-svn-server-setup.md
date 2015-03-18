@@ -258,5 +258,13 @@ start= auto为注册成的系统服务启动类型为自动
 <img src="http://99btgc01.info/uploads/2014/12/sc2.jpg" alt="sc2.jpg" title="sc2.jpg" />
 
  
+##五、 问题排查
 
- 
+###1. 遇到不可读的路径；拒绝访问。
+
+做“显示资源历史记录”操作时，提示 “svn：遇到不可读的路径；拒绝访问。”
+
+![](http://99btgc01.info/uploads/2015/03/svn.png)
+
+解决：在项目的conf/svnserve.conf 中, 设置 anon-access = none 即可. 然后重启 Subversion 服务.
+

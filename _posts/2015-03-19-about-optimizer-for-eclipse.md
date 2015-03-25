@@ -87,3 +87,13 @@ JRebel 添加到您的 Eclipse 将允许您立即重新加载代码更改正在�
 可以在  “Open Help → Optimizer for Eclipse” 找到 Optimizer 的控制页面。
 
 ![](http://99btgc01.info/uploads/2015/03/ofe004.jpg)
+
+##相关问题排查
+
+###安装后无法启动
+
+修改 eclipse.ini 文件，去除
+
+	-javaagent:D:\eclipsePlugins\optimizer-for-eclipse\plugins\com.zeroturnaround.eclipse.optimizer.plugin_1.0.1.jar/agent/eclipse-optimizer-agent.jar
+
+再启动，就好了

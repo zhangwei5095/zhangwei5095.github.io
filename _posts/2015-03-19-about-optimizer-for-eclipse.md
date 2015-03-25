@@ -12,7 +12,7 @@ tags: [Eclipse,Optimizer]
 
 官网： <http://zeroturnaround.com/free/optimizer-for-eclipse/>
 
-顾名思义主要是解决 Eclipse 性能优化问题：
+顾名思义,Optimizer for Eclipse 这个插件主要是解决 Eclipse 性能优化问题：
 
 ###1.低内存分配
 
@@ -73,6 +73,7 @@ JRebel 添加到您的 Eclipse 将允许您立即重新加载代码更改正在�
 ##Optimizer for Eclipse 使用
 
 右手边有相应的需要优化的选项，
+
 ![](http://99btgc01.info/uploads/2015/03/ofe001.jpg)
 
 点击选项后，再点击"Restart Eclipse",重启 Eclipse

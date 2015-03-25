@@ -16,6 +16,8 @@ tags: [Tomcat]
 
 其中，docBase 为设置项目的路径。
 
+将 path 设为 "/" ，则以无项目名称形式部署、访问
+
 3.在 conf 目录中，在`Catalina\localhost`（此处需要注意目录的大小写）目录下新建一个XML文件，任意命名，只要和当前文件中的文件名不重复即可，代码如下。
 
 	<Context path="/emsc" docBase="D:\emsc" debug="0" privileged="true"></Context>

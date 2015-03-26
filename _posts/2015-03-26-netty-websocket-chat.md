@@ -8,7 +8,7 @@ categories: [Netty]
 tags: [Netty]
 ---
 
-上一次我们用 [Netty](http://netty.io/) 快速实现了一个 Java 聊天程序（见<http://www.waylau.com/netty-chat/>）。现在，我们要坐下修改，加入 WebSocket 的支持，使它可以在浏览器里进行文本聊天。
+上一次我们用 [Netty](http://netty.io/) 快速实现了一个 Java 聊天程序（见<http://www.waylau.com/netty-chat/>）。现在，我们要做下修改，加入 WebSocket 的支持，使它可以在浏览器里进行文本聊天。
 
 ##准备
 

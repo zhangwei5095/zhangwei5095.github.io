@@ -23,11 +23,12 @@ tags: [Netty]
 
 WebSocket 通过“[Upgrade handshake](https://developer.mozilla.org/en-US/docs/HTTP/Protocol_upgrade_mechanism)（升级握手）”从标准的 HTTP 或HTTPS 协议转为 WebSocket。因此，使用 WebSocket 的应用程序将始终以 HTTP/S 开始，然后进行升级。在什么时候发生这种情况取决于具体的应用;它可以是在启动时，或当一个特定的 URL 被请求时。
 
-在我们的应用中，当 URL 请求以“/ws”结束时，我们才升级协议为WebSocket。否则，服务器将使用基本的 HTTP/S。一旦升级连接将使用的WebSocket 传输的所有数据。
+在我们的应用中，当 URL 请求以“/ws”结束时，我们才升级协议为WebSocket。否则，服务器将使用基本的 HTTP/S。一旦升级连接将使用的WebSocket 传输所有数据。
 
 整个服务器逻辑如下：
 
 ![](http://99btgc01.info/uploads/2015/03/Figure%2011.2%20Server%20logic.jpg)
+
 1.客户端/用户连接到服务器并加入聊天
 
 2.HTTP 请求页面或 WebSocket 升级握手

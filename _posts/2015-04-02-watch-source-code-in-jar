@@ -17,6 +17,8 @@ Java 项目的编译文件经常被打包成 JAR（Java Archive，Java 归档文
 * Maven 3.2.x
 * Eclipse 4.x
 
+<!-- more -->
+
 ##Maven 项目
 
 ,如下图设置后，直接双击 要查看的 .class 文件即可，它会自动下载源文件，这样就能看到了

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java Switch 语句使用 String 参数
+title: Java switch 语句使用 String 参数
 date: 2015-04-10 01:41
 author: admin
 comments: true
@@ -8,7 +8,7 @@ categories: [Java]
 tags: [Java]
 ---
 
-当我尝试在 Switch 语句使用 String 参数时（注意`ctrType`为字符串）
+当我尝试在 switch 语句使用 String 参数时（注意`ctrType`为字符串）
 
 		switch (ctrType) {
 		case "01" : 

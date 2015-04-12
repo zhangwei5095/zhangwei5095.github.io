@@ -4,8 +4,8 @@ title: MINA 快速入门
 date: 2015-04-04 01:41
 author: admin
 comments: true
-categories: [Mina]
-tags: [Mina]
+categories: [MINA]
+tags: [MINA]
 ---
 
 Apache MINA 是一个网络应用的框架，可以帮助用户开发的高性能、高扩展性的网络应用程序。它通过 Java NIO 提供了一个抽象的事件驱动的异步 API 用在不同传输协议上，比如 TCP/IP 和 UDP/IP 等。

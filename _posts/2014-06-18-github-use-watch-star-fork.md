@@ -18,4 +18,4 @@ Github中watch、star、fork的如何用？
 * watch 的作用是关注，目的是等我更新的时候，你可以收到通知。
 * fork 的作用是参与，目的是你增加新的内容，然后 Pull Request，原作者会考虑把你的修改和原作者原来的内容合并。
  
-请选择合理的方式。
+请选择合理的方式。更多详见  [Github 帮助文档](https://github.com/waylau/github-help)

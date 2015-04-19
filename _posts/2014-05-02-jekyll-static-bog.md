@@ -5,13 +5,18 @@ date: 2014-05-02 16:46
 author: admin
 comments: true
 categories: [Jekyll]
-tags: [Git,Github,Jekyll]
+tags: [Ruby,Github,Jekyll]
 ---
 
-###1.下载、安装  ruby 和 DEVELOPMENT KIT
+## 下载、安装  ruby 和 DEVELOPMENT KIT
+
 地址<http://rubyinstaller.org/downloads/>
 
-Ruby 1.9.3-p545 对应 DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+其中 Ruby 与 DEVELOPMENT KIT 的版本要对应来安装
+
+* Ruby 1.8.7 and 1.9.3: DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+* Ruby 2.0 and 2.1 (32bits version only): DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe
+* Ruby 2.0 and 2.1 (x64 - 64bits only): DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
 
 ruby安装到C:\Ruby193;
 
@@ -20,47 +25,49 @@ DevKit安装到C:\rubydevkit
 	cd C:\rubydevkit
 	ruby dk.rb init
 	ruby dk.rb install
+
 如果是ruby2.0 64位的还需在C:\rubydevkit\config.yml 
 中添加"- C:\Ruby200-x64"
-<img src="http://a.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=1f53be757b310a55c024def1877e3294/aec379310a55b31903a1a6f341a98226cefc17df.jpg?referer=86630c23087b020855de0bd151b6&x=.jpg"/>
 
+<!-- more -->
 
-###2.更改gem镜像到 taobao网，可以改善国内Ruby安装的速度
+## 更改gem镜像到 taobao网，可以改善国内Ruby安装的速度
 
 	gem sources --remove https://rubygems.org/
 	gem sources -a https://ruby.taobao.org/
 	gem sources -l         #查看是否只有taobao镜像
 	gem update --system    #更新RubyGems软件
-###3.安装jekyll
+
+## 安装jekyll
 
     gem install jekyll
 
-###4.安装rdiscount，这个是用来解析Markdown标记的解析包。
+## 安装rdiscount，这个是用来解析Markdown标记的解析包。
 
 	gem install rdiscount
 
-###5.写markdown
+## 写markdown
 
 一定要确保你的文章要保存为UTF-8 无 BOM 格式才行。 
 文件名称不能是中文
 
-###6.编译md文件，启动博客
+## 编译md文件，启动博客
 
 	jekyll serve
 
-###7.相关错误处理
-####错误1
+## 相关错误处理
+### 错误1
    
 	  Generating... c:/Ruby193/lib/ruby/gems/1.9.1/gems/posix-spawn-0.3.8/lib/po	
 	six/spawn.rb:162: warning: cannot close fd before spawn
 	'which' 不是内部或外部命令，也不是可运行的程序
 
-需要安装Python,修改pygments.rb版本，不要0.5.2的版本
+需要安装[Python](https://www.python.org/downloads/),修改pygments.rb版本，不要0.5.2的版本
 
 	gem install pygments.rb --version "=0.5.0"
 	gem uninstall pygments.rb --version "=0.5.2"
 
-####错误2：中文乱码
+### 错误2：中文乱码
 
 	error: invalid byte sequence in GBK. Use --trace to view backtrace
 
@@ -81,7 +88,7 @@ jekyll 1.3.0版本以后的，修改如下：
 
 	File.read_with_options(file, :encoding=>"utf-8")
 
-###8.wordpress转md
-参考<http://johnnycode.com/2012/07/10/how-to-migrate-from-wordpress-to-jekyll-running-on-github/>
+## wordpress转md
 
+参考:<http://johnnycode.com/2012/07/10/how-to-migrate-from-wordpress-to-jekyll-running-on-github/> 和
 <https://github.com/theaob/wpXml2Jekyll>

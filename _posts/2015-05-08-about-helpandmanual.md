@@ -25,6 +25,10 @@ Help&Manual 一个所见即所得的帮助文件制作工具，支持打印功�
 
 本例为：v6.5.5.3020
 
+安装完成后，启动会提示需要产品 Key ，没有 Key 可以试用 30天
+
+![](http://b.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=bcda467e3ff33a879a6d001ff6676105/b7003af33a87e9505cc9362215385343faf2b4a6.jpg?referer=46cd49469e504fc2fb488435f47c&x=.jpg)
+
 ## 进入主界面
 
 ![](<http://d.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=ea08daf8cc177f3e1434fc0840f44afa/a686c9177f3e6709f2fd0db13ec79f3df9dc55fa.jpg?referer=efc74884e3cd7b89b07b0eb39398&x=.jpg>)

@@ -328,8 +328,3 @@ QUIT
 
     mysql> DELETE FROM pet;
     Query OK, 1 row affected (0.04 sec)
-
-
-## 参考
-
-* <http://dev.mysql.com/doc/refman/5.6/en/index.html>

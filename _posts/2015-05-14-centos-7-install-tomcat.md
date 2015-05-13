@@ -4,7 +4,7 @@ title: CentOS 7 安装 Tomcat
 date: 2015-05-14 02:41
 author: admin
 comments: true
-categories: [CentOS]
+categories: [CentOS,Tomcat]
 tags: [CentOS,Tomcat]
 ---
 

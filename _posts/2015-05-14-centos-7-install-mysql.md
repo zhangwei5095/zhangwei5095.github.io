@@ -4,7 +4,7 @@ title: CentOS 7 安装 MySQL
 date: 2015-05-14 01:41
 author: admin
 comments: true
-categories: [CentOS]
+categories: [CentOS,MySQL]
 tags: [CentOS,MySQL]
 ---
 

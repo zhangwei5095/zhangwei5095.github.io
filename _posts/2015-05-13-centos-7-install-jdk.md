@@ -4,7 +4,7 @@ title: CentOS 7 安装 JDK
 date: 2015-05-13 02:41
 author: admin
 comments: true
-categories: [CentOS]
+categories: [CentOS,Java]
 tags: [CentOS,Java]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CentOS 7 安装 JDK
-date: 2015-05-12 02:41
+date: 2015-05-13 02:41
 author: admin
 comments: true
 categories: [CentOS]
@@ -16,6 +16,8 @@ tags: [CentOS,Java]
 ## CentOS 安装
 
 参考：<http://www.waylau.com/centos-7-installation-and-configuration/>
+
+<!-- more -->
 
 ## 下载 JDK
 

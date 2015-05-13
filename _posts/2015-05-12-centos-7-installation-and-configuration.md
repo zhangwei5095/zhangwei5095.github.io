@@ -12,7 +12,7 @@ tags: [CentOS]
 
 地址：<http://www.centos.org/download/>
 
-本例为Minimal ISO 版本：<http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso>
+本例为 Minimal ISO 版本：<http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso>
 
 CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 RHEL 的文档。<https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/index.html>
 

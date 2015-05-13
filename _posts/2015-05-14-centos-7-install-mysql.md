@@ -11,7 +11,7 @@ tags: [CentOS,MySQL]
 ## 环境
 
 * CentOS 7.1 (64-bit system)
-* MySQL 5.6.24 (jdk-8u45-linux-x64.tar)
+* MySQL 5.6.24 
 
 ## CentOS 安装
 

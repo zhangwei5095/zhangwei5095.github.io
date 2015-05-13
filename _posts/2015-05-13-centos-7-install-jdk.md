@@ -63,7 +63,7 @@ tags: [CentOS,Java]
 
 注意
 
-JAVA_HOME 是你的 jdk 安装目录
+JAVA_HOME 是你的 JDK 安装目录
 
 Linux 下用冒号“:”来分隔路径
 

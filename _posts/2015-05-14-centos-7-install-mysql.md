@@ -520,6 +520,20 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 至此，整个 MySQL 安装完成。
 
+## 远程访问设置
+
+创建一个用户 sa ，密码是 some_pass
+
+    CREATE USER 'sa'@'%' IDENTIFIED BY 'some_pass';
+
+给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的权限
+
+    GRANT SELECT,INSERT,UPDATE,DELETE  ON *.* TO 'sa'@'%';
+    
+使授权立刻生效
+
+    flush privileges;
+
 ## 配置
 
 调整MySQL运行参数，修改/etc/my.cnf文件，常用配置如下：

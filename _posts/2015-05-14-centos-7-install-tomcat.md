@@ -82,12 +82,17 @@ export 是把这三个变量导出为全局变量。
 
 这种方法更为安全，它可以把使用这些环境变量的权限控制到用户级别，如果你需要给某个用户权限使用这些环境变量，你只需要修改其个人用户主目录下的 .bash_profile文件就可以了。
 
-## 启动
+## 启动、关闭
 
-执行 
+启动执行 
 
     /usr/local/apache-tomcat-8.0.22/bin/startup.sh
     
+或者以控制台打印形式执行 
+
+    /usr/local/apache-tomcat-8.0.22/bin/catalina.sh run
+
+
 启动成功，提示如下：
 
     [root@bogon software]# /usr/local/apache-tomcat-8.0.22/bin/startup.sh
@@ -98,9 +103,17 @@ export 是把这三个变量导出为全局变量。
     Using CLASSPATH:       /usr/local/apache-tomcat-8.0.22/bin/bootstrap.jar:/usr/local/apache-tomcat-8.0.22/bin/tomcat-juli.jar
     Tomcat started.
 
+关闭执行 
+
+    /usr/local/apache-tomcat-8.0.22/bin/shutdown.sh
+    
+或者
+
+    /usr/local/apache-tomcat-8.0.22/bin/catalina.sh stop
+    
 ## 验证
 
-我们在浏览器访问下安装了 Tomcat 的主机 <http://192.168.11.12:8080/> ，出现Tomcat 默认管理界面，说明已经安装成功。
+我们在浏览器访问下安装了 Tomcat 的主机 <http://192.168.11.12:8080/> ，出现Tomcat 默认管理界面，说明已经安装启动成功。
 
 ![](http://99btgc01.info/uploads/2015/05/tomcat.jpg)
 

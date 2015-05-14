@@ -57,6 +57,8 @@ tags: [CentOS,MySQL]
 
     wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
 
+>如果提示`-bash: wget: 未找到命令`，请先执行 `yum install wget` 安装 wget
+
 ## 安装
 
 ### 添加  MySQL Yum Repository 
@@ -572,7 +574,8 @@ home 目录下建立 data 目录
     
 ## 开机自起
 
-    systemctl enable mysqld.service
+    chkconfig --levels 235 mysqld on
+
     
 ## 其他常用配置配置
 

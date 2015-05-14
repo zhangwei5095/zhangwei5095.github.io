@@ -41,7 +41,7 @@ tags: [CentOS,MySQL]
 
     yum list installed | grep mysql
 
-如果有，就先卸载
+如果有，就先全部卸载，命令如下：
 
     yum -y remove mysql-libs.x86_64
    
@@ -362,7 +362,7 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 执行 
 
-    rpm -qi mysql-server
+    rpm -qi mysql-community-server.x86_64 0:5.6.24-3.el7
 
 ## 启动和关闭 MySQL Server
 
@@ -451,7 +451,7 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 ## MySQL 安全设置
 
-    mysql_secure_installation
+    mysql_secure_installation;
 
 看到如下提示
 
@@ -531,7 +531,7 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
     CREATE USER 'sa'@'%' IDENTIFIED BY 'some_pass';
 
-给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的权限
+给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的远程访问的权限
 
     GRANT SELECT,INSERT,UPDATE,DELETE  ON *.* TO 'sa'@'%';
     
@@ -557,15 +557,23 @@ home 目录下建立 data 目录
 
 `/var/lib/mysql` 整个目录移到 `/home/data`，执行
 
-    mv /var/lib/mysql /home/data/
+    mv /var/lib/mysql /home/data
     
 这样就把 MySQL 的数据文件移动到了 `/home/data/mysql` 下
 
 修改 `/etc/my.cnf` 文件，
 
+    [mysqld] 
     datadir=/home/data/mysql
     socket=/home/data/mysql/mysql.sock
 
+    [mysql] 
+    socket=/home/data/mysql/mysql.sock
+    
+## 开机自起
+
+    systemctl enable mysqld.service
+    
 ## 其他常用配置配置
 
 调整 MySQL 运行参数，修改 `/etc/my.cnf` 文件，常用配置如下：

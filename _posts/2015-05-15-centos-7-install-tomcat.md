@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CentOS 7 安装 Tomcat
-date: 2015-05-14 02:41
+date: 2015-05-15 01:41
 author: admin
 comments: true
 categories: [CentOS,Tomcat]
@@ -28,7 +28,7 @@ tags: [CentOS,Tomcat]
 
 地址：<http://mirrors.cnnic.cn/apache/tomcat/tomcat-8/v8.0.22/bin/apache-tomcat-8.0.22.tar.gz>
 
-我们的下载包 存放在 /software 目录下
+本例中，下载包存放在 `/home/software` 目录下
 
 执行下载命令：
 
@@ -38,7 +38,7 @@ tags: [CentOS,Tomcat]
 
     tar xvfz apache-tomcat-8.0.22.tar.gz
     
-完成后再 /software 目录下可以看到解压后的 apache-tomcat-8.0.22 包
+完成后在  `/home/software`  目录下可以看到解压后的 apache-tomcat-8.0.22 包
 
 ## 安装
 

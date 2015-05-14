@@ -51,7 +51,9 @@ tags: [CentOS,MySQL]
 
 ### 下载 MySQL Yum Repository
 
-<http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm>
+地址为 <http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm>
+
+执行
 
     wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
 
@@ -59,11 +61,11 @@ tags: [CentOS,MySQL]
 
 ### 添加  MySQL Yum Repository 
 
-添加  MySQL Yum Repository 到你的系统 repository 列表中，
+添加  MySQL Yum Repository 到你的系统 repository 列表中，执行
 
     yum localinstall mysql-community-release-el7-5.noarch.rpm
     
-    
+显示
 
     [root@bogon software]# yum localinstall mysql-community-release-el7-5.noarch.rpm
     已加载插件：fastestmirror
@@ -155,7 +157,7 @@ tags: [CentOS,MySQL]
     gpgcheck=1
     gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
     
-其中 `enabled=0` 是指不禁用，`enabled=1` 指启用。
+其中 `enabled=0` 是指禁用，`enabled=1` 指启用。
 
 注意： 任何时候，只能启用一个版本。
 
@@ -170,7 +172,7 @@ tags: [CentOS,MySQL]
     mysql-tools-community/x86_64             MySQL Tools Community                17
     mysql56-community/x86_64                 MySQL 5.6 Community Server          139
     
-本例，我们用的是 5.6 版本。
+本例，我们启用的是 5.6 版本。
 
 ### 通过 Yum 来安装 MySQL
 
@@ -358,7 +360,10 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 遇到上述提示，输入 y 继续，执行完成会提示“完毕！”。此时MySQL 安装完成，它包含了 mysql-community-server、mysql-community-client、mysql-community-common、mysql-community-libs 四个包。
 
-执行 rpm -qi mysql-server
+执行 
+
+    rpm -qi mysql-server
+
 ## 启动和关闭 MySQL Server
 
 ### 启动 MySQL Server
@@ -534,9 +539,36 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
     flush privileges;
 
-## 配置
+## 更改数据存放目录
 
-调整MySQL运行参数，修改/etc/my.cnf文件，常用配置如下：
+### 创建数据存放目录
+
+home 目录下建立 data 目录
+
+    mkdir /home/data
+    
+### 把 MySQL 服务进程停掉
+
+如果 MySQL 是启动的，要先关闭
+
+    mysqladmin -u root -p shutdown
+    
+### 移动数据到数据存放目录
+
+`/var/lib/mysql` 整个目录移到 `/home/data`，执行
+
+    mv /var/lib/mysql /home/data/
+    
+这样就把 MySQL 的数据文件移动到了 `/home/data/mysql` 下
+
+修改 `/etc/my.cnf` 文件，
+
+    datadir=/home/data/mysql
+    socket=/home/data/mysql/mysql.sock
+
+## 其他常用配置配置
+
+调整 MySQL 运行参数，修改 `/etc/my.cnf` 文件，常用配置如下：
 
     [mysqld]   
     basedir      = path          # 使用给定目录作为根目录(安装目录)。

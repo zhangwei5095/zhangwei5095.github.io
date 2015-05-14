@@ -26,9 +26,9 @@ tags: [CentOS,Java]
 
 ## 创建目录
 
-根目录下建 software目录（也可以是任意目录）下用于存放下载的软件。
+home 目录下建 software目录（也可以是任意目录）下用于存放下载的软件。
     
-    mkdir  software
+    mkdir  /home/software
     
 根目录下 usr 目录下新建 java目录,用于jdk  的安装路径。
 

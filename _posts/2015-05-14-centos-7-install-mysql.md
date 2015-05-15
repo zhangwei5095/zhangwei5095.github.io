@@ -13,11 +13,12 @@ tags: [CentOS,MySQL]
 * CentOS 7.1 (64-bit system)
 * MySQL 5.6.24 
 
+<!-- more -->
+
 ## CentOS 安装
 
 参考：<http://www.waylau.com/centos-7-installation-and-configuration/>
 
-<!-- more -->
 
 ## 依赖
 
@@ -365,27 +366,34 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 执行 
 
     rpm -qi mysql-community-server.x86_64 0:5.6.24-3.el7
+    
+执行   
+    
+    whereis mysql
+
+可以看到 MySQL 的安装目录是 /usr/bin/
+
+    [root@localhost ~]# whereis mysql
+    mysql: /usr/bin/mysql /usr/lib64/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
 
 ## 启动和关闭 MySQL Server
 
 ### 启动 MySQL Server
-
-    service mysqld start
     
-
-提示`Redirecting to /bin/systemctl start  mysqld.service`
+    systemctl start  mysqld
+ 
 
 ### 查看 MySQL Server 状态
 
-    service mysqld status
+    systemctl status  mysqld
     
 ### 关闭 MySQL Server
-
-    service mysqld stop
-
+    
+    systemctl stop mysqld
+    
 ## 测试是否安装成功
 
-  mysql
+    mysql
  
 可以进入 mysql 命令行界面
 
@@ -407,6 +415,10 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 ## 防火墙设置
 
+远程访问 MySQL， 需开放默认端口号 3306.
+
+### 方式1：iptables（7.x版本之前用法，不推荐）
+
 打开 iptables 的配置文件：
 
     vi /etc/sysconfig/iptables
@@ -425,9 +437,10 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
     -A FORWARD -j REJECT --reject-with icmp-host-prohibited
     COMMIT
 
-在里面加入这一行：
+在里面加入这2行：
 
-    -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 8080 -j ACCEPT
+    -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT
+    -A RH-Firewall-1-INPUT -m state –state NEW -m udp -p udp –dport 3306 -j ACCEPT
     
 改为
 
@@ -451,7 +464,24 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
     service iptables restart
 
+###  方式2：firewall-cmd（推荐）
+
+执行
+
+    firewall-cmd --permanent --zone=public --add-port=3306/tcp
+    firewall-cmd --permanent --zone=public --add-port=3306/udp
+    
+这样就开放了相应的端口。
+
+执行 
+
+    firewall-cmd --reload 
+
+使最新的防火墙设置规则生效。
+
 ## MySQL 安全设置
+
+服务器启动后，可以执行
 
     mysql_secure_installation;
 
@@ -572,9 +602,78 @@ home 目录下建立 data 目录
     [mysql] 
     socket=/home/data/mysql/mysql.sock
     
+重启后，如果不能启动 MySQL 服务，执行
+
+    vi  /etc/sysconfig/selinux
+    
+调整 
+
+    SELINUX=permissive
+
+保存设置，执行 reboot 重启生效
+
 ## 开机自起
 
+查看 MySQL 服务是否开机启动
+
+    [root@localhost ~]# systemctl is-enabled mysql.service;echo $?
+    enabled
+    0
+    
+如果是 enabled 则说明是开机自动，如果不是，执行
+
     chkconfig --levels 235 mysqld on
+
+## 设置字符集
+
+一般的，为了支持中文，我们应该讲字符集设为 UTF-8，
+执行
+
+    SHOW VARIABLES LIKE 'character%';
+    
+查看当前 MySQL 字符集
+
+    mysql>  SHOW VARIABLES LIKE 'character%';
+    +--------------------------+----------------------------+
+    | Variable_name            | Value                      |
+    +--------------------------+----------------------------+
+    | character_set_client     | utf8                       |
+    | character_set_connection | utf8                       |
+    | character_set_database   | latin1                     |
+    | character_set_filesystem | binary                     |
+    | character_set_results    | utf8                       |
+    | character_set_server     | latin1                     |
+    | character_set_system     | utf8                       |
+    | character_sets_dir       | /usr/share/mysql/charsets/ |
+    +--------------------------+----------------------------+
+    8 rows in set (0.00 sec)
+  
+可以看到默认服务器的字符器是 latin1 ，对中文不友好。  
+修改 `/etc/my.cnf` 文件，添加字符集的设置
+
+    [mysqld]   
+    character_set_server = utf8
+
+    [mysql]
+    default-character-set = utf8
+
+重启 MySQL ,可以看到字符集已经修改了
+
+    mysql> SHOW VARIABLES LIKE 'character%'
+        -> ;
+    +--------------------------+----------------------------+
+    | Variable_name            | Value                      |
+    +--------------------------+----------------------------+
+    | character_set_client     | utf8                       |
+    | character_set_connection | utf8                       |
+    | character_set_database   | utf8                       |
+    | character_set_filesystem | binary                     |
+    | character_set_results    | utf8                       |
+    | character_set_server     | utf8                       |
+    | character_set_system     | utf8                       |
+    | character_sets_dir       | /usr/share/mysql/charsets/ |
+    +--------------------------+----------------------------+
+    8 rows in set (0.00 sec)
 
     
 ## 其他常用配置配置
@@ -658,9 +757,20 @@ skip-bdb
     
 关闭不需要的表类型,如果你需要,就不要加上这个
 
+## 备份、还原
+
+### 备份
+
+    mysqldump -uroot -p emsc > emsc.sql
+    
+### 还原
+
+    mysql -uroot -p emsc < emsc.sql
+ 
 ## 参考
 
 * <http://dev.mysql.com/doc/refman/5.6/en/linux-installation-yum-repo.html>
 * <http://dev.mysql.com/doc/refman/5.6/en/mysql-secure-installation.html>
 * <http://dev.mysql.com/doc/refman/5.6/en/server-default-configuration-file.html>
-* <http://dev.mysql.com/doc/refman/5.6/en/option-files.html>**
+* <http://dev.mysql.com/doc/refman/5.6/en/option-files.html>
+* <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html>

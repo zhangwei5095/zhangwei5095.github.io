@@ -14,6 +14,8 @@ tags: [CentOS,Tomcat]
 * JDK 1.8.0_45（jdk-8u45）
 * Tomcat 8.0.22 (jdk-8u45-linux-x64.tar)
 
+<!-- more -->
+
 ## CentOS 安装
 
 参考：<http://www.waylau.com/centos-7-installation-and-configuration/>
@@ -22,7 +24,6 @@ tags: [CentOS,Tomcat]
 
 参考：<http://www.waylau.com/centos-7-install-jdk/>
 
-<!-- more -->
 
 ## 下载
 
@@ -119,7 +120,9 @@ export 是把这三个变量导出为全局变量。
 
 ## 问题
 
-如果打不开 Tomcat 默认管理界面，请确认防火墙是否屏蔽了 Tomcat 访问端口
+如果打不开 Tomcat 默认管理界面，请确认防火墙是否开放了 Tomcat 访问端口
+
+### 方法1：（CentOS 7.x版本之前用法，不推荐）
 
 打开 iptables 的配置文件：
 
@@ -163,3 +166,27 @@ export 是把这三个变量导出为全局变量。
 执行 iptables 重启生效
 
     service iptables restart
+    
+###  方式2：firewall-cmd（推荐）
+
+执行
+
+    firewall-cmd --permanent --zone=public --add-port=8080/tcp
+    
+这样就开放了相应的端口。
+
+执行 
+
+    firewall-cmd --reload 
+
+使最新的防火墙设置规则生效。
+
+
+## 设置不项目名称部署
+
+修改 Tomcat 安装目录 conf 文件夹下 server.xml， 在`<host>` 节点下，增加
+
+    <Context path="/" docBase="/home/project/emsc" debug="0" privileged="true"></Context>
+
+其中 path 就是 要显示的项目名，这里是不显示，docBase 就是项目所在的路径。
+

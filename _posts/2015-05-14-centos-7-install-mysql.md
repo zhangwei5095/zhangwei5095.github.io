@@ -417,7 +417,7 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 远程访问 MySQL， 需开放默认端口号 3306.
 
-### 方式1：iptables（7.x版本之前用法，不推荐）
+### 方式1：iptables（CentOS 7.x版本之前用法，不推荐）
 
 打开 iptables 的配置文件：
 

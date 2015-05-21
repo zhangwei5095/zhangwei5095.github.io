@@ -602,6 +602,10 @@ home 目录下建立 data 目录
     [mysql] 
     socket=/home/data/mysql/mysql.sock
     
+修改权限
+
+    chown -R mysql:mysql /home/data/mysql
+
 重启后，如果不能启动 MySQL 服务，执行
 
     vi  /etc/sysconfig/selinux

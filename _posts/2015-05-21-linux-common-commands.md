@@ -36,7 +36,7 @@ tags: [Linux]
      -V, --version  output version information and exit
 
 
-<!-- more-->
+<!-- more -->
 
 示例
 

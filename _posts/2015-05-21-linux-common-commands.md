@@ -34,7 +34,10 @@ tags: [Linux]
     
      -h, --help     display this help and exit
      -V, --version  output version information and exit
-     
+
+
+<!-- more-->
+
 示例
 
     [root@localhost ~]# vmstat

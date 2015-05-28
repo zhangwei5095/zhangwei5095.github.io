@@ -38,6 +38,7 @@ tags: [Linux]
 
 <!-- more -->
 
+
 示例
 
     [root@localhost ~]# vmstat

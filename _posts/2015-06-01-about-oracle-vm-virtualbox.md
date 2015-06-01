@@ -54,6 +54,10 @@ VirtualBox 号称是最强的免费虚拟机软件，它不仅具有丰富的特
 
 ## 安装操作系统
 
+启用网桥，这样，虚拟机和物理机之间就能互相通信了
+
+![](<http://99btgc01.info/uploads/2015/06/013.png>)
+
 启动
 
 ![](<http://99btgc01.info/uploads/2015/06/009.png>)
@@ -65,10 +69,6 @@ VirtualBox 号称是最强的免费虚拟机软件，它不仅具有丰富的特
 ![](<http://99btgc01.info/uploads/2015/06/011.png>)
 
 ![](<http://99btgc01.info/uploads/2015/06/012.png>)
-
-启用网桥，这样，虚拟机和物理机之间就能互相通信了
-
-![](<http://99btgc01.info/uploads/2015/06/013.png>)
 
 
 ## CentOS 配置

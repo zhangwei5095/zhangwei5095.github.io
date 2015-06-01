@@ -499,7 +499,7 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
     
     Enter current password for root (enter for none):
     
-此时输入 root 原始密码（初始化安装的话为空），接下来，为了安全，MySQL 会提示你充值 root 密码，移除其他用户账号，禁用 root 远程登录，移除 test 数据库，重新加载 privilege 表格等，你只需输入 y 继续执行即可。
+此时输入 root 原始密码（初始化安装的话为空），接下来，为了安全，MySQL 会提示你重置 root 密码，移除其他用户账号，禁用 root 远程登录，移除 test 数据库，重新加载 privilege 表格等，你只需输入 y 继续执行即可。
 
     OK, successfully used password, moving on...
     
@@ -559,13 +559,21 @@ Yum 会自动处理 MySQL 与其他组件的依赖关系：
 
 ## 远程访问设置
 
-创建一个用户 sa ，密码是 some_pass
+创建一个普通用户 sa ，密码是 some_pass
 
     CREATE USER 'sa'@'%' IDENTIFIED BY 'some_pass';
 
-给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的远程访问的权限
+给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的远程访问的权限，这个账号一般用于提供给实施的系统访问
 
     GRANT SELECT,INSERT,UPDATE,DELETE  ON *.* TO 'sa'@'%';
+
+创建一个管理员用户 admin 账号 ，密码是 some_pass
+
+    CREATE USER 'admin'@'%' IDENTIFIED BY 'some_pass';
+
+给这个用户授予所有的远程访问的权限。这个用户主要用于管理整个数据库、备份、还原等操作。
+
+    GRANT ALL  ON *.* TO 'admin'@'%';
     
 使授权立刻生效
 

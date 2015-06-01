@@ -50,7 +50,37 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
 
 ## 配置静态IP
 
-用 root 账户登录系统 修改 `/etc/sysconfig/network-scripts/ifcfg-ens33` 文件
+### 查看以太网设备名称
+
+    [root@localhost ~]# nmcli d
+    设备   类型      状态    CONNECTION
+    ens33  ethernet  连接的  ens33
+    lo     loopback  未管理  --
+
+其中，类型为 ethernet 的那个 “ens33”设备，就是以太网。因为该名称不是固定的，比如在虚拟机里面安装时，名称可能是“enp0s3”。
+
+### 查看所有网络配置文件
+
+执行 ls /etc/sysconfig/network-scripts/，查看所有网络配置文件
+
+
+    [root@localhost ~]# ls  /etc/sysconfig/network-scripts/
+    ifcfg-ens33  ifdown-ppp       ifup-ib      ifup-Team
+    ifcfg-lo     ifdown-routes    ifup-ippp    ifup-TeamPort
+    ifdown       ifdown-sit       ifup-ipv6    ifup-tunnel
+    ifdown-bnep  ifdown-Team      ifup-isdn    ifup-wireless
+    ifdown-eth   ifdown-TeamPort  ifup-plip    init.ipv6-global
+    ifdown-ib    ifdown-tunnel    ifup-plusb   network-functions
+    ifdown-ippp  ifup             ifup-post    network-functions-ipv6
+    ifdown-ipv6  ifup-aliases     ifup-ppp
+    ifdown-isdn  ifup-bnep        ifup-routes
+    ifdown-post  ifup-eth         ifup-sit
+
+其中，“ifcfg-ens33” 就是我们要修改的以太网配置文件（在虚拟机里面，文件名可能是 “ifcfg-enp0s3”，即该文件名与你的以太网设备名字相关）
+
+### 修改网络配置文件
+
+用 root 账户登录系统 修改以太网设备配置文件
 
     vi /etc/sysconfig/network-scripts/ifcfg-ens33
   
@@ -73,11 +103,11 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
     DEVICE=ens33
     ONBOOT=no
 
-ONBOOT 是默认不启动网卡的,改为 yes，然后再加上以下几个参数的设置,IPADDR0 指 IP 地址，GATWAY0 指网关，DNS1、DNS2 指 DNS。
+ONBOOT 是默认不启动网卡的,改为 yes，然后再加上以下几个参数的设置,IPADDR0 指 IP 地址，GATEWAY0 指网关，DNS1、DNS2 指 DNS。
   
     ONBOOT=yes
     IPADDR0=192.168.11.12
-    GATWAY0=192.168.11.1
+    GATEWAY0=192.168.11.1
     DNS1=8.8.8.8
     DNS2=221.5.88.88 
 

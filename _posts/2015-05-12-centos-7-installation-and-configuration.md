@@ -30,18 +30,25 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
 
 * 默认选择 “Test this media & Install CentOS 7”
 
-![](http://99btgc01.info/uploads/2015/05/001%288%29.jpg)
+![](http://99btgc01.info/uploads/2015/06/001.png)
 
 
 * 选择语言，设置时区
 
   本例为中文
 
-![](http://99btgc01.info/uploads/2015/05/002%284%29.jpg)
+![](http://99btgc01.info/uploads/2015/06/002.png)
 
-* 设置系统安装目录
+* 设置系统安装位置
+
+  选择默认的“自动分配分区”
 
 ![](http://99btgc01.info/uploads/2015/05/003%286%29.jpg)
+
+* 设置主机名称和IP
+![](http://99btgc01.info/uploads/2015/06/003.png)
+
+![](http://99btgc01.info/uploads/2015/06/004.png)
 
 * 设置 root 密码、创建新用户
 
@@ -84,36 +91,12 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
 
     vi /etc/sysconfig/network-scripts/ifcfg-ens33
   
-原先的配置是这样的
+原先的配置是 ONBOOT 是默认不启动网卡的,改为 yes
 
-    TYPE=Ethernet
-    BOOTPROTO=dhcp
-    DEFROUTE=yes
-    PEERDNS=yes
-    PEERROUTES=yes
-    IPV4_FAILURE_FATAL=no
-    IPV6INIT=yes
-    IPV6_AUTOCONF=yes
-    IPV6_DEFROUTE=yes
-    IPV6_PEERDNS=yes
-    IPV6_PEERROUTES=yes
-    IPV6_FAILURE_FATAL=no
-    NAME=ens33
-    UUID=e8fcc594-cd59-437a-8f98-d3fc74656f74
-    DEVICE=ens33
-    ONBOOT=no
 
-ONBOOT 是默认不启动网卡的,改为 yes，然后再加上以下几个参数的设置,IPADDR0 指 IP 地址，GATEWAY0 指网关，DNS1、DNS2 指 DNS。
-  
-    ONBOOT=yes
-    IPADDR0=192.168.11.12
-    GATEWAY0=192.168.11.1
-    DNS1=8.8.8.8
-    DNS2=221.5.88.88 
+![](http://99btgc01.info/uploads/2015/06/005.png)
 
-![](http://99btgc01.info/uploads/2015/05/001%286%29.jpg)
-
-设置完成执行 service network restart 重启网络，而后 ping 下这个IP 做下测试
+设置完成执行 systemctl restart network 重启网络，而后 ping 下这个 IP 做下测试
 
 
 ## 校时

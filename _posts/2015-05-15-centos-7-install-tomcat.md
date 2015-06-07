@@ -62,6 +62,7 @@ tags: [CentOS,Tomcat]
     export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 为
+
    	export JAVA_HOME=/usr/java/jdk1.8.0_45
   	export CATALINA_HOME=/usr/local/apache-tomcat-8.0.22   
   	export PATH=$JAVA_HOME/bin:$PATH:$CATALINA_HOME/lib

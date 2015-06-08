@@ -775,11 +775,12 @@ skip-bdb
 
 #### 备份
 
-    mysqldump -uroot -p emsc > emsc.sql
+    mysqldump --socket=/home/data/mysql/mysql.sock --single-transaction=TRUE  -u root -p emsc > emsc.sql
+
     
 #### 还原
 
-    mysql -uroot -p emsc < emsc.sql
+    mysql --socket=/home/data/mysql/mysql.sock  -u root -p emsc < emsc.sql
 
 ### 方法2:Workbench
 

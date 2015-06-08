@@ -98,6 +98,27 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
 
 设置完成执行 systemctl restart network 重启网络，而后 ping 下这个 IP 做下测试
 
+## 安装时间服务器
+
+安装
+
+	yum install chrony
+
+查看状态
+
+	systemctl status chronyd
+
+启动\关闭时间服务器
+
+	systemctl start chronyd
+
+	systemctl stop chronyd
+
+设置与系统自启动\关闭
+
+	systemctl enable chronyd
+
+	systemctl disable chronyd
 
 ## 校时
 
@@ -125,7 +146,7 @@ CentOS 与 RHEL 是同源，所以，在 CentOS 文档不足时，可以参考 R
             RTC time: 四 2015-05-14 11:14:47
             Timezone: Asia/Shanghai (CST, +0800)
          NTP enabled: yes
-    NTP synchronized: no
+    NTP synchronized: yes
      RTC in local TZ: no
           DST active: n/a
       

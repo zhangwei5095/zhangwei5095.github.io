@@ -771,13 +771,25 @@ skip-bdb
 
 ## 备份、还原
 
-### 备份
+### 方法1:命令行
+
+#### 备份
 
     mysqldump -uroot -p emsc > emsc.sql
     
-### 还原
+#### 还原
 
     mysql -uroot -p emsc < emsc.sql
+
+### 方法2:Workbench
+
+#### 备份
+
+![](http://99btgc01.info/uploads/2015/06/001.jpg)
+    
+#### 还原
+
+![](http://99btgc01.info/uploads/2015/06/002%282%29.jpg)
  
 ## 参考
 

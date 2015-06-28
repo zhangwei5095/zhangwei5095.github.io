@@ -11,17 +11,17 @@ tags: [CSS,规范]
 ## <a name='TOC'>目录</a>
 
   1. [缩进](#css-indentation)
-  1. [分号](#css-semicolon)
-  1. [空格](#css-space)
-  3. [空行](#css-blank-line)
-  4. [换行](#css-new-line)
-  5. [注释](#css-comments)
-  6. [引号](#css-quote-marks)
-  7. [命名](#css-naming-rule)
-  8. [属性声明顺序](#css-declaration-order)
-  9. [颜色](#css-color)
-  10. [属性简写](#css-shorthand)
-  11. [媒体查询](#css-media-queries)
+  2. [分号](#css-semicolon)
+  3. [空格](#css-space)
+  4. [空行](#css-blank-line)
+  5. [换行](#css-new-line)
+  6. [注释](#css-comments)
+  7. [引号](#css-quote-marks)
+  8. [命名](#css-naming-rule)
+  9. [属性声明顺序](#css-declaration-order)
+  10. [颜色](#css-color)
+  11. [属性简写](#css-shorthand)
+  12. [媒体查询](#css-media-queries)
   13. [杂项](#css-miscellaneous)
 
  

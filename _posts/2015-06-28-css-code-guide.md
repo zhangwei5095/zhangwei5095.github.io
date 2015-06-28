@@ -25,6 +25,7 @@ tags: [CSS,规范]
   13. [杂项](#css-miscellaneous)
 
  
+<!-- more -->
 
 ## <a name='css-indentation'>缩进</a>
 

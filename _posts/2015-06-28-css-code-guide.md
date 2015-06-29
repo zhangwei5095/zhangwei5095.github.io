@@ -11,18 +11,18 @@ tags: [CSS,规范]
 ## <a name='TOC'>目录</a>
 
   1. [缩进](#css-indentation)
-  2. [分号](#css-semicolon)
-  3. [空格](#css-space)
-  4. [空行](#css-blank-line)
-  5. [换行](#css-new-line)
-  6. [注释](#css-comments)
-  7. [引号](#css-quote-marks)
-  8. [命名](#css-naming-rule)
-  9. [属性声明顺序](#css-declaration-order)
-  10. [颜色](#css-color)
-  11. [属性简写](#css-shorthand)
-  12. [媒体查询](#css-media-queries)
-  13. [杂项](#css-miscellaneous)
+  1. [分号](#css-semicolon)
+  1. [空格](#css-space)
+  1. [空行](#css-blank-line)
+  1. [换行](#css-new-line)
+  1. [注释](#css-comments)
+  1. [引号](#css-quote-marks)
+  1. [命名](#css-naming-rule)
+  1. [属性声明顺序](#css-declaration-order)
+  1. [颜色](#css-color)
+  1. [属性简写](#css-shorthand)
+  1. [媒体查询](#css-media-queries)
+  1. [杂项](#css-miscellaneous)
 
  
 <!-- more -->
@@ -729,7 +729,6 @@ tags: [CSS,规范]
   - 不要在一个文件里出现两个相同的规则；
   - 用 border: 0; 代替 border: none;；
   - 选择器不要超过4层（在scss中如果超过4层应该考虑用嵌套的方式来写）；
-  - 发布的代码中不要有 @import；
   - 尽量少用'*'选择器。
 
     ```CSS
@@ -812,7 +811,23 @@ tags: [CSS,规范]
         color: rgba(0, 0, 0, .5);
     }
     ```
+  
+  - 不要使用有 `@import`；与 `<link>` 标签相比，`@import` 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：
+    * 使用多个 `<link>` 元素
+    * 通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件
+    * 通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能
+    * 请参考 <http://www.stevesouders.com/blog/2009/04/09/dont-use-import/> 了解更多知识。
 
+    ```CSS
+    <!-- Use link elements -->
+    <link rel="stylesheet" href="core.css">
+    
+    <!-- Avoid @imports -->
+    <style>
+      @import url("more.css");
+    </style>
+    ```
+    
     **[[↑]](#TOC)**
 
 
@@ -820,5 +835,6 @@ tags: [CSS,规范]
 ======================================================
 
 ### 参考
+- <http://stevesouders.com/>
 - <http://alloyteam.github.io/CodeGuide/#css>
 

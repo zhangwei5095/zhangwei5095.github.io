@@ -48,6 +48,18 @@ MySQL max_connections 总是 214 。不能设大了？
 
 ## 解决
 
+执行 
+
+	[root@emsc ~]# ulimit -n
+	1024
+
+可知，操作系统最大文件描述符限制为 1024，
+在 配置文件中添加 
+	
+	open_files_limit = 65535
+
+实际上也没有生效
+
 更改 MySQL 在 Linux 的最大文件描述符限制，编辑 `/usr/lib/systemd/system/mysqld.service` 文件，在文件最后添加:
 
 	LimitNOFILE=65535

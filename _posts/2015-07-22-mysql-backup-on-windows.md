@@ -16,7 +16,7 @@ MySQL Workbench 客户端虽然好用，但并不提供自动备份功能。手�
 
 ## 环境
 
-- Windows 7
+- Windows Server 2012
 - MySQL 5.6.24
 
 ## 思考

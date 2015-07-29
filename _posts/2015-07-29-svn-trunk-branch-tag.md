@@ -26,6 +26,8 @@ Subversion 没有特殊的命令用于 branch 或 tag，而是使用所了所谓
 
 如果你用推荐的目录结构导入了一个工程，那么创建 branch 或 tag 就非常简单:
 
+![](http://99btgc01.info/uploads/2015/07/001%281%29.png)
+
 在你当前的工作副本中给你你想要复制的 branch 或 tag 选择一个目录，然后选择命令`TortoiseSVN` → `Branch/Tag...`。
 
 默认的目标 URL 将会是你当前工作副本所处的源 URL。你必须给你的branch 或 tag 编辑一个新路径。来取代

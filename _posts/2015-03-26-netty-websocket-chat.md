@@ -4,8 +4,8 @@ title: Netty 实现 WebSocket 聊天功能
 date: 2015-03-26 01:41
 author: admin
 comments: true
-categories: [Netty]
-tags: [Netty]
+categories: [Netty,WebSocket]
+tags: [Netty,WebSocket]
 ---
 
 上一次我们用 [Netty](http://netty.io/) 快速实现了一个 Java 聊天程序（见<http://www.waylau.com/netty-chat/>）。现在，我们要做下修改，加入 WebSocket 的支持，使它可以在浏览器里进行文本聊天。

@@ -18,4 +18,5 @@ permalink: /books/
 * [Java 编码规范](https://github.com/waylau/java-code-conventions)
 * [Apache MINA 2 用户指南](https://github.com/waylau/apache-mina-2.x-user-guide)
 * [CSS3 教程](https://github.com/waylau/css3-tutorial)
+* [H2 Database 教程](https://github.com/waylau/h2-database-doc)
 

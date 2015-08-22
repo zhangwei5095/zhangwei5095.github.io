@@ -4,7 +4,7 @@ title: WebSocket 和 Golang 实现聊天功能
 date: 2014-11-17 01:41
 author: admin
 comments: true
-categories: [Golang]
+categories: [Golang,WebSocket]
 tags: [Golang,WebSocket]
 ---
 

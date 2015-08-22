@@ -93,6 +93,7 @@ WebSocket 相较 SSE 最大的优势在于它是双向交流的，这意味向�
 
 * [REST 实战](https://github.com/waylau/rest-in-action)
 * [Jersey 2.x 用户指南](https://github.com/waylau/Jersey-2.x-User-Guide)
+* [Netty 实战(精髓)](https://github.com/waylau/essential-netty-in-action)
 * [SSE API 规范](http://www.w3.org/TR/2009/WD-eventsource-20091029/)
 * Data Push Apps with HTML5 SSE（by Darren Cook）
 * <http://www.ibm.com/developerworks/cn/web/wa-lo-comet/>

@@ -32,6 +32,7 @@ tags: [Web,real-time,push]
 * Long-polling：长轮询，客户端发送一个请求到服务端，如果服务端没有新的数据，就保持住这个连接直到有数据。一旦服务端有了数据（消息）给客户端，它就使用这个连接发送数据给客户端。接着连接关闭。
 	* 优点：比 Polling 做了优化，有较好的时效性
 	* 缺点：需第三方库支持，实现较为复杂；每次连接只能发送一个数据，多个数据发送时耗费服务器性能
+	* 例子：[commet4j](http://www.comet4j.org/)
 
 ![](http://99btgc01.info/uploads/2015/08/sse-real-time-web-02.jpg)
 

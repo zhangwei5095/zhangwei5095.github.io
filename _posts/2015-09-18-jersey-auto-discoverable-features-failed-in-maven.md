@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Jersey “Auto-Discoverable Features” 在 Maven 编译后失效
-date: 2015-09-11 01:08
+date: 2015-09-18 01:08
 author: admin
 comments: true
 categories: [Jersey,Maven]

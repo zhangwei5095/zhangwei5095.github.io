@@ -13,6 +13,7 @@ tags: [Jersey,Maven]
 原本 Jersey "Auto-Discoverable Features"(自动发现功能)中 JSON 解析在 eclipse　右键运行项目是正常的，但用 Maven 编译成 jar 后运行，就无法使用 JSON 解析了
 
 <!-- more -->
+
 ## Jersey "Auto-Discoverable Features"
 
 Jersey "Auto-Discoverable Features"(自动发现功能)。默认情况下 Jersey 2.x 不隐式注册在 classpath 上可用的模块中的任何扩展功能，除非明确在扩展文档中进行说明。用户将明确注册的扩展[功能](http://jax-rs-spec.java.net/nonav/$%7Bjaxrs.api.version%7D/apidocs/javax/ws/rs/core/Feature.html)来使用他们的 Application 子类。一小部分 Jersey 提供模块不需要显式注册他们的扩展功能，因为这些在[配置](http://jax-rs-spec.java.net/nonav/$%7Bjaxrs.api.version%7D/apidocs/javax/ws/rs/core/Configuration.html)（客户端/服务器）中将会被Jersey 运行时发现和注册，这些功能模块实现的这些特性将呈现在 JAX-RS 应用部署的 classpath 上。这些自动发现模块包括：

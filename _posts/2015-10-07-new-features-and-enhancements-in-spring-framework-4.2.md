@@ -11,6 +11,8 @@ tags: [Spring]
 至今为止，Spring Framework 的最新版本为 4.2.1.RELEASE。
 那么 Spring Framework 4.2 中的又有哪些新功能和增强功能呢？
 
+<!-- more -->
+
 ## 核心容器改进
 
 * 如 @bean 注释,就如同得到发现和处理 Java 8 默认方法一样,可以允许组合配置类与默认@bean 接口方法。

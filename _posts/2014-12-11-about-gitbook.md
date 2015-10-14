@@ -16,8 +16,14 @@ tags: [Markdown,GitBook]
 
 ###Installation 安装
 
+gitbook 1.x 时执行：
+
     $ npm install gitbook -g
   	
+而从 gitbook 2.x 开始，执行下面新的命令语句：
+
+    $ npm install gitbook-cli -g
+
 ###Checkout the repository 检出模板项目
 
     $ git clone https://github.com/waylau/gitbook.git

@@ -57,4 +57,5 @@ Maven 项目中引用了 MINA 的依赖，包如下错误：
 
 ## 参考
 
-* 源码见：<>
+* 源码见：<https://github.com/waylau/apache-mina-2-user-guide-demos>
+* [Apache MINA 2 用户指南](https://github.com/waylau/apache-mina-2.x-user-guide)

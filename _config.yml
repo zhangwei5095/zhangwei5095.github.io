@@ -19,3 +19,4 @@ markdown: rdiscount
 permalink: /:title/
 paginate: 6
 paginate_path: page/:num
+theme: jekyll-theme-cayman
